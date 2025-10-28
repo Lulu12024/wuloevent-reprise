@@ -1,0 +1,36 @@
+# Environement files
+.env
+.env.*
+!.env.sample
+.db.env
+.db.*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*/__pycache__/*
+*/*/__pycache__/*
+*/*/*/__pycache__/*
+*/*/*/*/__pycache__/*
+static/medias/*
+static/staticfiles/*
+!static/medias/test.png
+!static/medias/default-event-type-image.png
+spatialite.sqlite3
+celerybeat-schedule
+
+
+
+# Temps Remove
+.gitlab-ci.yml
+logs/app.log
+
+venv
+
+medias/
+.qodo

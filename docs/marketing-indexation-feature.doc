@@ -1,0 +1,19 @@
+Pour ajouter une option d'indexation à un compte, deux étapes sont nécessaire. 
+Aussi, faudra s'assurer que le client dispose d'un abonnement actif.
+
+
+1 - Dans une prémier temps, on enverra vers le backend une requête afin de calculer le coût de cet ajout. 
+
+Pour cette requête, le body sera constitué d'un identifiant de l'option d'indexation que l'utilisateur veut ajouter à sont abonnement. 
+Le backend calculera en fonction du nombre de jours qui reste pour la fin de l'abonnement actuel de l'utilisateur, le cout de cet ajout et 
+le renvera dans le body de la reponse. A noter que cette étape n'est pas  forcé, elle est d"usage à titre informatif pour le client. 
+
+
+2 - Lorsque le client prend connaissance du coût et décide d'ajouter cette option à son abonnement, une autre requete contenant l'id de l'option et le numero
+de facturation est envoyé au backend. 
+Par ricochet, si une option d'indexation était lié à l'abonnement actuel de l'utilisateur, une reponse sera renvoyé pour l'indiquer: On pourra forcer 
+si l'utilisateur le veut en ajoutant un attribut "force": true dans le body de la requête précédente.
+
+Si la requete passe, la reponse à celle ci sera un object de facturation que l'utilisateur aura reçu et dans la reponse il
+y aura un "local_id" que l'on utilisera pour ouvrir une connection websocket afin de savoir si oui ou non le paiement et le processus d'ajout de l'option d'indexation
+à l'abonnement actuel de l'utilisateur sont terminé [Ndlr avec Succès] .

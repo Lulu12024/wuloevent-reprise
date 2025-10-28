@@ -1,0 +1,58 @@
+name: Deploy to development environnement
+
+on:
+  push:
+    branches:
+      - "develop"
+
+jobs:
+  api:
+    uses: ./.github/workflows/deploy-api.yml
+    with:
+      SERVER_USERNAME: ${{ vars.DEV_SERVER_USERNAME }}
+      remote_server_host: ${{ vars.DEV_SERVER_HOST }}
+      ENV: ${{ vars.DEV_ENV }}
+      SENTRY_DNS: ${{ vars.DEV_SENTRY_DNS }}
+      MAILJET_APIKEY_PUBLIC: ${{ vars.DEV_MAILJET_APIKEY_PUBLIC }}
+      SQL_ENGINE: ${{ vars.DEV_SQL_ENGINE }}
+      SQL_HOST: ${{ vars.DEV_SQL_HOST }}
+      SQL_PORT: ${{ vars.DEV_SQL_PORT }}
+      DATABASE: ${{ vars.DEV_DATABASE }}
+      DEBUG: ${{ vars.DEV_DEBUG }}
+      ALLOWED_HOSTS: ${{ vars.DEV_ALLOWED_HOSTS }}
+      CSRF_TRUSTED_ORIGINS: ${{ vars.DEV_CSRF_TRUSTED_ORIGINS }}
+      REDIS_HOST: ${{ vars.DEV_REDIS_HOST }}
+      ONE_SIGNAL_APP_ID: ${{ vars.DEV_ONE_SIGNAL_APP_ID }}
+      USE_AWS: ${{ vars.DEV_USE_AWS }}
+      AWS_ACCESS_KEY_ID: ${{ vars.DEV_AWS_ACCESS_KEY_ID }}
+      AWS_STORAGE_BUCKET_NAME: ${{ vars.DEV_AWS_STORAGE_BUCKET_NAME }}
+      AWS_S3_REGION_NAME: ${{ vars.DEV_AWS_S3_REGION_NAME }}
+      AWS_DEFAULT_ACL: ${{ vars.DEV_AWS_DEFAULT_ACL }}
+
+      EMAIL_BACKEND: ${{ vars.DEV_EMAIL_BACKEND }}
+      EMAIL_HOST: ${{ vars.DEV_EMAIL_HOST }}
+      EMAIL_USE_TLS: ${{ vars.DEV_EMAIL_USE_TLS }}
+      EMAIL_PORT: ${{ vars.DEV_EMAIL_PORT }}
+      EMAIL_HOST_USER: ${{ vars.DEV_EMAIL_HOST_USER }}
+      EMAIL_HOST_PASSWORD: ${{ vars.DEV_EMAIL_HOST_PASSWORD }}
+      FIREBASE_APP_DOMAINE: ${{ vars.DEV_FIREBASE_APP_DOMAINE }}
+      EMAIL_NO_REPLY: ${{ vars.DEV_EMAIL_NO_REPLY }}
+
+      CERTBOT_EMAIL: ${{ vars.DEV_CERTBOT_EMAIL }}
+      STAGING: ${{ vars.DEV_STAGING }}
+      RENEWAL_INTERVAL: ${{ vars.DEV_RENEWAL_INTERVAL }}
+
+      CELERY_BROKER: ${{ vars.DEV_CELERY_BROKER }}
+      CELERY_BACKEND: ${{ vars.DEV_CELERY_BACKEND }}
+    secrets:
+      remote_server_ssh_key: ${{ secrets.DEV_SERVER_SSH_PRIVATE_KEY }}
+      MAILJET_APIKEY_PRIVATE: ${{ secrets.DEV_MAILJET_APIKEY_PRIVATE }}
+      SQL_DATABASE: ${{ secrets.DEV_SQL_DATABASE }}
+      SQL_USER: ${{ secrets.DEV_SQL_USER }}
+      SQL_PASSWORD: ${{ secrets.DEV_SQL_PASSWORD }}
+      SECRET_KEY: ${{ secrets.DEV_SECRET_KEY }}
+      ONE_SIGNAL_USER_KEY: ${{ secrets.DEV_ONE_SIGNAL_USER_KEY }}
+      ONE_SIGNAL_REST_API_KEY: ${{ secrets.DEV_ONE_SIGNAL_REST_API_KEY }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.DEV_AWS_SECRET_ACCESS_KEY }}
+      COURIER_AUTH_TOKEN: ${{ secrets.DEV_COURIER_AUTH_TOKEN }}
+      FIREBASE_APP_WEB_API_KEY: ${{ secrets.DEV_FIREBASE_APP_WEB_API_KEY }}

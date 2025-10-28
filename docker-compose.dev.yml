@@ -1,0 +1,59 @@
+
+services:
+
+  db:
+    image: postgis/postgis:15-3.4-alpine
+    container_name: wuloevents-db-container-prod
+    env_file: .env.db
+    ports:
+      - "5434:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  backend:
+    build: ./
+    container_name: wuloevents-backend-container-prod
+    command: >
+      sh -c "python manage.py sync_admin_available_permissions && python manage.py runserver 0.0.0.0:8000"
+    env_file: .env
+    volumes:
+      - db_backup_volume:/usr/src/app/data/
+      - static_volume:/usr/src/app/static/staticfiles
+      - medias_volume:/usr/src/app/static/medias
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+
+  redis:
+    container_name: wuloevents-redis-container-prod
+    image: redis:6-alpine
+
+  celery:
+    build: ./
+    container_name: wuloevents-celery-container-prod
+    restart: always
+    command: celery worker --app=backend --loglevel=debug
+    volumes:
+      - static_volume:/usr/src/app/static/staticfiles
+      - medias_volume:/usr/src/app/static/medias
+    depends_on:
+      - backend
+
+  celery-beat:
+    build: ./
+    restart: always
+    command: celery beat --app=backend --loglevel=debug --pidfile=
+    volumes:
+      - static_volume:/usr/src/app/static/staticfiles
+      - medias_volume:/usr/src/app/static/medias
+    depends_on:
+      - redis
+      - backend
+
+volumes:
+  db_data:
+  static_volume:
+  medias_volume:
+  db_backup_volume:

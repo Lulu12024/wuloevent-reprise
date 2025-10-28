@@ -1,0 +1,5069 @@
+[
+{
+  "model": "users.approle",
+  "pk": "18928e55-8eb0-44d7-9bbf-4de1b8e769e2",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.108Z",
+    "updated": "2024-10-21T10:21:24.108Z",
+    "active": true,
+    "name": "Comptable",
+    "label": "ACCOUNTANT",
+    "permissions": []
+  }
+},
+{
+  "model": "users.approle",
+  "pk": "18c62923-52d9-4833-8e2b-3557a884c37a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.030Z",
+    "updated": "2024-10-21T10:21:24.030Z",
+    "active": true,
+    "name": "Administrateur",
+    "label": "ADMIN",
+    "permissions": []
+  }
+},
+{
+  "model": "users.approle",
+  "pk": "61f2d7dd-d49e-4a16-be7e-d4935de84d95",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.092Z",
+    "updated": "2024-10-21T10:21:24.092Z",
+    "active": true,
+    "name": "Support",
+    "label": "SUPPORT",
+    "permissions": []
+  }
+},
+{
+  "model": "users.approle",
+  "pk": "902f5872-4757-4743-93b1-5fe837b7474b",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.184Z",
+    "updated": "2024-10-21T10:21:24.184Z",
+    "active": true,
+    "name": "Commerciaux",
+    "label": "SALES_MANAGER",
+    "permissions": []
+  }
+},
+{
+  "model": "users.approle",
+  "pk": "939976e0-87b5-4554-a989-7cbc3addec0e",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.130Z",
+    "updated": "2024-10-21T10:21:24.130Z",
+    "active": true,
+    "name": "Super Administrateur",
+    "label": "SUPER_ADMIN",
+    "permissions": []
+  }
+},
+{
+  "model": "users.approle",
+  "pk": "a118e27c-c649-4a20-a39a-d53243c12ee8",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.149Z",
+    "updated": "2024-10-21T10:21:24.149Z",
+    "active": true,
+    "name": "Propriétaire d' Évènement",
+    "label": "EVENT_OWNER",
+    "permissions": []
+  }
+},
+{
+  "model": "users.approle",
+  "pk": "a1e38d9e-3e4d-49a3-b0d0-05b5680442b1",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.075Z",
+    "updated": "2024-10-21T10:21:24.075Z",
+    "active": true,
+    "name": "Staff",
+    "label": "STAFF",
+    "permissions": []
+  }
+},
+{
+  "model": "users.approle",
+  "pk": "e4da0753-06a8-4501-9b6d-2a7ae536cb1a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.164Z",
+    "updated": "2024-10-21T10:21:24.164Z",
+    "active": true,
+    "name": "Collaborateur",
+    "label": "COLLABORATOR",
+    "permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "fields": {
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "Wesley",
+    "last_name": "Eliel",
+    "email": "wesleymontcho@gmail.com",
+    "sex": "",
+    "role": null,
+    "birthday": "2000-07-08",
+    "phone": "+22960606060",
+    "country": null,
+    "profile_image": "",
+    "admin_id": "Qn8nurYYBhjY",
+    "conf_num": "617366",
+    "password": "pbkdf2_sha256$870000$DrTLxraysUPUPN28bYzxAm$vKtN1XEUF+I+nsdIhf95LsjLMPqZR9cCT7QHC1MyV+4=",
+    "is_active": true,
+    "have_validate_account": true,
+    "date_joined": "2024-10-21T12:56:05.313Z",
+    "is_staff": false,
+    "is_app_admin": false,
+    "phone_number_validated": false,
+    "deactivated_at": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "fields": {
+    "last_login": "2024-10-21T12:57:20.085Z",
+    "is_superuser": true,
+    "first_name": "Admin",
+    "last_name": "Admin",
+    "email": "admin@wuloevents.com",
+    "sex": "",
+    "role": null,
+    "birthday": null,
+    "phone": null,
+    "country": null,
+    "profile_image": "",
+    "admin_id": "69196638",
+    "conf_num": "69196638",
+    "password": "pbkdf2_sha256$870000$c2W4nauQTeY4Rhu8bITocf$Okr5jLJy7YStYRzHWW5eg/2FOzbx1uKTyUFM3k6kwE4=",
+    "is_active": true,
+    "have_validate_account": false,
+    "date_joined": "2024-10-21T10:21:23.161Z",
+    "is_staff": true,
+    "is_app_admin": true,
+    "phone_number_validated": false,
+    "deactivated_at": null,
+    "groups": [
+      [
+        "Admin"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "fields": {
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "DevBackend",
+    "last_name": "DevBackend",
+    "email": "devbackend@devbackend.com",
+    "sex": "",
+    "role": null,
+    "birthday": "2000-07-08",
+    "phone": "+22900000000",
+    "country": null,
+    "profile_image": "",
+    "admin_id": "rCMsJlimrNkt",
+    "conf_num": "837121",
+    "password": "pbkdf2_sha256$870000$51RKIkHetCScb0cDg70znt$ajAIyStHel2Wg9RuWzz/vUf7WDAexkjZgLEkzV0mkEU=",
+    "is_active": true,
+    "have_validate_account": true,
+    "date_joined": "2024-10-21T12:55:49.810Z",
+    "is_staff": false,
+    "is_app_admin": false,
+    "phone_number_validated": false,
+    "deactivated_at": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "organizations.historicalorganization",
+  "pk": 1,
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "uuid": "c29f6143-8742-4edd-89d1-3b2e965157f9",
+    "timestamp": "2024-10-21T10:21:23.980Z",
+    "updated": "2024-10-21T10:21:23.980Z",
+    "active": true,
+    "name": "Organisation Admin ",
+    "email": "admin@wuloevents.com",
+    "phone": "+22900000000",
+    "description": "(\"Organisation admin pour pré-peupler les fixture de base ayant besoin d' une organization pour être peuplé\",)",
+    "address": "Wulo Events, Gbegamey",
+    "logo": "Organization/file_Valeur_c_1729506084.jpeg",
+    "subscribe_until": null,
+    "phone_number_validated": false,
+    "percentage": 0.3,
+    "percentage_if_discounted": null,
+    "owner": [
+      "69196638"
+    ],
+    "country": null,
+    "history_date": "2024-10-21T10:21:23.991Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "organizations.historicalorganization",
+  "pk": 2,
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "uuid": "c29f6143-8742-4edd-89d1-3b2e965157f9",
+    "timestamp": "2024-10-21T10:21:23.980Z",
+    "updated": "2024-10-21T10:21:24.005Z",
+    "active": true,
+    "name": "Organisation Admin ",
+    "email": "admin@wuloevents.com",
+    "phone": "+22900000000",
+    "description": "(\"Organisation admin pour pré-peupler les fixture de base ayant besoin d' une organization pour être peuplé\",)",
+    "address": "Wulo Events, Gbegamey",
+    "logo": "Organization/file_Valeur_c_1729506084.jpeg",
+    "subscribe_until": null,
+    "phone_number_validated": false,
+    "percentage": 0.3,
+    "percentage_if_discounted": null,
+    "owner": [
+      "69196638"
+    ],
+    "country": null,
+    "history_date": "2024-10-21T10:21:24.015Z",
+    "history_change_reason": null,
+    "history_type": "~",
+    "history_user": null
+  }
+},
+{
+  "model": "organizations.organization",
+  "pk": "c29f6143-8742-4edd-89d1-3b2e965157f9",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:23.980Z",
+    "updated": "2024-10-21T10:21:24.005Z",
+    "active": true,
+    "name": "Organisation Admin ",
+    "email": "admin@wuloevents.com",
+    "phone": "+22900000000",
+    "description": "(\"Organisation admin pour pré-peupler les fixture de base ayant besoin d' une organization pour être peuplé\",)",
+    "address": "Wulo Events, Gbegamey",
+    "logo": "Organization/file_Valeur_c_1729506084.jpeg",
+    "owner": [
+      "69196638"
+    ],
+    "country": null,
+    "subscribe_until": null,
+    "phone_number_validated": false,
+    "percentage": 0.3,
+    "percentage_if_discounted": null
+  }
+},
+{
+  "model": "organizations.historicalrole",
+  "pk": 1,
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "uuid": "26646c93-6041-4d34-82f2-411983cbccc4",
+    "timestamp": "2024-10-21T10:21:24.207Z",
+    "updated": "2024-10-21T10:21:24.207Z",
+    "active": true,
+    "name": "Member",
+    "weight": 1,
+    "description": "Member",
+    "history_date": "2024-10-21T10:21:24.225Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "organizations.historicalrole",
+  "pk": 2,
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "uuid": "56e3b74b-fd80-4f44-9d4b-2b61c101e54b",
+    "timestamp": "2024-10-21T10:21:24.235Z",
+    "updated": "2024-10-21T10:21:24.235Z",
+    "active": true,
+    "name": "Coordinator",
+    "weight": 2,
+    "description": "Coordinator",
+    "history_date": "2024-10-21T10:21:24.243Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "organizations.role",
+  "pk": "26646c93-6041-4d34-82f2-411983cbccc4",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.207Z",
+    "updated": "2024-10-21T10:21:24.207Z",
+    "active": true,
+    "name": "Member",
+    "weight": 1,
+    "description": "Member"
+  }
+},
+{
+  "model": "organizations.role",
+  "pk": "56e3b74b-fd80-4f44-9d4b-2b61c101e54b",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.235Z",
+    "updated": "2024-10-21T10:21:24.235Z",
+    "active": true,
+    "name": "Coordinator",
+    "weight": 2,
+    "description": "Coordinator"
+  }
+},
+{
+  "model": "organizations.subscriptiontype",
+  "pk": "74a8f4e5-a547-439e-9a05-3972a8925ad5",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.253Z",
+    "updated": "2024-10-21T10:21:24.253Z",
+    "active": true,
+    "name": "Hebdomadaire",
+    "price": "999.99",
+    "validity_days_range": 7,
+    "order": 1
+  }
+},
+{
+  "model": "organizations.subscriptiontype",
+  "pk": "7cbf0a3b-3eb3-4052-b8a0-5f4cbd9ef43c",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.260Z",
+    "updated": "2024-10-21T10:21:24.260Z",
+    "active": true,
+    "name": "Mensuel",
+    "price": "2499.99",
+    "validity_days_range": 30,
+    "order": 2
+  }
+},
+{
+  "model": "organizations.subscriptiontype",
+  "pk": "e6204fe5-f6d3-402f-a263-6ba549cb0b17",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.267Z",
+    "updated": "2024-10-21T10:21:24.267Z",
+    "active": true,
+    "name": "Trimestriel",
+    "price": "3999.99",
+    "validity_days_range": 90,
+    "order": 3
+  }
+},
+{
+  "model": "events.eventhighlightingtype",
+  "pk": "045ef7c0-0240-41e8-a5ed-5d6dafeb3a62",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.291Z",
+    "updated": "2024-10-21T10:21:24.291Z",
+    "active": true,
+    "name": "Mensuel",
+    "description": "90",
+    "price": "10000.00",
+    "order": 1,
+    "number_of_days_covered": 30
+  }
+},
+{
+  "model": "events.eventhighlightingtype",
+  "pk": "428eba96-906a-40a9-9e03-9405a1b7395d",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.297Z",
+    "updated": "2024-10-21T10:21:24.297Z",
+    "active": true,
+    "name": "Hebdomadaire",
+    "description": "90",
+    "price": "3000.00",
+    "order": 1,
+    "number_of_days_covered": 7
+  }
+},
+{
+  "model": "events.eventhighlightingtype",
+  "pk": "59928454-361b-47ca-8097-f754968362fb",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.283Z",
+    "updated": "2024-10-21T10:21:24.283Z",
+    "active": true,
+    "name": "Trimestriel",
+    "description": "30",
+    "price": "20000.00",
+    "order": 1,
+    "number_of_days_covered": 90
+  }
+},
+{
+  "model": "events.eventhighlightingtype",
+  "pk": "65619142-616d-42b9-8d59-5f3de7e77b79",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.274Z",
+    "updated": "2024-10-21T10:21:24.274Z",
+    "active": true,
+    "name": "Annuel",
+    "description": "7",
+    "price": "50000.00",
+    "order": 1,
+    "number_of_days_covered": 356
+  }
+},
+{
+  "model": "events.eventhighlightingtype",
+  "pk": "f418d4d0-6923-4a3b-8eca-79e72abf49a2",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.306Z",
+    "updated": "2024-10-21T10:21:24.306Z",
+    "active": true,
+    "name": "Influenceur Plus",
+    "description": "90",
+    "price": "99999.00",
+    "order": 2,
+    "number_of_days_covered": 7
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "009f302d-b03a-4e51-87cf-c7d7c6013cfe",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.137Z",
+    "updated": "2024-10-21T10:21:26.137Z",
+    "active": true,
+    "name": "Espagne",
+    "code": "ES",
+    "prefix": "34",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "01bcbdae-3932-4666-b600-ec36694e4720",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.781Z",
+    "updated": "2024-10-21T10:21:25.781Z",
+    "active": true,
+    "name": "Montserrat",
+    "code": "MS",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "02b7ddde-8b21-42d9-93f9-9c45ce4ca034",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.017Z",
+    "updated": "2024-10-21T10:21:26.017Z",
+    "active": true,
+    "name": "Saint-Lucie",
+    "code": "LC",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "0361052c-ed0b-4e17-aff8-ba60b4e52261",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.771Z",
+    "updated": "2024-10-21T10:21:24.771Z",
+    "active": true,
+    "name": "Samoa américaines",
+    "code": "AS",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "0429f240-da84-4d82-a220-60d88dedf6b9",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.356Z",
+    "updated": "2024-10-21T10:21:25.356Z",
+    "active": true,
+    "name": "Grèce",
+    "code": "GR",
+    "prefix": "30",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "04a64dfe-629e-45e4-a01d-3052482b55df",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.286Z",
+    "updated": "2024-10-21T10:21:26.286Z",
+    "active": true,
+    "name": "Émirats arabes unis",
+    "code": "AE",
+    "prefix": "971",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "053d222d-3b0a-4f56-b666-2f1132762e48",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.041Z",
+    "updated": "2024-10-21T10:21:25.041Z",
+    "active": true,
+    "name": "Cap Vert",
+    "code": "CV",
+    "prefix": "238",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "08923c6f-db73-40e1-ac02-57386f385bd9",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.391Z",
+    "updated": "2024-10-21T10:21:25.391Z",
+    "active": true,
+    "name": "Guernesey",
+    "code": "GG",
+    "prefix": "44",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "08bff89d-6ce1-4539-a607-6d28e7ea0a0b",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.098Z",
+    "updated": "2024-10-21T10:21:25.098Z",
+    "active": true,
+    "name": "Colombie",
+    "code": "CO",
+    "prefix": "57",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "0949f993-8e8b-419f-ac63-88490fbf1c33",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.863Z",
+    "updated": "2024-10-21T10:21:24.863Z",
+    "active": true,
+    "name": "Barbade",
+    "code": "BB",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "09d92a48-ac32-4911-9d90-7d76181bca4a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.873Z",
+    "updated": "2024-10-21T10:21:25.873Z",
+    "active": true,
+    "name": "Îles Mariannes du Nord",
+    "code": "MP",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "0b47750a-6923-41e1-8295-992481db8eeb",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.269Z",
+    "updated": "2024-10-21T10:21:26.269Z",
+    "active": true,
+    "name": "Tuvalu",
+    "code": "TV",
+    "prefix": "688",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "0bcdbe30-88b3-4f36-b78c-86fbe66e55ca",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.462Z",
+    "updated": "2024-10-21T10:21:25.462Z",
+    "active": true,
+    "name": "Inde",
+    "code": "IN",
+    "prefix": "91",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "0d0719a5-f38f-472e-a1f8-3b1196ec8731",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.811Z",
+    "updated": "2024-10-21T10:21:25.811Z",
+    "active": true,
+    "name": "Nauru",
+    "code": "NR",
+    "prefix": "674",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "100288db-d6c7-477b-b932-a57d311e291a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.752Z",
+    "updated": "2024-10-21T10:21:24.752Z",
+    "active": true,
+    "name": "Åland",
+    "code": "AX",
+    "prefix": "358",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "11eedb17-3c46-43c7-ae8e-0a8d491c9940",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.983Z",
+    "updated": "2024-10-21T10:21:25.983Z",
+    "active": true,
+    "name": "Roumanie",
+    "code": "RO",
+    "prefix": "40",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "12db131c-4bbe-4fcb-94f1-c668b1607feb",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.959Z",
+    "updated": "2024-10-21T10:21:25.959Z",
+    "active": true,
+    "name": "Porto Rico",
+    "code": "PR",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "135347f1-823f-4d89-a64f-ff9efa184ebc",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.889Z",
+    "updated": "2024-10-21T10:21:25.889Z",
+    "active": true,
+    "name": "Pakistan",
+    "code": "PK",
+    "prefix": "92",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "14049490-ceca-4a4e-b28c-de431b92ea18",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.172Z",
+    "updated": "2024-10-21T10:21:25.172Z",
+    "active": true,
+    "name": "Croatie",
+    "code": "HR",
+    "prefix": "385",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "14e9d1f3-afbf-42bb-9097-3e6e8164c3f9",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.611Z",
+    "updated": "2024-10-21T10:21:25.611Z",
+    "active": true,
+    "name": "Liberia",
+    "code": "LR",
+    "prefix": "231",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "177436ae-d5b3-4e32-b432-c1a2ca63b890",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.291Z",
+    "updated": "2024-10-21T10:21:26.291Z",
+    "active": true,
+    "name": "Royaume-Uni",
+    "code": "GB",
+    "prefix": "44",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "1c53b620-96ce-44c9-85ee-f8586827a53a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.857Z",
+    "updated": "2024-10-21T10:21:24.857Z",
+    "active": true,
+    "name": "Bangladesh",
+    "code": "BD",
+    "prefix": "880",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "1e2498f3-9def-4e47-97e6-6acecb43e295",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.555Z",
+    "updated": "2024-10-21T10:21:25.555Z",
+    "active": true,
+    "name": "Kiribati",
+    "code": "KI",
+    "prefix": "686",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "1ff8bc9c-4713-4ff2-ac75-6811743871bf",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.768Z",
+    "updated": "2024-10-21T10:21:25.768Z",
+    "active": true,
+    "name": "Mongolie",
+    "code": "MN",
+    "prefix": "976",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "213c93fd-5933-49b2-bcfc-22c26c5f630a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.119Z",
+    "updated": "2024-10-21T10:21:26.119Z",
+    "active": true,
+    "name": "Afrique du Sud",
+    "code": "ZA",
+    "prefix": "27",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "22ade487-89a4-4252-929d-fadf2ffc8727",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.351Z",
+    "updated": "2024-10-21T10:21:26.351Z",
+    "active": true,
+    "name": "Zimbabwe",
+    "code": "ZW",
+    "prefix": "263",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "23c5e48a-b4bc-4632-90e1-e0d23265ff4d",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.918Z",
+    "updated": "2024-10-21T10:21:25.918Z",
+    "active": true,
+    "name": "Paraguay",
+    "code": "PY",
+    "prefix": "595",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "24f46f35-a3b8-490e-a5c8-ecf686e2ea38",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.941Z",
+    "updated": "2024-10-21T10:21:24.941Z",
+    "active": true,
+    "name": "Îles mineures éloignées des États-Unis",
+    "code": "UM",
+    "prefix": "246",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "2516741e-00c2-4622-ad2d-c75000dd58b6",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.275Z",
+    "updated": "2024-10-21T10:21:25.275Z",
+    "active": true,
+    "name": "Îles Malouines",
+    "code": "FK",
+    "prefix": "500",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "25304503-5ac8-484e-b46d-083124f4bc14",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.879Z",
+    "updated": "2024-10-21T10:21:25.879Z",
+    "active": true,
+    "name": "Norvège",
+    "code": "NO",
+    "prefix": "47",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "25f90449-9633-418c-aedc-7d993720de13",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.676Z",
+    "updated": "2024-10-21T10:21:25.676Z",
+    "active": true,
+    "name": "Malaisie",
+    "code": "MY",
+    "prefix": "60",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "284a97b6-a2b5-481f-bd14-d718dc50cdac",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.496Z",
+    "updated": "2024-10-21T10:21:25.496Z",
+    "active": true,
+    "name": "Irlande",
+    "code": "IE",
+    "prefix": "353",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "2a0770bc-d647-4e0d-883f-002c7a65e92f",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.203Z",
+    "updated": "2024-10-21T10:21:25.203Z",
+    "active": true,
+    "name": "République tchèque",
+    "code": "CZ",
+    "prefix": "420",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "2aa2a151-01be-4370-a2e1-7ba057de6bfe",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.069Z",
+    "updated": "2024-10-21T10:21:26.069Z",
+    "active": true,
+    "name": "Serbie",
+    "code": "RS",
+    "prefix": "381",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "2c337408-7dda-4252-88c2-ae04232af31d",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.805Z",
+    "updated": "2024-10-21T10:21:25.805Z",
+    "active": true,
+    "name": "Namibie",
+    "code": "NA",
+    "prefix": "264",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "2d6f0b28-88fc-443c-8f10-cea3dc12c9ae",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.374Z",
+    "updated": "2024-10-21T10:21:25.374Z",
+    "active": true,
+    "name": "Guadeloupe",
+    "code": "GP",
+    "prefix": "590",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "2eb1e1cb-1e8f-4cb6-94d7-4b265b1c1eea",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.286Z",
+    "updated": "2024-10-21T10:21:25.286Z",
+    "active": true,
+    "name": "Fidji",
+    "code": "FJ",
+    "prefix": "679",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "302e11fd-5c4f-4c97-a676-1a97872f5bd4",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.313Z",
+    "updated": "2024-10-21T10:21:26.313Z",
+    "active": true,
+    "name": "Vanuatu",
+    "code": "VU",
+    "prefix": "678",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "334da235-5931-4d21-8991-81199a9abcf8",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.851Z",
+    "updated": "2024-10-21T10:21:24.851Z",
+    "active": true,
+    "name": "Bahreïn",
+    "code": "BH",
+    "prefix": "973",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "3411bf92-c1ce-4e82-a39e-ad583ffd24ff",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.548Z",
+    "updated": "2024-10-21T10:21:25.548Z",
+    "active": true,
+    "name": "Kenya",
+    "code": "KE",
+    "prefix": "254",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "342bac78-28f3-4ace-b004-15cea230b57a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.301Z",
+    "updated": "2024-10-21T10:21:26.301Z",
+    "active": true,
+    "name": "Uruguay",
+    "code": "UY",
+    "prefix": "598",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "38c99afb-3927-4e6b-8aea-9bb52f414377",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.034Z",
+    "updated": "2024-10-21T10:21:25.034Z",
+    "active": true,
+    "name": "Canada",
+    "code": "CA",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "3b2dcece-4fd1-4968-8d3a-7e115a1a6291",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.912Z",
+    "updated": "2024-10-21T10:21:25.912Z",
+    "active": true,
+    "name": "Papouasie-Nouvelle-Guinée",
+    "code": "PG",
+    "prefix": "675",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "3c81697a-a84f-403c-abba-2e65ac6f16c4",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.874Z",
+    "updated": "2024-10-21T10:21:24.874Z",
+    "active": true,
+    "name": "Belgique",
+    "code": "BE",
+    "prefix": "32",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "3eace97c-6f54-4a17-bf33-1437d21dccbb",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.063Z",
+    "updated": "2024-10-21T10:21:26.063Z",
+    "active": true,
+    "name": "Sénégal",
+    "code": "SN",
+    "prefix": "221",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "3fc4a28a-9017-4090-9504-cfa22bb96dc9",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.897Z",
+    "updated": "2024-10-21T10:21:24.897Z",
+    "active": true,
+    "name": "Bhoutan",
+    "code": "BT",
+    "prefix": "975",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "40393545-4916-4820-baba-0ff061adfbe5",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.817Z",
+    "updated": "2024-10-21T10:21:25.817Z",
+    "active": true,
+    "name": "Népal",
+    "code": "NP",
+    "prefix": "977",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4095947f-39c6-496d-bed7-6a581ba6b990",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.783Z",
+    "updated": "2024-10-21T10:21:24.783Z",
+    "active": true,
+    "name": "Angola",
+    "code": "AO",
+    "prefix": "244",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "411baad3-3722-4f26-9480-588af560edd1",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.798Z",
+    "updated": "2024-10-21T10:21:25.798Z",
+    "active": true,
+    "name": "Myanmar",
+    "code": "MM",
+    "prefix": "95",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "413d84a1-b179-4442-ab4f-7f5b7ba79f30",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.334Z",
+    "updated": "2024-10-21T10:21:26.334Z",
+    "active": true,
+    "name": "Sahara Occidental",
+    "code": "EH",
+    "prefix": "212",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "41cbf4c6-bfb4-4f07-9b93-c6b303b578ec",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.483Z",
+    "updated": "2024-10-21T10:21:25.483Z",
+    "active": true,
+    "name": "Iran",
+    "code": "IR",
+    "prefix": "98",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "430d816e-ca15-4e67-96d4-2da796c0c8c3",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.787Z",
+    "updated": "2024-10-21T10:21:25.787Z",
+    "active": true,
+    "name": "Maroc",
+    "code": "MA",
+    "prefix": "212",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "46af5166-b4fc-495e-927a-8a8c5ad26537",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.861Z",
+    "updated": "2024-10-21T10:21:25.861Z",
+    "active": true,
+    "name": "Île de Norfolk",
+    "code": "NF",
+    "prefix": "672",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4726ed50-4826-4c1b-8468-379b7ddff7fe",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.491Z",
+    "updated": "2024-10-21T10:21:25.491Z",
+    "active": true,
+    "name": "Irak",
+    "code": "IQ",
+    "prefix": "964",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4749556a-3a25-4bbb-ba4d-911ff77ef8bc",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.318Z",
+    "updated": "2024-10-21T10:21:26.318Z",
+    "active": true,
+    "name": "Venezuela",
+    "code": "VE",
+    "prefix": "58",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "48f07455-df55-482e-8b0c-7e0773bd86c5",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.561Z",
+    "updated": "2024-10-21T10:21:25.561Z",
+    "active": true,
+    "name": "Koweït",
+    "code": "KW",
+    "prefix": "965",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4911c368-420a-4497-84ac-e36ead954b90",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.924Z",
+    "updated": "2024-10-21T10:21:25.924Z",
+    "active": true,
+    "name": "Pérou",
+    "code": "PE",
+    "prefix": "51",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4932f0cf-a887-4dfb-b954-ace881113b2a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.226Z",
+    "updated": "2024-10-21T10:21:25.226Z",
+    "active": true,
+    "name": "République dominicaine",
+    "code": "DO",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4955acd0-2ebc-4aa0-a983-1e8b31f1093e",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.593Z",
+    "updated": "2024-10-21T10:21:25.593Z",
+    "active": true,
+    "name": "Liban",
+    "code": "LB",
+    "prefix": "961",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4a352842-a89d-4e9c-ba59-72516b43ee92",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.648Z",
+    "updated": "2024-10-21T10:21:25.648Z",
+    "active": true,
+    "name": "Macao",
+    "code": "MO",
+    "prefix": "853",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4a488a3b-d20c-4f96-bcb1-eba2fc486a5f",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.952Z",
+    "updated": "2024-10-21T10:21:24.952Z",
+    "active": true,
+    "name": "Îles Vierges des États-Unis",
+    "code": "VI",
+    "prefix": "1 340",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4bb273d8-bba6-4c62-9f6b-4af3a2af8880",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.543Z",
+    "updated": "2024-10-21T10:21:25.543Z",
+    "active": true,
+    "name": "Kazakhstan",
+    "code": "KZ",
+    "prefix": "76",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4bbf20a4-6fc6-43f3-b6d9-9c86fbf7c993",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.900Z",
+    "updated": "2024-10-21T10:21:25.900Z",
+    "active": true,
+    "name": "Palestine",
+    "code": "PS",
+    "prefix": "970",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4beeda0c-d284-4361-a5e7-086f6d8abf4a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.126Z",
+    "updated": "2024-10-21T10:21:26.126Z",
+    "active": true,
+    "name": "Géorgie du Sud-et-les Îles Sandwich du Sud",
+    "code": "GS",
+    "prefix": "500",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4bef1c37-9f74-4705-9fd5-79efe0898e9b",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.660Z",
+    "updated": "2024-10-21T10:21:25.660Z",
+    "active": true,
+    "name": "Madagascar",
+    "code": "MG",
+    "prefix": "261",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4da706ce-4cf7-441b-8333-04449d764df8",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.048Z",
+    "updated": "2024-10-21T10:21:25.048Z",
+    "active": true,
+    "name": "Îles Caïmans",
+    "code": "KY",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4dd4a50f-bfee-49d9-8478-e106133b181a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.867Z",
+    "updated": "2024-10-21T10:21:25.867Z",
+    "active": true,
+    "name": "Corée du Nord",
+    "code": "KP",
+    "prefix": "850",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4de9795a-cdbc-4c3c-8cc9-07c9933718ea",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.218Z",
+    "updated": "2024-10-21T10:21:26.218Z",
+    "active": true,
+    "name": "Timor oriental",
+    "code": "TL",
+    "prefix": "670",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4e67f391-97a4-4f4d-9804-43a71f438e84",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.239Z",
+    "updated": "2024-10-21T10:21:25.239Z",
+    "active": true,
+    "name": "Égypte",
+    "code": "EG",
+    "prefix": "20",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4e8f8be2-82c3-46e7-97fb-48ce50b115fe",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.930Z",
+    "updated": "2024-10-21T10:21:24.930Z",
+    "active": true,
+    "name": "Brésil",
+    "code": "BR",
+    "prefix": "55",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "4fb88f95-c159-4756-9e35-90e7d96851b2",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.732Z",
+    "updated": "2024-10-21T10:21:25.732Z",
+    "active": true,
+    "name": "Mayotte",
+    "code": "YT",
+    "prefix": "262",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "501762bb-e33e-47e1-9255-058989f7590e",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.191Z",
+    "updated": "2024-10-21T10:21:26.191Z",
+    "active": true,
+    "name": "Syrie",
+    "code": "SY",
+    "prefix": "963",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "514a9ffb-98b2-4e6c-ada0-7df83a457f84",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.758Z",
+    "updated": "2024-10-21T10:21:24.758Z",
+    "active": true,
+    "name": "Albanie",
+    "code": "AL",
+    "prefix": "355",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "519363d6-c1bc-414c-b505-af3b534467a8",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.131Z",
+    "updated": "2024-10-21T10:21:26.131Z",
+    "active": true,
+    "name": "Corée du Sud",
+    "code": "KR",
+    "prefix": "82",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "51e31dca-4618-4d2a-bc68-3b941432feaf",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.329Z",
+    "updated": "2024-10-21T10:21:26.329Z",
+    "active": true,
+    "name": "Wallis-et-Futuna",
+    "code": "WF",
+    "prefix": "681",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "51fd314c-df94-4fc8-9401-b11c7bdeb6b3",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.207Z",
+    "updated": "2024-10-21T10:21:26.207Z",
+    "active": true,
+    "name": "Tanzanie",
+    "code": "TZ",
+    "prefix": "255",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "527c3963-dc6b-42de-9fe1-7b56a9e96f8a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.586Z",
+    "updated": "2024-10-21T10:21:25.586Z",
+    "active": true,
+    "name": "Lettonie",
+    "code": "LV",
+    "prefix": "371",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "5489716b-48a9-46be-a49c-978037876f8f",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.684Z",
+    "updated": "2024-10-21T10:21:25.684Z",
+    "active": true,
+    "name": "Maldives",
+    "code": "MV",
+    "prefix": "960",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "55076eae-b9cb-4b66-9676-83eb082541b9",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.291Z",
+    "updated": "2024-10-21T10:21:25.291Z",
+    "active": true,
+    "name": "Finlande",
+    "code": "FI",
+    "prefix": "358",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "555b0cb4-19b8-410b-ad3b-c18d74f1b091",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.074Z",
+    "updated": "2024-10-21T10:21:26.074Z",
+    "active": true,
+    "name": "Seychelles",
+    "code": "SC",
+    "prefix": "248",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "555f9b35-9fe1-43d9-8150-9bb368bbc4e1",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.403Z",
+    "updated": "2024-10-21T10:21:25.403Z",
+    "active": true,
+    "name": "Guinée-Bissau",
+    "code": "GW",
+    "prefix": "245",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "556e4ece-e04a-4048-a3b0-76182af70c04",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.011Z",
+    "updated": "2024-10-21T10:21:26.011Z",
+    "active": true,
+    "name": "Saint-Christophe-et-Niévès",
+    "code": "KN",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "57f80a11-41d4-4dde-8966-36ba7391c3f7",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.091Z",
+    "updated": "2024-10-21T10:21:26.091Z",
+    "active": true,
+    "name": "Saint Martin (partie néerlandaise)",
+    "code": "SX",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "58529c40-0e33-4ed9-8ee7-9c8af4416eef",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.636Z",
+    "updated": "2024-10-21T10:21:25.636Z",
+    "active": true,
+    "name": "Lituanie",
+    "code": "LT",
+    "prefix": "370",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "59dd7dbc-e3a4-4203-b598-43ee909fc654",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.790Z",
+    "updated": "2024-10-21T10:21:24.790Z",
+    "active": true,
+    "name": "Anguilla",
+    "code": "AI",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "5b9068aa-2f57-4196-889c-022b25538c79",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.197Z",
+    "updated": "2024-10-21T10:21:25.197Z",
+    "active": true,
+    "name": "Chypre",
+    "code": "CY",
+    "prefix": "357",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "5f6fcc41-2532-4474-8767-d5f594f388f3",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.000Z",
+    "updated": "2024-10-21T10:21:26.000Z",
+    "active": true,
+    "name": "Saint-Barthélemy",
+    "code": "BL",
+    "prefix": "590",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "60402b7f-cfd5-4ffc-b06a-4ac0d09d0c6e",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.538Z",
+    "updated": "2024-10-21T10:21:25.538Z",
+    "active": true,
+    "name": "Jordanie",
+    "code": "JO",
+    "prefix": "962",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "61301393-7840-45fe-970a-ea56a1af6600",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.988Z",
+    "updated": "2024-10-21T10:21:25.988Z",
+    "active": true,
+    "name": "Russie",
+    "code": "RU",
+    "prefix": "7",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "61323723-af76-437b-99ad-4f232c034bfa",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.856Z",
+    "updated": "2024-10-21T10:21:25.856Z",
+    "active": true,
+    "name": "Niue",
+    "code": "NU",
+    "prefix": "683",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "61327eac-4f52-45f7-a033-fb9c294e3065",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.919Z",
+    "updated": "2024-10-21T10:21:24.919Z",
+    "active": true,
+    "name": "Botswana",
+    "code": "BW",
+    "prefix": "267",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "619b933e-041b-4df3-a545-e2bbf15507b4",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.792Z",
+    "updated": "2024-10-21T10:21:25.792Z",
+    "active": true,
+    "name": "Mozambique",
+    "code": "MZ",
+    "prefix": "258",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "62742fa3-e083-4b40-838c-0aaaf3047685",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.924Z",
+    "updated": "2024-10-21T10:21:24.924Z",
+    "active": true,
+    "name": "Île Bouvet",
+    "code": "BV",
+    "prefix": "47",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "639108cc-951e-4ef3-b209-e1d14bdd25ad",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.603Z",
+    "updated": "2024-10-21T10:21:25.603Z",
+    "active": true,
+    "name": "Lesotho",
+    "code": "LS",
+    "prefix": "266",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "65c1e69a-7bfe-4ba0-bb7c-d17437bfc681",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.229Z",
+    "updated": "2024-10-21T10:21:26.229Z",
+    "active": true,
+    "name": "Tokelau",
+    "code": "TK",
+    "prefix": "690",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "66a0f3da-f4ac-47da-9718-1f3a3eaa703c",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.080Z",
+    "updated": "2024-10-21T10:21:26.080Z",
+    "active": true,
+    "name": "Sierra Leone",
+    "code": "SL",
+    "prefix": "232",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "693a085c-44d3-44c0-bc3c-5bda17bb92cf",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.362Z",
+    "updated": "2024-10-21T10:21:25.362Z",
+    "active": true,
+    "name": "Groenland",
+    "code": "GL",
+    "prefix": "299",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "69cd7ed4-7d0a-4b02-b7cf-c7ba881aa0af",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.256Z",
+    "updated": "2024-10-21T10:21:25.256Z",
+    "active": true,
+    "name": "Érythrée",
+    "code": "ER",
+    "prefix": "291",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "6a4fc256-a663-45ce-b458-6171cd0c8126",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.828Z",
+    "updated": "2024-10-21T10:21:24.828Z",
+    "active": true,
+    "name": "Australie",
+    "code": "AU",
+    "prefix": "61",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "6ab5ba62-55bf-4c10-a46a-a46f56b048c4",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.019Z",
+    "updated": "2024-10-21T10:21:25.019Z",
+    "active": true,
+    "name": "Cambodge",
+    "code": "KH",
+    "prefix": "855",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "6c57e743-fd4e-4c5b-aca2-c787c599a363",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.845Z",
+    "updated": "2024-10-21T10:21:25.845Z",
+    "active": true,
+    "name": "Niger",
+    "code": "NE",
+    "prefix": "227",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "6cc94db1-b978-48a6-b243-cc1033096657",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.966Z",
+    "updated": "2024-10-21T10:21:25.966Z",
+    "active": true,
+    "name": "Qatar",
+    "code": "QA",
+    "prefix": "974",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "6d163362-316f-4728-b941-aa11c7f001f9",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.108Z",
+    "updated": "2024-10-21T10:21:26.108Z",
+    "active": true,
+    "name": "Îles Salomon",
+    "code": "SB",
+    "prefix": "677",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "6d42fed3-12fc-4217-8933-b7addb19a5c3",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.191Z",
+    "updated": "2024-10-21T10:21:25.191Z",
+    "active": true,
+    "name": "Curaçao",
+    "code": "CW",
+    "prefix": "599",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "6d6cc456-e8a0-4472-a337-82a37c5760ba",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.995Z",
+    "updated": "2024-10-21T10:21:25.995Z",
+    "active": true,
+    "name": "Rwanda",
+    "code": "RW",
+    "prefix": "250",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "6df52191-2eb0-4e5d-9f2b-79df53d60a4d",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.152Z",
+    "updated": "2024-10-21T10:21:26.152Z",
+    "active": true,
+    "name": "Soudan",
+    "code": "SD",
+    "prefix": "249",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "6e279c71-1d41-49cc-a64f-1db997fdbf06",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.913Z",
+    "updated": "2024-10-21T10:21:24.913Z",
+    "active": true,
+    "name": "Bosnie-Herzégovine",
+    "code": "BA",
+    "prefix": "387",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "6e98b96b-c909-4277-9ec8-eb3bc32270ed",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.507Z",
+    "updated": "2024-10-21T10:21:25.507Z",
+    "active": true,
+    "name": "Israël",
+    "code": "IL",
+    "prefix": "972",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "7009a2cc-3182-46ed-b46f-785b2b089d2c",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.654Z",
+    "updated": "2024-10-21T10:21:25.654Z",
+    "active": true,
+    "name": "Macédoine",
+    "code": "MK",
+    "prefix": "389",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "707e50a1-eb9c-433b-b404-7c81bfb76ead",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.029Z",
+    "updated": "2024-10-21T10:21:26.029Z",
+    "active": true,
+    "name": "Saint-Pierre-et-Miquelon",
+    "code": "PM",
+    "prefix": "508",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "71476a45-29d7-411c-abe5-3a2e5d6a3bb5",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.296Z",
+    "updated": "2024-10-21T10:21:26.296Z",
+    "active": true,
+    "name": "États-Unis",
+    "code": "US",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "71e2e38e-8e41-4e6b-9315-2512d333a596",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.159Z",
+    "updated": "2024-10-21T10:21:25.159Z",
+    "active": true,
+    "name": "Costa Rica",
+    "code": "CR",
+    "prefix": "506",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "72a5caaf-e615-4eb5-b679-05db6c7636a2",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.885Z",
+    "updated": "2024-10-21T10:21:24.885Z",
+    "active": true,
+    "name": "Bénin",
+    "code": "BJ",
+    "prefix": "229",
+    "is_covered": true
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "72cfb9f1-b0b8-4b6d-90cf-2511d1ee90d2",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.296Z",
+    "updated": "2024-10-21T10:21:25.296Z",
+    "active": true,
+    "name": "France",
+    "code": "FR",
+    "prefix": "33",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "73a5351c-486d-4ea9-9c00-a7de194c6b78",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.777Z",
+    "updated": "2024-10-21T10:21:24.777Z",
+    "active": true,
+    "name": "Andorre",
+    "code": "AD",
+    "prefix": "376",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "73d3495d-51b2-456c-a9c2-efef7473482c",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.815Z",
+    "updated": "2024-10-21T10:21:24.815Z",
+    "active": true,
+    "name": "Arménie",
+    "code": "AM",
+    "prefix": "374",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "73d99d7c-2e45-41a5-8604-b535d996e9b1",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.202Z",
+    "updated": "2024-10-21T10:21:26.202Z",
+    "active": true,
+    "name": "Tadjikistan",
+    "code": "TJ",
+    "prefix": "992",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "745c5e32-e519-416d-ab9a-f5f5407f1b69",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.739Z",
+    "updated": "2024-10-21T10:21:25.739Z",
+    "active": true,
+    "name": "Mexique",
+    "code": "MX",
+    "prefix": "52",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "79e262b0-2534-4b5c-9bb5-871f73d0f7d6",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.056Z",
+    "updated": "2024-10-21T10:21:25.056Z",
+    "active": true,
+    "name": "République centrafricaine",
+    "code": "CF",
+    "prefix": "236",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "7a5f93ed-f049-4ea8-a431-73e106f61075",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.322Z",
+    "updated": "2024-10-21T10:21:25.322Z",
+    "active": true,
+    "name": "Gabon",
+    "code": "GA",
+    "prefix": "241",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "7b669a2d-6097-4fad-9b8f-015af53f159c",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.327Z",
+    "updated": "2024-10-21T10:21:25.327Z",
+    "active": true,
+    "name": "Gambie",
+    "code": "GM",
+    "prefix": "220",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "7be4e044-31c3-4ee3-9af5-5a69f8a7be19",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.345Z",
+    "updated": "2024-10-21T10:21:25.345Z",
+    "active": true,
+    "name": "Ghana",
+    "code": "GH",
+    "prefix": "233",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "7c647106-4f93-4fa0-8d12-9e8c1dcbc223",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.468Z",
+    "updated": "2024-10-21T10:21:25.468Z",
+    "active": true,
+    "name": "Indonésie",
+    "code": "ID",
+    "prefix": "62",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "7c844bd2-420f-44e6-ada6-d75e3d887996",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.340Z",
+    "updated": "2024-10-21T10:21:25.340Z",
+    "active": true,
+    "name": "Allemagne",
+    "code": "DE",
+    "prefix": "49",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "7e4e4a4d-934f-45c9-b688-e1a565d14977",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.064Z",
+    "updated": "2024-10-21T10:21:25.064Z",
+    "active": true,
+    "name": "Tchad",
+    "code": "TD",
+    "prefix": "235",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "7f7ea157-6247-4940-8e1a-9b3bf95580c6",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.324Z",
+    "updated": "2024-10-21T10:21:26.324Z",
+    "active": true,
+    "name": "Viêt Nam",
+    "code": "VN",
+    "prefix": "84",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "802a642e-327d-4ee6-85d3-87418c7f3d70",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.434Z",
+    "updated": "2024-10-21T10:21:25.434Z",
+    "active": true,
+    "name": "Honduras",
+    "code": "HN",
+    "prefix": "504",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "80416f8d-1b4b-4bb6-a44f-2673eaceca4b",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.846Z",
+    "updated": "2024-10-21T10:21:24.846Z",
+    "active": true,
+    "name": "Bahamas",
+    "code": "BS",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "83a00203-bb0a-461e-9419-785613781167",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.212Z",
+    "updated": "2024-10-21T10:21:26.212Z",
+    "active": true,
+    "name": "Thaïlande",
+    "code": "TH",
+    "prefix": "66",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "83e44013-dc20-454f-97ea-5ab4ce1d0f50",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.023Z",
+    "updated": "2024-10-21T10:21:26.023Z",
+    "active": true,
+    "name": "Saint-Martin",
+    "code": "MF",
+    "prefix": "590",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "8404e91c-3575-4979-88c0-d6145fcad701",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.236Z",
+    "updated": "2024-10-21T10:21:26.236Z",
+    "active": true,
+    "name": "Tonga",
+    "code": "TO",
+    "prefix": "676",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "8435ada9-98cf-4bec-854f-bb0cb8317b1d",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.441Z",
+    "updated": "2024-10-21T10:21:25.441Z",
+    "active": true,
+    "name": "Hongrie",
+    "code": "HU",
+    "prefix": "36",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "852ddc09-3639-4eb2-bdf7-cb5b5425195d",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.475Z",
+    "updated": "2024-10-21T10:21:25.475Z",
+    "active": true,
+    "name": "Côte d'Ivoire",
+    "code": "CI",
+    "prefix": "225",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "8577b876-bcee-4edd-9466-e95bc52ab755",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.254Z",
+    "updated": "2024-10-21T10:21:26.254Z",
+    "active": true,
+    "name": "Turquie",
+    "code": "TR",
+    "prefix": "90",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "8707330f-c0a5-48a6-96fd-1eecb7196be0",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.502Z",
+    "updated": "2024-10-21T10:21:25.502Z",
+    "active": true,
+    "name": "Île de Man",
+    "code": "IM",
+    "prefix": "44",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "89b26249-94c4-48f4-92fd-01f6bae8d9d0",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.034Z",
+    "updated": "2024-10-21T10:21:26.034Z",
+    "active": true,
+    "name": "Saint-Vincent-et-les-Grenadines",
+    "code": "VC",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "8a699600-c7e3-452b-a725-8fc0c0735dc0",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.711Z",
+    "updated": "2024-10-21T10:21:25.711Z",
+    "active": true,
+    "name": "Martinique",
+    "code": "MQ",
+    "prefix": "596",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "8b1fed58-a42b-494c-afac-2026d9889e15",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.642Z",
+    "updated": "2024-10-21T10:21:25.642Z",
+    "active": true,
+    "name": "Luxembourg",
+    "code": "LU",
+    "prefix": "352",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "8f9aa764-5c01-4030-9c72-ec2c81ff2ac1",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.264Z",
+    "updated": "2024-10-21T10:21:26.264Z",
+    "active": true,
+    "name": "Îles Turques-et-Caïques",
+    "code": "TC",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "9066b144-05c6-4f6c-96b2-4d84ee845130",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.947Z",
+    "updated": "2024-10-21T10:21:24.947Z",
+    "active": true,
+    "name": "Îles Vierges britanniques",
+    "code": "VG",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "9087163e-d1be-4997-bd0b-1f3ef57fa6fe",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.697Z",
+    "updated": "2024-10-21T10:21:25.697Z",
+    "active": true,
+    "name": "Malte",
+    "code": "MT",
+    "prefix": "356",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "9183100e-e96d-455a-9864-5a4f82b7b09e",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.275Z",
+    "updated": "2024-10-21T10:21:26.275Z",
+    "active": true,
+    "name": "Uganda",
+    "code": "UG",
+    "prefix": "256",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "9201d8a2-bd18-42d8-8440-e540f4ff88c5",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.006Z",
+    "updated": "2024-10-21T10:21:26.006Z",
+    "active": true,
+    "name": "Sainte-Hélène",
+    "code": "SH",
+    "prefix": "290",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "95932609-24f1-4c2a-90eb-8bd03736da8b",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.046Z",
+    "updated": "2024-10-21T10:21:26.046Z",
+    "active": true,
+    "name": "Saint-Marin",
+    "code": "SM",
+    "prefix": "378",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "95fdccfc-e74d-43ff-9e61-b2a3907848f3",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.315Z",
+    "updated": "2024-10-21T10:21:25.315Z",
+    "active": true,
+    "name": "Terres australes et antarctiques françaises",
+    "code": "TF",
+    "prefix": "262",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "999a0acc-fa5d-49e4-b5e3-b8045a6ddf35",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.570Z",
+    "updated": "2024-10-21T10:21:25.570Z",
+    "active": true,
+    "name": "Kirghizistan",
+    "code": "KG",
+    "prefix": "996",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "9b9e3ff0-6055-44e3-ac0e-8101fcb08852",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.114Z",
+    "updated": "2024-10-21T10:21:26.114Z",
+    "active": true,
+    "name": "Somalie",
+    "code": "SO",
+    "prefix": "252",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "9bb6f77b-1a08-444c-b86c-bb3f362b3c5d",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.726Z",
+    "updated": "2024-10-21T10:21:25.726Z",
+    "active": true,
+    "name": "Île Maurice",
+    "code": "MU",
+    "prefix": "230",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "9d02cab9-cd98-493b-a9af-140d6c6cb505",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.691Z",
+    "updated": "2024-10-21T10:21:25.691Z",
+    "active": true,
+    "name": "Mali",
+    "code": "ML",
+    "prefix": "223",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "9e58cf5c-f27e-415a-8a26-928f57e28ba2",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.269Z",
+    "updated": "2024-10-21T10:21:25.269Z",
+    "active": true,
+    "name": "Éthiopie",
+    "code": "ET",
+    "prefix": "251",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "a0b5a18b-6840-4288-af8e-4bf0e86a4dac",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.169Z",
+    "updated": "2024-10-21T10:21:26.169Z",
+    "active": true,
+    "name": "Svalbard et Jan Mayen",
+    "code": "SJ",
+    "prefix": "47",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "a1245691-d07b-4f24-a7c9-862fd0c06505",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.386Z",
+    "updated": "2024-10-21T10:21:25.386Z",
+    "active": true,
+    "name": "Guatemala",
+    "code": "GT",
+    "prefix": "502",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "a14b2967-3294-4e16-8be6-4f2a3066888f",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.426Z",
+    "updated": "2024-10-21T10:21:25.426Z",
+    "active": true,
+    "name": "Saint-Siège",
+    "code": "VA",
+    "prefix": "379",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "a1e5a3c7-8541-4ab8-93d3-19c1bea29fbd",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.163Z",
+    "updated": "2024-10-21T10:21:26.163Z",
+    "active": true,
+    "name": "Surinam",
+    "code": "SR",
+    "prefix": "597",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "a2baa206-8e01-43f7-a1d8-8d4d8bb213fe",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.307Z",
+    "updated": "2024-10-21T10:21:26.307Z",
+    "active": true,
+    "name": "Ouzbékistan",
+    "code": "UZ",
+    "prefix": "998",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "a331b8fa-42ee-475a-8238-b4b9648cf194",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.008Z",
+    "updated": "2024-10-21T10:21:25.008Z",
+    "active": true,
+    "name": "Burundi",
+    "code": "BI",
+    "prefix": "257",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "a3e06921-e4c0-436b-bb46-fa8de46433cf",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.397Z",
+    "updated": "2024-10-21T10:21:25.397Z",
+    "active": true,
+    "name": "Guinée",
+    "code": "GN",
+    "prefix": "224",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "a513619b-309e-49e8-87f7-e530a2838b13",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.414Z",
+    "updated": "2024-10-21T10:21:25.414Z",
+    "active": true,
+    "name": "Haïti",
+    "code": "HT",
+    "prefix": "509",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "a586d18e-df94-4755-a4d8-83bf7fa4ce54",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.869Z",
+    "updated": "2024-10-21T10:21:24.869Z",
+    "active": true,
+    "name": "Biélorussie",
+    "code": "BY",
+    "prefix": "375",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "a65069c5-df65-46ca-bda4-d9ab89f2b344",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.420Z",
+    "updated": "2024-10-21T10:21:25.420Z",
+    "active": true,
+    "name": "Îles Heard-et-MacDonald",
+    "code": "HM",
+    "prefix": "672",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "a7016bbb-f99a-48ba-9d3f-949f0b5329aa",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.884Z",
+    "updated": "2024-10-21T10:21:25.884Z",
+    "active": true,
+    "name": "Oman",
+    "code": "OM",
+    "prefix": "968",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "a8de8752-373c-45a6-b330-278c2bcb1bd8",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.839Z",
+    "updated": "2024-10-21T10:21:25.839Z",
+    "active": true,
+    "name": "Nicaragua",
+    "code": "NI",
+    "prefix": "505",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "ab3b0be4-a339-4349-a90e-736b2627a68b",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.184Z",
+    "updated": "2024-10-21T10:21:25.184Z",
+    "active": true,
+    "name": "Cuba",
+    "code": "CU",
+    "prefix": "53",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "ab85a28a-2e9c-441d-acb7-40c9d15ead7f",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.158Z",
+    "updated": "2024-10-21T10:21:26.158Z",
+    "active": true,
+    "name": "Soudan du Sud",
+    "code": "SS",
+    "prefix": "211",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "ad8de9ec-a132-483e-8fa9-de825b05202b",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.759Z",
+    "updated": "2024-10-21T10:21:25.759Z",
+    "active": true,
+    "name": "Monaco",
+    "code": "MC",
+    "prefix": "377",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "ad9d8e03-2c44-43c7-a578-a9d62bcbdc91",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.966Z",
+    "updated": "2024-10-21T10:21:24.966Z",
+    "active": true,
+    "name": "Bulgarie",
+    "code": "BG",
+    "prefix": "359",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "addec468-35b8-4f0b-83c1-e867947d2186",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.821Z",
+    "updated": "2024-10-21T10:21:24.821Z",
+    "active": true,
+    "name": "Aruba",
+    "code": "AW",
+    "prefix": "297",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "af4b4745-2b93-4d18-8212-46dfff3a957d",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.249Z",
+    "updated": "2024-10-21T10:21:26.249Z",
+    "active": true,
+    "name": "Tunisie",
+    "code": "TN",
+    "prefix": "216",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "af94ab54-957f-44f5-9365-459c980a29ea",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.110Z",
+    "updated": "2024-10-21T10:21:25.110Z",
+    "active": true,
+    "name": "Congo",
+    "code": "CG",
+    "prefix": "242",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "b0ac6f4e-e842-447b-8359-1e11dfe06c97",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.746Z",
+    "updated": "2024-10-21T10:21:24.746Z",
+    "active": true,
+    "name": "Afghanistan",
+    "code": "AF",
+    "prefix": "93",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "b0f43fce-fe0d-4642-9e8d-27e1c3bad6d2",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.223Z",
+    "updated": "2024-10-21T10:21:26.223Z",
+    "active": true,
+    "name": "Togo",
+    "code": "TG",
+    "prefix": "228",
+    "is_covered": true
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "b1202cfb-a35a-4b75-a0b6-e26bc4f8caa2",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.894Z",
+    "updated": "2024-10-21T10:21:25.894Z",
+    "active": true,
+    "name": "Palaos",
+    "code": "PW",
+    "prefix": "680",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "b2fa5c57-9025-48a0-924d-39883ad1e7b8",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.907Z",
+    "updated": "2024-10-21T10:21:25.907Z",
+    "active": true,
+    "name": "Panama",
+    "code": "PA",
+    "prefix": "507",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "b49138d5-6b3d-4ef0-84f3-815d77a29d5e",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.520Z",
+    "updated": "2024-10-21T10:21:25.520Z",
+    "active": true,
+    "name": "Jamaïque",
+    "code": "JM",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "b4dfbba4-fce2-41f8-90c7-31f8c19db6ad",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.104Z",
+    "updated": "2024-10-21T10:21:25.104Z",
+    "active": true,
+    "name": "Comores",
+    "code": "KM",
+    "prefix": "269",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "b53ac590-a2a1-41f2-b44a-1e7500cf25bc",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.774Z",
+    "updated": "2024-10-21T10:21:25.774Z",
+    "active": true,
+    "name": "Monténégro",
+    "code": "ME",
+    "prefix": "382",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "b714d5bd-6064-4ef6-a012-caa3ce9f5332",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.040Z",
+    "updated": "2024-10-21T10:21:26.040Z",
+    "active": true,
+    "name": "Samoa",
+    "code": "WS",
+    "prefix": "685",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "b81a06cb-afc0-4e66-99a0-99e4fa716572",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.077Z",
+    "updated": "2024-10-21T10:21:25.077Z",
+    "active": true,
+    "name": "Chine",
+    "code": "CN",
+    "prefix": "86",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "b84c529f-ddc3-491f-8ec1-44cc2eaf62cb",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.803Z",
+    "updated": "2024-10-21T10:21:24.803Z",
+    "active": true,
+    "name": "Antigua-et-Barbuda",
+    "code": "AG",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "b8656af4-b009-4c8a-8511-1147a2883468",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.972Z",
+    "updated": "2024-10-21T10:21:25.972Z",
+    "active": true,
+    "name": "Kosovo",
+    "code": "XK",
+    "prefix": "383",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "b86c65eb-9a64-4f08-92db-86e6d8557f6a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.851Z",
+    "updated": "2024-10-21T10:21:25.851Z",
+    "active": true,
+    "name": "Nigéria",
+    "code": "NG",
+    "prefix": "234",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "ba5c5669-33f6-4d88-ba89-a3f8916ec583",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.368Z",
+    "updated": "2024-10-21T10:21:25.368Z",
+    "active": true,
+    "name": "Grenade",
+    "code": "GD",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "ba7ee663-6150-4cc9-a4b0-9436c006f467",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.746Z",
+    "updated": "2024-10-21T10:21:25.746Z",
+    "active": true,
+    "name": "Micronésie",
+    "code": "FM",
+    "prefix": "691",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "bb359924-b4b1-453b-871a-291d568001ba",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.447Z",
+    "updated": "2024-10-21T10:21:25.448Z",
+    "active": true,
+    "name": "Hong Kong",
+    "code": "HK",
+    "prefix": "852",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "bca156ab-3f10-47d9-b108-3f4984abed4f",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.142Z",
+    "updated": "2024-10-21T10:21:26.142Z",
+    "active": true,
+    "name": "Sri Lanka",
+    "code": "LK",
+    "prefix": "94",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "bcfd98e0-2cc5-4693-818e-02a1e001f444",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.146Z",
+    "updated": "2024-10-21T10:21:25.146Z",
+    "active": true,
+    "name": "Îles Cook",
+    "code": "CK",
+    "prefix": "682",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "bd1753b3-5595-47ed-8884-5c505b0556e3",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.936Z",
+    "updated": "2024-10-21T10:21:24.936Z",
+    "active": true,
+    "name": "Territoire britannique de l'océan Indien",
+    "code": "IO",
+    "prefix": "246",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "bd943bf0-fa0c-474b-8424-59b2f7341190",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.938Z",
+    "updated": "2024-10-21T10:21:25.938Z",
+    "active": true,
+    "name": "Îles Pitcairn",
+    "code": "PN",
+    "prefix": "64",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "be5c2e2a-062b-46da-9361-20f37b31b382",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.086Z",
+    "updated": "2024-10-21T10:21:25.086Z",
+    "active": true,
+    "name": "Île Christmas",
+    "code": "CX",
+    "prefix": "61",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "bfdf1bb0-e1f9-4e8a-9007-ee653b0a4d9e",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.174Z",
+    "updated": "2024-10-21T10:21:26.174Z",
+    "active": true,
+    "name": "Swaziland",
+    "code": "SZ",
+    "prefix": "268",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "c1adbc6f-cdb3-4df7-8085-ea78109c103e",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.251Z",
+    "updated": "2024-10-21T10:21:25.251Z",
+    "active": true,
+    "name": "Guinée-Équatoriale",
+    "code": "GQ",
+    "prefix": "240",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "c3463224-7308-4dc7-bab6-b18eedaf8fbc",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.828Z",
+    "updated": "2024-10-21T10:21:25.828Z",
+    "active": true,
+    "name": "Nouvelle-Calédonie",
+    "code": "NC",
+    "prefix": "687",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "c3d8b7de-bb66-4193-949c-476f5340a04d",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.908Z",
+    "updated": "2024-10-21T10:21:24.908Z",
+    "active": true,
+    "name": "Bonaire, Saint-Eustache et Saba",
+    "code": "BQ",
+    "prefix": "599",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "c53ecdc7-26ab-4307-8236-64a40980abb7",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.334Z",
+    "updated": "2024-10-21T10:21:25.334Z",
+    "active": true,
+    "name": "Géorgie",
+    "code": "GE",
+    "prefix": "995",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "c565e077-f48d-44f8-a8f1-28ab96bfc28b",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.705Z",
+    "updated": "2024-10-21T10:21:25.705Z",
+    "active": true,
+    "name": "Îles Marshall",
+    "code": "MH",
+    "prefix": "692",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "c621e399-ad52-4971-bcdf-0eed3009000d",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.281Z",
+    "updated": "2024-10-21T10:21:26.281Z",
+    "active": true,
+    "name": "Ukraine",
+    "code": "UA",
+    "prefix": "380",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "c8d310d0-e8bc-476c-a4fa-016d15bc3f2f",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.180Z",
+    "updated": "2024-10-21T10:21:26.180Z",
+    "active": true,
+    "name": "Suède",
+    "code": "SE",
+    "prefix": "46",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "c8deb7d1-a2ac-4e9c-bad3-a6abdef032a3",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.086Z",
+    "updated": "2024-10-21T10:21:26.086Z",
+    "active": true,
+    "name": "Singapour",
+    "code": "SG",
+    "prefix": "65",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "c9c59d30-091d-4bb7-9577-cc685a08eada",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.809Z",
+    "updated": "2024-10-21T10:21:24.809Z",
+    "active": true,
+    "name": "Argentine",
+    "code": "AR",
+    "prefix": "54",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "ca892fcc-c92a-4c83-b8d2-87cc302f1625",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.752Z",
+    "updated": "2024-10-21T10:21:25.752Z",
+    "active": true,
+    "name": "Moldavie",
+    "code": "MD",
+    "prefix": "373",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "caf56fdf-3ebe-435e-b2ae-e2217fe449b8",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.261Z",
+    "updated": "2024-10-21T10:21:25.261Z",
+    "active": true,
+    "name": "Estonie",
+    "code": "EE",
+    "prefix": "372",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "cc89b8cd-b09d-48bc-aa1b-3229633d3f41",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.959Z",
+    "updated": "2024-10-21T10:21:24.959Z",
+    "active": true,
+    "name": "Brunei",
+    "code": "BN",
+    "prefix": "673",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "cca0819e-a84a-4255-bfbf-c86f2a0f75c6",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.196Z",
+    "updated": "2024-10-21T10:21:26.196Z",
+    "active": true,
+    "name": "Taïwan",
+    "code": "TW",
+    "prefix": "886",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "cce1a5eb-da25-4945-8131-bd7b0ee5b1aa",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.245Z",
+    "updated": "2024-10-21T10:21:25.245Z",
+    "active": true,
+    "name": "Salvador",
+    "code": "SV",
+    "prefix": "503",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "cd848466-9858-43c9-a1e2-510f1f19dd35",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.719Z",
+    "updated": "2024-10-21T10:21:25.719Z",
+    "active": true,
+    "name": "Mauritanie",
+    "code": "MR",
+    "prefix": "222",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "cd8c97e1-829e-4fd1-9753-dca48dde32be",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.527Z",
+    "updated": "2024-10-21T10:21:25.527Z",
+    "active": true,
+    "name": "Japon",
+    "code": "JP",
+    "prefix": "81",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "ce096fb6-efdf-4e61-80ce-830797785a2b",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.834Z",
+    "updated": "2024-10-21T10:21:24.834Z",
+    "active": true,
+    "name": "Autriche",
+    "code": "AT",
+    "prefix": "43",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "ceb2994c-32a8-4dd8-8f31-6e8d372894d1",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.243Z",
+    "updated": "2024-10-21T10:21:26.243Z",
+    "active": true,
+    "name": "Trinité et Tobago",
+    "code": "TT",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "cfc39761-d27f-4ab9-9e24-f53886a02dcf",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.952Z",
+    "updated": "2024-10-21T10:21:25.952Z",
+    "active": true,
+    "name": "Portugal",
+    "code": "PT",
+    "prefix": "351",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "d0fde7fa-7a2a-4f6a-a1f0-bb4d39a49643",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.579Z",
+    "updated": "2024-10-21T10:21:25.579Z",
+    "active": true,
+    "name": "Laos",
+    "code": "LA",
+    "prefix": "856",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "d1445873-59ff-4131-b57a-727f633853b9",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.619Z",
+    "updated": "2024-10-21T10:21:25.620Z",
+    "active": true,
+    "name": "Libye",
+    "code": "LY",
+    "prefix": "218",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "d177c3ee-ba80-4ca0-8b17-653317ffb953",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.409Z",
+    "updated": "2024-10-21T10:21:25.409Z",
+    "active": true,
+    "name": "Guyane",
+    "code": "GY",
+    "prefix": "592",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "d278af42-4dd2-4fdb-923c-11f8f1825a2d",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.627Z",
+    "updated": "2024-10-21T10:21:25.627Z",
+    "active": true,
+    "name": "Liechtenstein",
+    "code": "LI",
+    "prefix": "423",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "d2f939eb-479d-4f47-a2de-935c4d126b26",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.341Z",
+    "updated": "2024-10-21T10:21:26.341Z",
+    "active": true,
+    "name": "Yémen",
+    "code": "YE",
+    "prefix": "967",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "d495360b-25b7-474e-aec5-4f2ac4daa62c",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.891Z",
+    "updated": "2024-10-21T10:21:24.891Z",
+    "active": true,
+    "name": "Bermudes",
+    "code": "BM",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "d555d8ce-a7ef-46a1-b5e6-8e72c33d2182",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.027Z",
+    "updated": "2024-10-21T10:21:25.027Z",
+    "active": true,
+    "name": "Cameroun",
+    "code": "CM",
+    "prefix": "237",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "d5eb9502-ff78-42d1-9241-12ad76ffc098",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.455Z",
+    "updated": "2024-10-21T10:21:25.455Z",
+    "active": true,
+    "name": "Islande",
+    "code": "IS",
+    "prefix": "354",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "d86c1639-e7a1-4701-86af-5063e739e93c",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.209Z",
+    "updated": "2024-10-21T10:21:25.209Z",
+    "active": true,
+    "name": "Danemark",
+    "code": "DK",
+    "prefix": "45",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "da486388-297d-4d57-9186-a5f99ed5b2e4",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.280Z",
+    "updated": "2024-10-21T10:21:25.280Z",
+    "active": true,
+    "name": "Îles Féroé",
+    "code": "FO",
+    "prefix": "298",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "db17a481-6cbf-4c0b-b3a9-4086ced82cca",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.186Z",
+    "updated": "2024-10-21T10:21:26.186Z",
+    "active": true,
+    "name": "Suisse",
+    "code": "CH",
+    "prefix": "41",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "dc1503ea-9c2f-455d-becb-6c611ce3d089",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.351Z",
+    "updated": "2024-10-21T10:21:25.351Z",
+    "active": true,
+    "name": "Gibraltar",
+    "code": "GI",
+    "prefix": "350",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "dc9a9fb4-f10f-4da4-a0ff-d64e4334b09a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.532Z",
+    "updated": "2024-10-21T10:21:25.532Z",
+    "active": true,
+    "name": "Jersey",
+    "code": "JE",
+    "prefix": "44",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "dcc43ffd-1899-47e5-a0f1-47450d055146",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.513Z",
+    "updated": "2024-10-21T10:21:25.513Z",
+    "active": true,
+    "name": "Italie",
+    "code": "IT",
+    "prefix": "39",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "dd894626-f84b-4967-954f-b7ed1a2b7d9a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.983Z",
+    "updated": "2024-10-21T10:21:24.983Z",
+    "active": true,
+    "name": "Burkina Faso",
+    "code": "BF",
+    "prefix": "226",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "de5722b9-a1c4-4c6b-bd86-d57450dab697",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.071Z",
+    "updated": "2024-10-21T10:21:25.071Z",
+    "active": true,
+    "name": "Chili",
+    "code": "CL",
+    "prefix": "56",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "df24d68d-bb34-4bdc-b9ff-6394f81a8331",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.221Z",
+    "updated": "2024-10-21T10:21:25.221Z",
+    "active": true,
+    "name": "Dominique",
+    "code": "DM",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "e0024219-f3cb-489d-af7e-42a75128a798",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.822Z",
+    "updated": "2024-10-21T10:21:25.822Z",
+    "active": true,
+    "name": "Pays-Bas",
+    "code": "NL",
+    "prefix": "31",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "e37a6f52-46e4-4998-8586-8dc27eecd713",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.880Z",
+    "updated": "2024-10-21T10:21:24.880Z",
+    "active": true,
+    "name": "Belize",
+    "code": "BZ",
+    "prefix": "501",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "e59496fb-2f82-4fd2-bbdc-f3f9a89400b3",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.215Z",
+    "updated": "2024-10-21T10:21:25.215Z",
+    "active": true,
+    "name": "Djibouti",
+    "code": "DJ",
+    "prefix": "253",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "e740b989-4e12-4cde-b2f2-cba52be5329e",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.380Z",
+    "updated": "2024-10-21T10:21:25.380Z",
+    "active": true,
+    "name": "Guam",
+    "code": "GU",
+    "prefix": "1",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "e7609cf3-d84a-46c4-96be-80b7eb3381c8",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.303Z",
+    "updated": "2024-10-21T10:21:25.303Z",
+    "active": true,
+    "name": "Guayane",
+    "code": "GF",
+    "prefix": "594",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "e85e5ef2-718d-4c92-b40f-f8bdf535eade",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.840Z",
+    "updated": "2024-10-21T10:21:24.840Z",
+    "active": true,
+    "name": "Azerbaïdjan",
+    "code": "AZ",
+    "prefix": "994",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "e97aac9f-f8ea-45bc-841d-b912663b6d2c",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.097Z",
+    "updated": "2024-10-21T10:21:26.097Z",
+    "active": true,
+    "name": "Slovaquie",
+    "code": "SK",
+    "prefix": "421",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "ea8a59b4-b545-4b86-a61c-f14afe5746eb",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.977Z",
+    "updated": "2024-10-21T10:21:25.977Z",
+    "active": true,
+    "name": "Réunion",
+    "code": "RE",
+    "prefix": "262",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "ec30c9b3-0f58-4fa6-b881-b99f24aa3d86",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.346Z",
+    "updated": "2024-10-21T10:21:26.346Z",
+    "active": true,
+    "name": "Zambie",
+    "code": "ZM",
+    "prefix": "260",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "edc92a8b-0062-4c65-853a-a2ba0747db97",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.128Z",
+    "updated": "2024-10-21T10:21:25.128Z",
+    "active": true,
+    "name": "Congo (Rép. dém.)",
+    "code": "CD",
+    "prefix": "243",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "eeb68c46-923c-4a8d-9e1a-e2284219f015",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.833Z",
+    "updated": "2024-10-21T10:21:25.833Z",
+    "active": true,
+    "name": "Nouvelle-Zélande",
+    "code": "NZ",
+    "prefix": "64",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "ef7a1cb3-8d4f-485c-82ba-1f9669693759",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.259Z",
+    "updated": "2024-10-21T10:21:26.259Z",
+    "active": true,
+    "name": "Turkménistan",
+    "code": "TM",
+    "prefix": "993",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "f065e97f-11de-43a3-833c-93c668dbe213",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.764Z",
+    "updated": "2024-10-21T10:21:24.764Z",
+    "active": true,
+    "name": "Algérie",
+    "code": "DZ",
+    "prefix": "213",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "f07c15b5-a751-47ea-a7c8-69631c36f1c6",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.092Z",
+    "updated": "2024-10-21T10:21:25.092Z",
+    "active": true,
+    "name": "Îles Cocos",
+    "code": "CC",
+    "prefix": "61",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "f176c0fd-62c5-4e57-99ee-9fe7b2525ce3",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.058Z",
+    "updated": "2024-10-21T10:21:26.058Z",
+    "active": true,
+    "name": "Arabie Saoudite",
+    "code": "SA",
+    "prefix": "966",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "f3c7efa3-31d6-44df-bdfe-00e37a66b3cd",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.797Z",
+    "updated": "2024-10-21T10:21:24.797Z",
+    "active": true,
+    "name": "Antarctique",
+    "code": "AQ",
+    "prefix": "672",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "f5d3626d-dfd5-4335-bbef-1727299b6b28",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.902Z",
+    "updated": "2024-10-21T10:21:24.902Z",
+    "active": true,
+    "name": "Bolivie",
+    "code": "BO",
+    "prefix": "591",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "f5d9c1bb-554a-4ea3-b4f3-259e034451c4",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.052Z",
+    "updated": "2024-10-21T10:21:26.052Z",
+    "active": true,
+    "name": "Sao Tomé-et-Principe",
+    "code": "ST",
+    "prefix": "239",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "f5e6cda4-539b-48d5-8d0d-c241c3f8c314",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.232Z",
+    "updated": "2024-10-21T10:21:25.232Z",
+    "active": true,
+    "name": "Équateur",
+    "code": "EC",
+    "prefix": "593",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "f859e054-26e6-448d-8de0-65686a761ba4",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.309Z",
+    "updated": "2024-10-21T10:21:25.309Z",
+    "active": true,
+    "name": "Polynésie française",
+    "code": "PF",
+    "prefix": "689",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "f86bb316-7db6-4dc0-971a-edfa5a406090",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:26.102Z",
+    "updated": "2024-10-21T10:21:26.102Z",
+    "active": true,
+    "name": "Slovénie",
+    "code": "SI",
+    "prefix": "386",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "fa8bf456-1ab9-4f71-9240-c024999622bb",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.943Z",
+    "updated": "2024-10-21T10:21:25.943Z",
+    "active": true,
+    "name": "Pologne",
+    "code": "PL",
+    "prefix": "48",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "fe0a47bc-0a96-4a11-80b7-e558fe00f2b6",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.669Z",
+    "updated": "2024-10-21T10:21:25.669Z",
+    "active": true,
+    "name": "Malawi",
+    "code": "MW",
+    "prefix": "265",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.country",
+  "pk": "feccf519-1432-4c46-b37a-5e26c9718e79",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:25.931Z",
+    "updated": "2024-10-21T10:21:25.931Z",
+    "active": true,
+    "name": "Philippines",
+    "code": "PH",
+    "prefix": "63",
+    "is_covered": false
+  }
+},
+{
+  "model": "utils.variable",
+  "pk": "20c73fad-ce6f-4d40-9147-04267cac5579",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.416Z",
+    "updated": "2024-10-21T10:21:24.416Z",
+    "active": true,
+    "label": "The Label",
+    "name": "CURRENT_SITE_BASE_ADDRESS",
+    "type": "str",
+    "unit": "",
+    "is_unique": true,
+    "editable": true
+  }
+},
+{
+  "model": "utils.variable",
+  "pk": "530fb2cc-0f01-4c23-b466-db37e429d9ea",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.487Z",
+    "updated": "2024-10-21T10:21:24.487Z",
+    "active": true,
+    "label": "The Label",
+    "name": "EVENT_APPROACH_NOTIFICATIONS_MOMENTS",
+    "type": "int",
+    "unit": "",
+    "is_unique": false,
+    "editable": true
+  }
+},
+{
+  "model": "utils.variable",
+  "pk": "6f9ab89e-6b27-4337-810e-1a8484d95a09",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.507Z",
+    "updated": "2024-10-21T10:21:24.507Z",
+    "active": true,
+    "label": "The Label",
+    "name": "TICKET_NEARLY_SOLD_OUT_PERCENTAGES_FOR_NOTIFICATIONS",
+    "type": "int",
+    "unit": "",
+    "is_unique": false,
+    "editable": true
+  }
+},
+{
+  "model": "utils.variable",
+  "pk": "b5c2a912-e8d5-4718-ace7-65670f307b0a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.435Z",
+    "updated": "2024-10-21T10:21:24.435Z",
+    "active": true,
+    "label": "The Label",
+    "name": "PERCENTAGE_ABOUT_A_TICKET_SELLING",
+    "type": "float",
+    "unit": "",
+    "is_unique": true,
+    "editable": true
+  }
+},
+{
+  "model": "utils.variable",
+  "pk": "f31b8f3e-6b33-4ae7-a355-52941bb0f7d6",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.469Z",
+    "updated": "2024-10-21T10:21:24.469Z",
+    "active": true,
+    "label": "The Label",
+    "name": "MINIMAL_AMOUNT_REQUIRED_TO_COVER_WITHDRAWALS_COST",
+    "type": "float",
+    "unit": "",
+    "is_unique": true,
+    "editable": true
+  }
+},
+{
+  "model": "utils.variable",
+  "pk": "f61e3843-24ec-4b7c-be81-2a93b4bdccb0",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.452Z",
+    "updated": "2024-10-21T10:21:24.452Z",
+    "active": true,
+    "label": "The Label",
+    "name": "MINIMAL_AMOUNT_REQUIRED_FOR_WITHDRAW",
+    "type": "float",
+    "unit": "",
+    "is_unique": true,
+    "editable": true
+  }
+},
+{
+  "model": "utils.variablevalue",
+  "pk": "8c633291-1ef4-4dc6-861f-9e5dd7a004fd",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.494Z",
+    "updated": "2024-10-21T10:21:24.494Z",
+    "active": true,
+    "variable": "530fb2cc-0f01-4c23-b466-db37e429d9ea",
+    "value": "3600"
+  }
+},
+{
+  "model": "utils.variablevalue",
+  "pk": "a4b8be3f-ef04-4155-a443-6a0eba613dbd",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.494Z",
+    "updated": "2024-10-21T10:21:24.494Z",
+    "active": true,
+    "variable": "530fb2cc-0f01-4c23-b466-db37e429d9ea",
+    "value": "259200"
+  }
+},
+{
+  "model": "utils.variablevalue",
+  "pk": "ae4237bf-d89b-4e25-b2e4-f1c41ca9545e",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.424Z",
+    "updated": "2024-10-21T10:21:24.424Z",
+    "active": true,
+    "variable": "20c73fad-ce6f-4d40-9147-04267cac5579",
+    "value": "https://api.wuloevents.com"
+  }
+},
+{
+  "model": "utils.variablevalue",
+  "pk": "ae42ad3b-201c-4865-ad29-0216d8b03450",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.494Z",
+    "updated": "2024-10-21T10:21:24.494Z",
+    "active": true,
+    "variable": "530fb2cc-0f01-4c23-b466-db37e429d9ea",
+    "value": "86400"
+  }
+},
+{
+  "model": "utils.variablevalue",
+  "pk": "bc86797c-4360-4f14-af2c-2d0c51d68ad8",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.514Z",
+    "updated": "2024-10-21T10:21:24.514Z",
+    "active": true,
+    "variable": "6f9ab89e-6b27-4337-810e-1a8484d95a09",
+    "value": "20"
+  }
+},
+{
+  "model": "utils.variablevalue",
+  "pk": "c5fba074-8252-4f6b-88c8-73f81c0bb517",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.459Z",
+    "updated": "2024-10-21T10:21:24.459Z",
+    "active": true,
+    "variable": "f61e3843-24ec-4b7c-be81-2a93b4bdccb0",
+    "value": "10000.00"
+  }
+},
+{
+  "model": "utils.variablevalue",
+  "pk": "cd9e1f3e-b984-4882-8def-7c87a66262ec",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.476Z",
+    "updated": "2024-10-21T10:21:24.476Z",
+    "active": true,
+    "variable": "f31b8f3e-6b33-4ae7-a355-52941bb0f7d6",
+    "value": "50000.00"
+  }
+},
+{
+  "model": "utils.variablevalue",
+  "pk": "f095ef06-e989-4938-9ef7-8624ea444722",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.514Z",
+    "updated": "2024-10-21T10:21:24.514Z",
+    "active": true,
+    "variable": "6f9ab89e-6b27-4337-810e-1a8484d95a09",
+    "value": "10"
+  }
+},
+{
+  "model": "utils.variablevalue",
+  "pk": "f3de798a-87b2-4a57-a02f-48aa8ee07a1f",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.442Z",
+    "updated": "2024-10-21T10:21:24.442Z",
+    "active": true,
+    "variable": "b5c2a912-e8d5-4718-ace7-65670f307b0a",
+    "value": "0.05"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": "608f372e-6ab5-4c48-a0cb-356f28ab4e93",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T12:56:05.651Z",
+    "updated": "2024-10-21T12:56:05.651Z",
+    "active": true,
+    "type": "1a8286e3-eac4-48cc-ad0e-b0f2a0201f2a",
+    "status": "SUCCESS",
+    "user": [
+      "Qn8nurYYBhjY"
+    ],
+    "email": "wesleymontcho@gmail.com",
+    "phone": null,
+    "target_phone_id": "",
+    "title": "Bienvenu Wesley Eliel",
+    "message": "",
+    "data": {},
+    "extra_data": {
+      "fullName": "Wesley Eliel"
+    },
+    "channels": [
+      "EMAIL"
+    ],
+    "icon": null,
+    "image": "",
+    "unread": true,
+    "scheduled_to_delivery": null
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": "77625986-39b7-4943-841a-3e3b33360cad",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T13:09:50.057Z",
+    "updated": "2024-10-21T13:09:50.057Z",
+    "active": true,
+    "type": "d25598a8-ff4b-496a-8e4f-517296ddad3d",
+    "status": "SUCCESS",
+    "user": null,
+    "email": "devbackend@devbackend.com",
+    "phone": null,
+    "target_phone_id": "",
+    "title": "Demande de validation de compte - DevBackend DevBackend",
+    "message": "",
+    "data": {},
+    "extra_data": {
+      "code": "837121",
+      "fullName": "DevBackend DevBackend",
+      "expiryTime": "10 minutes"
+    },
+    "channels": [
+      "EMAIL"
+    ],
+    "icon": null,
+    "image": "",
+    "unread": true,
+    "scheduled_to_delivery": null
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": "9820854a-4249-408a-8633-db62561a6b9e",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T12:56:14.373Z",
+    "updated": "2024-10-21T12:56:14.373Z",
+    "active": true,
+    "type": "d25598a8-ff4b-496a-8e4f-517296ddad3d",
+    "status": "SUCCESS",
+    "user": null,
+    "email": "wesleymontcho@gmail.com",
+    "phone": null,
+    "target_phone_id": "",
+    "title": "Demande de validation de compte - Wesley Eliel",
+    "message": "",
+    "data": {},
+    "extra_data": {
+      "code": "617366",
+      "fullName": "Wesley Eliel",
+      "expiryTime": "10 minutes"
+    },
+    "channels": [
+      "EMAIL"
+    ],
+    "icon": null,
+    "image": "",
+    "unread": true,
+    "scheduled_to_delivery": null
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": "ba240e5a-f95d-4ead-9c93-0bb1db6359cb",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T13:10:57.350Z",
+    "updated": "2024-10-21T13:10:57.350Z",
+    "active": true,
+    "type": "4b7738c4-37f9-4e6f-a7c5-40b9b203b2ab",
+    "status": "SUCCESS",
+    "user": [
+      "rCMsJlimrNkt"
+    ],
+    "email": "devbackend@devbackend.com",
+    "phone": null,
+    "target_phone_id": "",
+    "title": "Validation de compte réussi - DevBackend DevBackend",
+    "message": "",
+    "data": {},
+    "extra_data": {
+      "fullName": "DevBackend DevBackend"
+    },
+    "channels": [
+      "EMAIL"
+    ],
+    "icon": null,
+    "image": "",
+    "unread": true,
+    "scheduled_to_delivery": null
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": "bdbbf3ab-ea3a-48b7-9130-f230ace023ad",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T12:55:50.256Z",
+    "updated": "2024-10-21T12:55:50.256Z",
+    "active": true,
+    "type": "1a8286e3-eac4-48cc-ad0e-b0f2a0201f2a",
+    "status": "SUCCESS",
+    "user": [
+      "rCMsJlimrNkt"
+    ],
+    "email": "devbackend@devbackend.com",
+    "phone": null,
+    "target_phone_id": "",
+    "title": "Bienvenu DevBackend DevBackend",
+    "message": "",
+    "data": {},
+    "extra_data": {
+      "fullName": "DevBackend DevBackend"
+    },
+    "channels": [
+      "EMAIL"
+    ],
+    "icon": null,
+    "image": "",
+    "unread": true,
+    "scheduled_to_delivery": null
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": "be50d330-1e15-4c44-ac7b-da44fad94e0d",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T13:08:59.072Z",
+    "updated": "2024-10-21T13:08:59.072Z",
+    "active": true,
+    "type": "4b7738c4-37f9-4e6f-a7c5-40b9b203b2ab",
+    "status": "SUCCESS",
+    "user": [
+      "Qn8nurYYBhjY"
+    ],
+    "email": "wesleymontcho@gmail.com",
+    "phone": null,
+    "target_phone_id": "",
+    "title": "Validation de compte réussi - Wesley Eliel",
+    "message": "",
+    "data": {},
+    "extra_data": {
+      "fullName": "Wesley Eliel"
+    },
+    "channels": [
+      "EMAIL"
+    ],
+    "icon": null,
+    "image": "",
+    "unread": true,
+    "scheduled_to_delivery": null
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "07707769-a999-4a9f-b425-43d9ac15def1",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.719Z",
+    "updated": "2024-10-21T10:21:24.719Z",
+    "active": true,
+    "name": "NEARLY_SOLD_OUT_OF_TICKETS_OF_FAVOURED_EVENT",
+    "description": "NEARLY_SOLD_OUT_OF_TICKETS_OF_FAVOURED_EVENT"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "0d83ca72-6ecf-4430-b5d0-a4c173ca5580",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.599Z",
+    "updated": "2024-10-21T10:21:24.599Z",
+    "active": true,
+    "name": "PASSWORD_RESET_REQUEST",
+    "description": "PASSWORD_RESET_REQUEST"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "1276b431-6f7e-4ad9-ab1c-8dcf93945b15",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.641Z",
+    "updated": "2024-10-21T10:21:24.641Z",
+    "active": true,
+    "name": "APPROACH_OF_FAVOURED_EVENT",
+    "description": "APPROACH_OF_FAVOURED_EVENT"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "1a8286e3-eac4-48cc-ad0e-b0f2a0201f2a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.527Z",
+    "updated": "2024-10-21T10:21:24.527Z",
+    "active": true,
+    "name": "WELCOME",
+    "description": "WELCOME"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "396e76da-c31d-4fa6-a310-f19ed02c2363",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.680Z",
+    "updated": "2024-10-21T10:21:24.680Z",
+    "active": true,
+    "name": "EVENT_NEAR_BY_USER_LAST_LOCATION",
+    "description": "EVENT_NEAR_BY_USER_LAST_LOCATION"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "451b30ef-1ebb-4f9d-8511-3c93ba344b15",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.669Z",
+    "updated": "2024-10-21T10:21:24.669Z",
+    "active": true,
+    "name": "EVENT_LOCATION_NEAR_BY_USER_POI",
+    "description": "EVENT_LOCATION_NEAR_BY_USER_POI"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "4b3cd018-1983-46b8-8a64-00ec59cc6b3a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.537Z",
+    "updated": "2024-10-21T10:21:24.537Z",
+    "active": true,
+    "name": "ORDER_RECEIPT",
+    "description": "ORDER_RECEIPT"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "4b7738c4-37f9-4e6f-a7c5-40b9b203b2ab",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.580Z",
+    "updated": "2024-10-21T10:21:24.580Z",
+    "active": true,
+    "name": "ACCOUNT_VALIDATION_SUCCESSFUL",
+    "description": "ACCOUNT_VALIDATION_SUCCESSFUL"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "549a5348-aaad-49db-8f26-54fd6bba443f",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.558Z",
+    "updated": "2024-10-21T10:21:24.558Z",
+    "active": true,
+    "name": "NEW_EVENT_CREATION",
+    "description": "NEW_EVENT_CREATION"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "68553345-2209-4f97-b0ba-05a7b42d289e",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.548Z",
+    "updated": "2024-10-21T10:21:24.548Z",
+    "active": true,
+    "name": "EVENT_VALIDATED",
+    "description": "EVENT_VALIDATED"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "7a0aff73-8847-4d71-9589-a5eb4891b75a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.729Z",
+    "updated": "2024-10-21T10:21:24.729Z",
+    "active": true,
+    "name": "EVENT_HIGHLIGHTING_SUCCESSFUL",
+    "description": "EVENT_HIGHLIGHTING_SUCCESSFUL"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "7c018f03-160a-4050-bbc5-c5b4840f77e8",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.590Z",
+    "updated": "2024-10-21T10:21:24.590Z",
+    "active": true,
+    "name": "WITHDRAW_REQUEST_SUCCESSFUL",
+    "description": "WITHDRAW_REQUEST_SUCCESSFUL"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "7d24d84b-9a50-46b6-ae42-5061be8824f8",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.611Z",
+    "updated": "2024-10-21T10:21:24.611Z",
+    "active": true,
+    "name": "FOLLOWED_EVENT_PUBLISHER",
+    "description": "FOLLOWED_EVENT_PUBLISHER"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "84aab9b2-2702-4abd-a7b8-1eff2517bfe1",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.650Z",
+    "updated": "2024-10-21T10:21:24.650Z",
+    "active": true,
+    "name": "NEARLY_SOLD_OUT_OF_TICKETS",
+    "description": "NEARLY_SOLD_OUT_OF_TICKETS"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "93608417-d255-44bb-9845-04c1e91efcee",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.699Z",
+    "updated": "2024-10-21T10:21:24.699Z",
+    "active": true,
+    "name": "EVENT_LOCATION_INSIDE_ZONE_OF_INTEREST",
+    "description": "EVENT_LOCATION_INSIDE_ZONE_OF_INTEREST"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "a7b4cb4f-adc4-411a-ad7a-0c4023cf465a",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.740Z",
+    "updated": "2024-10-21T10:21:24.740Z",
+    "active": true,
+    "name": "SUBSCRIPTION_SUCCESSFUL",
+    "description": "SUBSCRIPTION_SUCCESSFUL"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "ccdd6543-eca8-416a-b3b0-3df826be8f8b",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.660Z",
+    "updated": "2024-10-21T10:21:24.660Z",
+    "active": true,
+    "name": "END_OF_TRANSACTION_PROCESSING",
+    "description": "END_OF_TRANSACTION_PROCESSING"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "d25598a8-ff4b-496a-8e4f-517296ddad3d",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.568Z",
+    "updated": "2024-10-21T10:21:24.568Z",
+    "active": true,
+    "name": "ACCOUNT_VALIDATION_REQUEST",
+    "description": "ACCOUNT_VALIDATION_REQUEST"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "e11986e8-20b7-4b89-91c1-a67c5eac58c6",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.710Z",
+    "updated": "2024-10-21T10:21:24.710Z",
+    "active": true,
+    "name": "NEW_EVENT_CREATION_IN_FAVORED_CATEGORY",
+    "description": "NEW_EVENT_CREATION_IN_FAVORED_CATEGORY"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "eaa1e04a-ee3b-4f28-af2f-e884cd3be818",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.630Z",
+    "updated": "2024-10-21T10:21:24.630Z",
+    "active": true,
+    "name": "PASSWORD_RESET_SUCCESSFUL",
+    "description": "PASSWORD_RESET_SUCCESSFUL"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "eab93f8e-2651-42b5-bf6f-4ce461907dc2",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.690Z",
+    "updated": "2024-10-21T10:21:24.690Z",
+    "active": true,
+    "name": "END_OF_TICKETS_GENERATION_FOR_ORDER",
+    "description": "END_OF_TICKETS_GENERATION_FOR_ORDER"
+  }
+},
+{
+  "model": "notifications.notificationtype",
+  "pk": "fb9f41df-d2e9-4671-897e-6201dd50681b",
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "timestamp": "2024-10-21T10:21:24.621Z",
+    "updated": "2024-10-21T10:21:24.621Z",
+    "active": true,
+    "name": "FAVOURITE_CATEGORY_EVENT",
+    "description": "FAVOURITE_CATEGORY_EVENT"
+  }
+},
+{
+  "model": "users.historicalapprole",
+  "pk": 1,
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "uuid": "18c62923-52d9-4833-8e2b-3557a884c37a",
+    "timestamp": "2024-10-21T10:21:24.030Z",
+    "updated": "2024-10-21T10:21:24.030Z",
+    "active": true,
+    "name": "Administrateur",
+    "label": "ADMIN",
+    "history_date": "2024-10-21T10:21:24.037Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "users.historicalapprole",
+  "pk": 2,
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "uuid": "a1e38d9e-3e4d-49a3-b0d0-05b5680442b1",
+    "timestamp": "2024-10-21T10:21:24.075Z",
+    "updated": "2024-10-21T10:21:24.075Z",
+    "active": true,
+    "name": "Staff",
+    "label": "STAFF",
+    "history_date": "2024-10-21T10:21:24.078Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "users.historicalapprole",
+  "pk": 3,
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "uuid": "61f2d7dd-d49e-4a16-be7e-d4935de84d95",
+    "timestamp": "2024-10-21T10:21:24.092Z",
+    "updated": "2024-10-21T10:21:24.092Z",
+    "active": true,
+    "name": "Support",
+    "label": "SUPPORT",
+    "history_date": "2024-10-21T10:21:24.095Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "users.historicalapprole",
+  "pk": 4,
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "uuid": "18928e55-8eb0-44d7-9bbf-4de1b8e769e2",
+    "timestamp": "2024-10-21T10:21:24.108Z",
+    "updated": "2024-10-21T10:21:24.108Z",
+    "active": true,
+    "name": "Comptable",
+    "label": "ACCOUNTANT",
+    "history_date": "2024-10-21T10:21:24.112Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "users.historicalapprole",
+  "pk": 5,
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "uuid": "939976e0-87b5-4554-a989-7cbc3addec0e",
+    "timestamp": "2024-10-21T10:21:24.130Z",
+    "updated": "2024-10-21T10:21:24.130Z",
+    "active": true,
+    "name": "Super Administrateur",
+    "label": "SUPER_ADMIN",
+    "history_date": "2024-10-21T10:21:24.133Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "users.historicalapprole",
+  "pk": 6,
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "uuid": "a118e27c-c649-4a20-a39a-d53243c12ee8",
+    "timestamp": "2024-10-21T10:21:24.149Z",
+    "updated": "2024-10-21T10:21:24.149Z",
+    "active": true,
+    "name": "Propriétaire d' Évènement",
+    "label": "EVENT_OWNER",
+    "history_date": "2024-10-21T10:21:24.153Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "users.historicalapprole",
+  "pk": 7,
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "uuid": "e4da0753-06a8-4501-9b6d-2a7ae536cb1a",
+    "timestamp": "2024-10-21T10:21:24.164Z",
+    "updated": "2024-10-21T10:21:24.164Z",
+    "active": true,
+    "name": "Collaborateur",
+    "label": "COLLABORATOR",
+    "history_date": "2024-10-21T10:21:24.167Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "users.historicalapprole",
+  "pk": 8,
+  "fields": {
+    "is_deleted": false,
+    "deleted_at": null,
+    "uuid": "902f5872-4757-4743-93b1-5fe837b7474b",
+    "timestamp": "2024-10-21T10:21:24.184Z",
+    "updated": "2024-10-21T10:21:24.184Z",
+    "active": true,
+    "name": "Commerciaux",
+    "label": "SALES_MANAGER",
+    "history_date": "2024-10-21T10:21:24.187Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+}
+]

@@ -1,0 +1,122 @@
+version: "3.9"
+
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "5"
+
+services:
+  redis_service:
+    image: redis:alpine
+    deploy:
+      replicas: 1
+    volumes:
+      - redis_data:/data
+    networks:
+      - wuloevents_network
+    logging: *default-logging
+
+  caddy:
+    image: caddy:2-alpine
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    deploy:
+      replicas: 2
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - wuloevents_network
+    logging: *default-logging
+
+  wuloevents_api_service:
+    image: wuloevents_api:latest
+    restart: always
+    networks:
+      - wuloevents_network
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - GUNICORN_LOG_LEVEL=info
+    command: >
+      sh -c "gunicorn backend.wsgi:application \
+             --bind 0.0.0.0:8000 \
+             --access-logfile - \
+             --error-logfile - \
+             --capture-output \
+             --log-level $${GUNICORN_LOG_LEVEL:-info}"
+    deploy:
+      replicas: 1
+      update_config:
+        order: start-first
+        failure_action: rollback
+        delay: 10s
+    volumes:
+      - static_volume:/app/static
+    logging: *default-logging
+
+  wuloevents_db_service:
+    image: postgis/postgis:15-3.4-alpine
+    env_file: .env.db
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.database == true
+    networks:
+      - wuloevents_network
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    logging: *default-logging
+
+  celery:
+    build: .
+    image: wuloevents_api:latest
+    restart: always
+    command: celery worker -A backend --loglevel=info -c 4
+    deploy:
+      replicas: 1
+    volumes:
+      - static_volume:/usr/src/app/static/staticfiles
+      - medias_volume:/usr/src/app/static/medias
+    networks:
+      - wuloevents_network
+    logging: *default-logging
+
+  celery-beat:
+    build: .
+    image: wuloevents_api:latest
+    restart: always
+    command: celery -A backend beat --loglevel=info --max-interval=300
+    deploy:
+      replicas: 2
+    volumes:
+      - static_volume:/usr/src/app/static/staticfiles
+      - medias_volume:/usr/src/app/static/medias
+    networks:
+      - wuloevents_network
+    logging: *default-logging
+
+volumes:
+  static_volume:
+  postgres_data:
+  medias_volume:
+  caddy_data:
+    driver: local
+  caddy_config:
+    driver: local
+  redis_data:
+
+networks:
+  wuloevents_network:
+    driver: overlay
+    attachable: true
+    driver_opts:
+      encrypted: "true"

@@ -1,0 +1,20 @@
+Pour faire un abonnement, deux étapes sont nécéssaires: 
+L'étape de l'enrégistrement dans la base de donné, et l'&tape du paiement. 
+
+
+
+En éffet, dans un premier temps on envoi une requête contenant les information de l'abonnement vers le backend.
+Ces infos sont stockés, un object "Abonnement" est cré dans la base de donné et retrourner dans la reponse à la requête précédemment envoyé.
+
+
+
+Ensuite vient l'étape du paiement,  sans quoi l'abonnement ne sera pas valide. 
+
+A ce niveau, on envoie une requête contenenant le numéro de téléphone de prélèvement des sous et l'identifiant de 
+l'abonnement [Celui créer plus haut parr exemple] que l'on souhaite facturer. 
+Une prémière reponse est renvoyé, et elle concerne si oui ou non le numéro de téléphone à reçu la facturation.
+Si selon la requête la facturation à bien été reçu par le client, alors une autre reponse s'en suivra. Et cette nouvelle reponse concernera 
+si Oui ou Non, l'utilisateur à confirmé ou infirmé la paiement. Cette nouvelle reponse sera transmise par un websocket.
+
+Du coup, dès lors que la prémière reponse est reçu ( celle concernant le faite que le numéro de téléphone ai reçu la facturation) on ouvrira une connection 
+websocket avec un identifiant "local_id" contenu dans le body de la première reponse. Plus de description sur cette connection websocket à venir [].

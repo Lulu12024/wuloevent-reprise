@@ -1,0 +1,5 @@
+Pour ajouter un type evenement, comme favoris
+
+1 -  Il faut récupéré la liste des évènements, 
+
+2 -  Envoyer une requête contenant l'identifiant du type d'évènement que l'on veut ajouter comme favoris

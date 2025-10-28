@@ -1,0 +1,56 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+djangorestframework-simplejwt = "*"
+python-dotenv = "*"
+django-cors-headers = "*"
+pillow = "*"
+phonenumbers = "*"
+django-model-utils = "*"
+datetimerange = "*"
+gunicorn = "*"
+django-leaflet = "*"
+geopy = "*"
+psycopg2-binary = "*"
+djangorestframework-gis = "*"
+mailjet-rest = "*"
+django-channels = "*"
+channels = "*"
+channels-redis = "*"
+django = "*"
+certifi = "*"
+celery = "==4.4.7"
+redis = "==3.5.3"
+drf-api-logger = "*"
+func-timeout = "*"
+faker = "*"
+djangorestframework = "*"
+django-filter = "*"
+json-log-formatter = "==0.5.1"
+twisted = { extras = ["http2", "tls"], version = "==22.10.0" }
+django-silk = "==5.0.2"
+daphne = "*"
+drf-nested-routers = "*"
+django-soft-delete = "==0.9.21"
+django-storages = "*"
+boto3 = "*"
+pygments = "*"
+drf-spectacular = "*"
+drf-standardized-errors = "*"
+fedapay = "*"
+sentry-sdk = { extras = ["django"], version = "*" }
+trycourier = "==6.1.0"
+drf-yasg = "*"
+django-simple-history = "*"
+reportlab = "==4.4.0"
+qrcode = "==8.2"
+
+[dev-packages]
+autopep8 = "*"
+flake8 = "*"
+
+[requires]
+python_version = "3.10"

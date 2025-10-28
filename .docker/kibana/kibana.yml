@@ -1,0 +1,2 @@
+server.name: "WuloEvents Logs Stack"
+server.basePath: "/kibana"

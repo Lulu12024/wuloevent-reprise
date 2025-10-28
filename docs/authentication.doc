@@ -1,0 +1,38 @@
+1 - REGISTER
+
+Pour s'enrégistrer, les champs suivant peuvent constituer la requête que l'on envoie au Backend:
+'first_name', 'last_name', 'email', 'sex'[Feminin, Masculin, Autres], 'phone', 'password', 'is_event_organizer'.
+Les champs requis sont les champs 'email' et 'password' afin de faciliter le processus d'enrégsitrement. Le champs 
+is_event_organizer s'il n'est pas renseigné est considéré comme False [ Ce champs distingue les organisateur d'evenement ]
+de simples utilisateur Il aidera dans le choix des interfaces à afficher ou pas selon le type d'utilisateur. On pourra 
+après demander alors à l'utilisateur de completer sont profil.
+
+2 - UPDATE PROFILE
+
+Pour modifier un profil, les champs suivant sont utilisable dans la requête:
+'first_name', 'last_name', 'email', 'sex'[Feminin, Masculin, Autres], 'phone', 'is_event_organizer', il sont tous facultatif. 
+
+3 - LOGIN
+
+Le body de la requête doit contenir une paire 'email' et 'password' et la reponse renvoyé est une paire 'accces_token' et 'refresh_token'. 
+Avant de pouvoir se connecter, l'utilisateur doit valider son compte. Lors de la création du compte un code lui est envoyé par mail. On devra alors
+prévoir une interface afin de récupérer le code pour valider le compte créé. 
+
+4 - VERIFY ACCOUNT. 
+
+L'utilisateur ayant reçu le code de validation du compte peut renseigner le code reçu pour valider son compte. Le body de la requête de verification 
+de compte devra donc contenir le mail de l'utilisateur de le code qu'il saisi. 
+
+5 - ASK VERIFICATION CODE
+
+Dans le cas ou l'utilisateur n'aurait pas valider son compte lors de la création, au moment du login, une erreur du genre compte non valide est renvoyé.
+Dans ce cas l'utilisateur peut redemander un code de confirmation en renseignant son mail. Le body de la requête de verification de compte contient donc ce mail.
+
+6 - CHANGE PASSWORD
+
+L'utilisateur connecté peut directement changer son mot de passe en renseignant l'ancien et le nouveau mot de passe. Le couple de mot de passe est envoyé dans 
+le body de la requête. 
+
+7 - RESET PASSWORD
+
+Lorsque l'utilisateur oublie sont mot de passe il peut faire une demande pour recupérer sont compte. 

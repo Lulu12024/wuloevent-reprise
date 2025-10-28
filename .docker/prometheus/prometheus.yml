@@ -1,0 +1,18 @@
+global:
+  scrape_interval: 3m
+  evaluation_interval: 3m
+
+  external_labels:
+    monitor: django-monitor
+
+rule_files:
+  - "django.rules"
+
+scrape_configs:
+  - job_name: "WuloEventsLogsScrapper"
+    metrics_path: /prometheus-server/metrics
+    static_configs:
+      - targets:
+          - wuloevents.backend.first.balancer:8000
+          # - wuloevents.backend.second.balancer:8000
+          # - wuloevents.backend.third.balancer:8000

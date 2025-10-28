@@ -1,0 +1,366 @@
+name: Backend application flow
+
+env:
+  SERVER_USERNAME_AND_HOST: ${{ inputs.SERVER_USERNAME }}@${{ inputs.remote_server_host }}
+  IMAGE_TAG: ${{ github.sha }}
+
+on:
+  workflow_call:
+    inputs:
+      remote_server_host:
+        required: true
+        type: string
+      SERVER_USERNAME:
+        required: true
+        type: string
+      ENV:
+        required: true
+        type: string
+      SENTRY_DNS:
+        required: true
+        type: string
+      MAILJET_APIKEY_PUBLIC:
+        required: true
+        type: string
+      SQL_ENGINE:
+        required: true
+        type: string
+      SQL_HOST:
+        required: true
+        type: string
+      SQL_PORT:
+        required: true
+        type: string
+      DATABASE:
+        required: true
+        type: string
+      DEBUG:
+        required: true
+        type: string
+      ALLOWED_HOSTS:
+        required: true
+        type: string
+      CSRF_TRUSTED_ORIGINS:
+        required: true
+        type: string
+      REDIS_HOST:
+        required: true
+        type: string
+      ONE_SIGNAL_APP_ID:
+        required: true
+        type: string
+      USE_AWS:
+        required: true
+        type: string
+      AWS_ACCESS_KEY_ID:
+        required: true
+        type: string
+      AWS_STORAGE_BUCKET_NAME:
+        required: true
+        type: string
+      AWS_S3_REGION_NAME:
+        required: true
+        type: string
+      AWS_DEFAULT_ACL:
+        required: true
+        type: string
+      EMAIL_BACKEND:
+        required: true
+        type: string
+      EMAIL_HOST:
+        required: true
+        type: string
+      EMAIL_USE_TLS:
+        required: true
+        type: string
+      EMAIL_PORT:
+        required: true
+        type: string
+      EMAIL_HOST_USER:
+        required: true
+        type: string
+      EMAIL_HOST_PASSWORD:
+        required: true
+        type: string
+      EMAIL_NO_REPLY:
+        required: true
+        type: string
+      FIREBASE_APP_DOMAINE:
+        required: true
+        type: string
+      CERTBOT_EMAIL:
+        required: true
+        type: string
+      STAGING:
+        required: true
+        type: string
+      RENEWAL_INTERVAL:
+        required: true
+        type: string
+      CELERY_BROKER:
+        required: true
+        type: string
+      CELERY_BACKEND:
+        required: true
+        type: string
+
+    secrets:
+      remote_server_ssh_key:
+        required: true
+      MAILJET_APIKEY_PRIVATE:
+        required: true
+      SQL_DATABASE:
+        required: true
+      SQL_USER:
+        required: true
+      SQL_PASSWORD:
+        required: true
+      SECRET_KEY:
+        required: true
+      ONE_SIGNAL_USER_KEY:
+        required: true
+      ONE_SIGNAL_REST_API_KEY:
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        required: true
+      COURIER_AUTH_TOKEN:
+        required: true
+      FIREBASE_APP_WEB_API_KEY:
+        required: true
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      caddy: ${{ steps.filter.outputs.caddy }}
+      api: ${{ steps.filter.outputs.api }}
+      celery: ${{ steps.filter.outputs.celery }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            caddy:
+              - 'caddy/**'
+              - 'caddy/Caddyfile'
+            api:
+              - 'apps/**'
+              - 'backend/**'
+              - 'Dockerfile'
+              - 'requirements.txt'
+              - 'Pipfile'
+              - 'Pipfile.lock'
+              - '!backend/celery.py'
+            celery:
+              - 'backend/**'
+              - 'backend/celery.py'
+              - 'Dockerfile'
+              - 'requirements.txt'
+              - 'Pipfile'
+              - 'Pipfile.lock'
+              - 'apps/**/tasks/**'
+
+  deploy-caddy:
+    needs: changes
+    if: ${{ needs.changes.outputs.caddy == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.remote_server_ssh_key }}
+          known_hosts: ${{ inputs.remote_server_host }}
+
+      - name: Update Caddy service
+        run: |
+          ssh -o StrictHostKeyChecking=no "$SERVER_USERNAME_AND_HOST" "docker service update --force wuloevents_stack_caddy"
+
+  deploy-api:
+    needs: [changes, deploy-caddy]
+    if: always() && !cancelled() && !contains(needs.*.result, 'failure') && needs.changes.outputs.api == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.remote_server_ssh_key }}
+          known_hosts: ${{ inputs.remote_server_host }}
+
+      - name: Build and tag API image
+        working-directory: ./
+        run: |
+          # Write environment variables into .env file
+          echo "DEV_ENV=${{ inputs.ENV }}" >> .env
+          echo "ENV=${{ inputs.ENV }}" >> .env
+          echo "SENTRY_DNS=${{ inputs.SENTRY_DNS }}" >> .env
+          echo "MAILJET_APIKEY_PUBLIC=${{ inputs.MAILJET_APIKEY_PUBLIC }}" >> .env
+
+          echo "SQL_ENGINE=${{ inputs.SQL_ENGINE }}" >> .env
+          echo "SQL_HOST=${{ inputs.SQL_HOST }}" >> .env
+          echo "SQL_PORT=${{ inputs.SQL_PORT }}" >> .env
+          echo "DATABASE=${{ inputs.DATABASE }}" >> .env
+          echo "DEBUG=${{ inputs.DEBUG }}" >> .env
+          echo "ALLOWED_HOSTS=${{ inputs.ALLOWED_HOSTS }}" >> .env
+          echo "CSRF_TRUSTED_ORIGINS=${{ inputs.CSRF_TRUSTED_ORIGINS }}" >> .env
+          echo "REDIS_HOST=${{ inputs.REDIS_HOST }}" >> .env
+          echo "USE_AWS=${{ inputs.USE_AWS }}" >> .env
+          echo "AWS_ACCESS_KEY_ID=${{ inputs.AWS_ACCESS_KEY_ID }}" >> .env
+          echo "AWS_STORAGE_BUCKET_NAME=${{ inputs.AWS_STORAGE_BUCKET_NAME }}" >> .env
+          echo "AWS_S3_REGION_NAME=${{ inputs.AWS_S3_REGION_NAME }}" >> .env
+          echo "AWS_DEFAULT_ACL=${{ inputs.AWS_DEFAULT_ACL }}" >> .env
+
+          echo "EMAIL_BACKEND=${{ inputs.EMAIL_BACKEND }}" >> .env
+          echo "EMAIL_HOST=${{ inputs.EMAIL_HOST }}" >> .env
+          echo "EMAIL_USE_TLS=${{ inputs.EMAIL_USE_TLS }}" >> .env
+          echo "EMAIL_PORT=${{ inputs.EMAIL_PORT }}" >> .env
+          echo "EMAIL_HOST_USER=${{ inputs.EMAIL_HOST_USER }}" >> .env
+          echo "EMAIL_HOST_PASSWORD=${{ inputs.EMAIL_HOST_PASSWORD }}" >> .env
+          echo "EMAIL_NO_REPLY=${{ inputs.EMAIL_NO_REPLY }}" >> .env
+
+          # Write secret values into .env file
+          echo "SQL_DATABASE=${{ secrets.SQL_DATABASE }}" >> .env
+          echo "SQL_USER=${{ secrets.SQL_USER }}" >> .env
+          echo "SQL_PASSWORD=${{ secrets.SQL_PASSWORD }}" >> .env
+          echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> .env
+
+          echo "ONE_SIGNAL_APP_ID=${{ inputs.ONE_SIGNAL_APP_ID }}" >> .env
+          echo "ONE_SIGNAL_USER_KEY=${{ secrets.ONE_SIGNAL_USER_KEY }}" >> .env
+          echo "ONE_SIGNAL_REST_API_KEY=${{ secrets.ONE_SIGNAL_REST_API_KEY }}" >> .env
+          echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> .env
+          echo "COURIER_AUTH_TOKEN=${{ secrets.COURIER_AUTH_TOKEN }}" >> .env
+          echo "FIREBASE_APP_WEB_API_KEY=${{ secrets.FIREBASE_APP_WEB_API_KEY }}" >> .env
+          echo "FIREBASE_APP_DOMAINE=${{ inputs.FIREBASE_APP_DOMAINE }}" >> .env
+
+          echo "CELERY_BROKER=${{ inputs.CELERY_BROKER }}" >> .env
+          echo "CELERY_BACKEND=${{ inputs.CELERY_BACKEND }}" >> .env
+
+          # .ENV.NGINX
+          echo "CERTBOT_EMAIL=${{ inputs.CERTBOT_EMAIL }}" >> .env.nginx
+          echo "STAGING=${{ inputs.STAGING }}" >> .env.nginx
+          echo "RENEWAL_INTERVAL=${{ inputs.RENEWAL_INTERVAL }}" >> .env.nginx
+
+          # Build and tag the Docker image with commit hash
+          docker build -t wuloevents_api:${{ env.IMAGE_TAG }} -f Dockerfile .
+
+      - name: Push API image to remote
+        run: |
+          docker save wuloevents_api:${{ env.IMAGE_TAG }} | gzip | ssh -o StrictHostKeyChecking=no "$SERVER_USERNAME_AND_HOST" "gzip -d | docker load -q"
+
+      - name: Update API service
+        run: |
+          ssh -o StrictHostKeyChecking=no "$SERVER_USERNAME_AND_HOST" "docker service update \
+            --image wuloevents_api:${{ env.IMAGE_TAG }} \
+            --update-parallelism 1 \
+            --update-order start-first \
+            --update-delay 10s \
+            --update-monitor 10s \
+            --update-failure-action rollback \
+            --update-max-failure-ratio 0.5 \
+            wuloevents_stack_wuloevents_api_service"
+
+  deploy-celery:
+    needs: [changes, deploy-api]
+    if: always() && !cancelled() && !contains(needs.*.result, 'failure') && needs.changes.outputs.celery == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.remote_server_ssh_key }}
+          known_hosts: ${{ inputs.remote_server_host }}
+
+      - name: Build and tag Celery image
+        working-directory: ./
+        run: |
+          # Write environment variables into .env file
+          echo "DEV_ENV=${{ inputs.ENV }}" >> .env
+          echo "ENV=${{ inputs.ENV }}" >> .env
+          echo "SENTRY_DNS=${{ inputs.SENTRY_DNS }}" >> .env
+          echo "MAILJET_APIKEY_PUBLIC=${{ inputs.MAILJET_APIKEY_PUBLIC }}" >> .env
+
+          echo "SQL_ENGINE=${{ inputs.SQL_ENGINE }}" >> .env
+          echo "SQL_HOST=${{ inputs.SQL_HOST }}" >> .env
+          echo "SQL_PORT=${{ inputs.SQL_PORT }}" >> .env
+          echo "DATABASE=${{ inputs.DATABASE }}" >> .env
+          echo "DEBUG=${{ inputs.DEBUG }}" >> .env
+          echo "ALLOWED_HOSTS=${{ inputs.ALLOWED_HOSTS }}" >> .env
+          echo "CSRF_TRUSTED_ORIGINS=${{ inputs.CSRF_TRUSTED_ORIGINS }}" >> .env
+          echo "REDIS_HOST=${{ inputs.REDIS_HOST }}" >> .env
+          echo "USE_AWS=${{ inputs.USE_AWS }}" >> .env
+          echo "AWS_ACCESS_KEY_ID=${{ inputs.AWS_ACCESS_KEY_ID }}" >> .env
+          echo "AWS_STORAGE_BUCKET_NAME=${{ inputs.AWS_STORAGE_BUCKET_NAME }}" >> .env
+          echo "AWS_S3_REGION_NAME=${{ inputs.AWS_S3_REGION_NAME }}" >> .env
+          echo "AWS_DEFAULT_ACL=${{ inputs.AWS_DEFAULT_ACL }}" >> .env
+
+          echo "EMAIL_BACKEND=${{ inputs.EMAIL_BACKEND }}" >> .env
+          echo "EMAIL_HOST=${{ inputs.EMAIL_HOST }}" >> .env
+          echo "EMAIL_USE_TLS=${{ inputs.EMAIL_USE_TLS }}" >> .env
+          echo "EMAIL_PORT=${{ inputs.EMAIL_PORT }}" >> .env
+          echo "EMAIL_HOST_USER=${{ inputs.EMAIL_HOST_USER }}" >> .env
+          echo "EMAIL_HOST_PASSWORD=${{ inputs.EMAIL_HOST_PASSWORD }}" >> .env
+          echo "EMAIL_NO_REPLY=${{ inputs.EMAIL_NO_REPLY }}" >> .env
+
+          # Write secret values into .env file
+          echo "SQL_DATABASE=${{ secrets.SQL_DATABASE }}" >> .env
+          echo "SQL_USER=${{ secrets.SQL_USER }}" >> .env
+          echo "SQL_PASSWORD=${{ secrets.SQL_PASSWORD }}" >> .env
+          echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> .env
+
+          echo "ONE_SIGNAL_APP_ID=${{ inputs.ONE_SIGNAL_APP_ID }}" >> .env
+          echo "ONE_SIGNAL_USER_KEY=${{ secrets.ONE_SIGNAL_USER_KEY }}" >> .env
+          echo "ONE_SIGNAL_REST_API_KEY=${{ secrets.ONE_SIGNAL_REST_API_KEY }}" >> .env
+          echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> .env
+          echo "COURIER_AUTH_TOKEN=${{ secrets.COURIER_AUTH_TOKEN }}" >> .env
+          echo "FIREBASE_APP_WEB_API_KEY=${{ secrets.FIREBASE_APP_WEB_API_KEY }}" >> .env
+          echo "FIREBASE_APP_DOMAINE=${{ inputs.FIREBASE_APP_DOMAINE }}" >> .env
+
+          echo "CELERY_BROKER=${{ inputs.CELERY_BROKER }}" >> .env
+          echo "CELERY_BACKEND=${{ inputs.CELERY_BACKEND }}" >> .env
+
+          # .ENV.NGINX
+          echo "CERTBOT_EMAIL=${{ inputs.CERTBOT_EMAIL }}" >> .env.nginx
+          echo "STAGING=${{ inputs.STAGING }}" >> .env.nginx
+          echo "RENEWAL_INTERVAL=${{ inputs.RENEWAL_INTERVAL }}" >> .env.nginx
+
+          # Build and tag the Docker image with commit hash
+          docker build -t wuloevents_api:${{ env.IMAGE_TAG }} -f Dockerfile .
+
+      - name: Push Celery image to remote
+        run: |
+          docker save wuloevents_api:${{ env.IMAGE_TAG }} | gzip | ssh -o StrictHostKeyChecking=no "$SERVER_USERNAME_AND_HOST" "gzip -d | docker load -q"
+
+      - name: Update Celery services
+        run: |
+          # Update Celery Worker avec zero-downtime
+          ssh -o StrictHostKeyChecking=no "$SERVER_USERNAME_AND_HOST" "docker service update \
+            --image wuloevents_api:${{ env.IMAGE_TAG }} \
+            --update-parallelism 2 \
+            --update-order start-first \
+            --update-delay 5s \
+            --update-monitor 10s \
+            --update-failure-action rollback \
+            --update-max-failure-ratio 0.5 \
+            wuloevents_stack_celery"
+
+          # Update Celery Beat (un seul conteneur, donc pas de parallélisme)
+          ssh -o StrictHostKeyChecking=no "$SERVER_USERNAME_AND_HOST" "docker service update \
+            --image wuloevents_api:${{ env.IMAGE_TAG }} \
+            --update-order start-first \
+            --update-delay 5s \
+            --update-monitor 10s \
+            --update-failure-action rollback \
+            wuloevents_stack_celery-beat"
+
+      - name: Clean unused container and image
+        run: |
+          ssh -o StrictHostKeyChecking=no "$SERVER_USERNAME_AND_HOST" "docker system prune -f;"

@@ -1,0 +1,15 @@
+Publisher in event serializer, block some attrs returned
+
+
+En fonction du type de réduction vérifier si la personne qui l' ajoute es elligible
+
+Admin
+
+Conf Num: 69196638
+Password: admin
+
+
+## Todo:
+- Not add discount on full pass date
+- Update order creation docs payload
+- Check right usage of the "request.user" attr in case of admin request or not ( Check the right user to whom the discounts for example are applied )
