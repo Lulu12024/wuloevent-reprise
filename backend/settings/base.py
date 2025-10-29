@@ -27,7 +27,16 @@ from dotenv import load_dotenv, find_dotenv
 # set_level("INFO")
 load_dotenv(find_dotenv())
 
-APP_ID = "Logs"
+if os.name == 'nt':  # Windows
+    import osgeo
+    
+    # Chemin vers les données GDAL
+    os.environ['GDAL_DATA'] = os.path.join(os.path.dirname(osgeo.__file__), 'data', 'gdal')
+    os.environ['PROJ_LIB'] = os.path.join(os.path.dirname(osgeo.__file__), 'data', 'proj')
+    
+    # Chemin vers les bibliothèques DLL
+    GDAL_LIBRARY_PATH = os.path.join(os.path.dirname(osgeo.__file__), 'gdal.dll')
+    GEOS_LIBRARY_PATH = os.path.join(os.path.dirname(osgeo.__file__), 'geos_c.dll')
 
 # GEOS_LIBRARY_PATH = '/usr/lib/libgdal.so.31.0.0'
 # GDAL_LIBRARY_PATH = '/usr/lib/libgeos_c.so.1.16.0'

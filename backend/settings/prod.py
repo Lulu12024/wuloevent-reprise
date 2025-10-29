@@ -20,7 +20,7 @@ DEBUG = True
 APPEND_SLASH = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = environ.get("CSRF_TRUSTED_ORIGINS", "*").split(" ")
+# CSRF_TRUSTED_ORIGINS = environ.get("CSRF_TRUSTED_ORIGINS", "http://localhost:8000")
 
 SECRET_KEY = environ.get("SECRET_KEY")
 

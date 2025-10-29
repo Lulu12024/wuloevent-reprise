@@ -8,6 +8,7 @@ from drf_spectacular.utils import extend_schema_field
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
+from apps.events.models.super_seller_profile import OrganizationType
 from apps.organizations.models import (
     OrganizationFollow,
     Organization,
@@ -79,6 +80,16 @@ class OrganizationSerializer(serializers.ModelSerializer):
 
     is_owner = serializers.SerializerMethodField()
     current_user_role = serializers.SerializerMethodField()
+
+    organization_type = serializers.ChoiceField(
+        choices=OrganizationType.choices,
+        default=OrganizationType.STANDARD
+    )
+    is_super_seller = serializers.BooleanField(read_only=True, source='is_super_seller')
+    is_verified = serializers.BooleanField(read_only=True, source='is_super_seller_verified')
+    seller_count = serializers.IntegerField(read_only=True, source='get_seller_count')
+    
+
 
     def __init__(self, instance=None, *args, **kwargs):
         self.current_user = kwargs.pop("user", None)
@@ -165,12 +176,16 @@ class OrganizationSerializer(serializers.ModelSerializer):
             "phone_number_validated",
             "percentage",
             "percentage_if_discounted",
+            'organization_type',
+            'is_super_seller',
+            'is_verified',
+            'seller_count',
         )
         extra_kwargs = {
             "logo": {"required": False, "allow_null": False},
             "phone": {"required": False, "allow_null": False},
         }
-
+        read_only_fields = ['is_super_seller', 'is_verified', 'seller_count']
 
 class OrganizationFollowSerializer(serializers.ModelSerializer):
     follower = serializers.PrimaryKeyRelatedField(
