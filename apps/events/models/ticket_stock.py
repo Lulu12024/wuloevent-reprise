@@ -26,12 +26,7 @@ class StockTransactionType(models.TextChoices):
 class TicketStock(AbstractCommonBaseModel):
     """
     Gestion des stocks de tickets pour les vendeurs.
-    Chaque entrée représente le stock d'un vendeur pour un événement spécifique.
-    
-    Relations:
-    - seller: ForeignKey -> Seller (vendeur possédant le stock)
-    - event: ForeignKey -> Event (événement concerné)
-    - ticket: ForeignKey -> Ticket (type de ticket)
+   
     """
     
     # Relations

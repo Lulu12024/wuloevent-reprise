@@ -240,7 +240,6 @@ class Event(AbstractCommonBaseModel):
         Retourne l'URL d'accès pour un événement éphémère.
         """
         if self.is_ephemeral and self.ephemeral_access_code:
-            # À adapter selon votre configuration d'URL
             from django.conf import settings
             base_url = getattr(settings, 'FRONTEND_URL', 'https://app.wuloevents.com')
             return f"{base_url}/events/ephemeral/{self.ephemeral_access_code}"

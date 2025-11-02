@@ -27,6 +27,10 @@ from dotenv import load_dotenv, find_dotenv
 # set_level("INFO")
 load_dotenv(find_dotenv())
 
+APP_ID = "Logs"
+
+# GEOS_LIBRARY_PATH = '/usr/lib/libgdal.so.31.0.0'
+# GDAL_LIBRARY_PATH = '/usr/lib/libgeos_c.so.1.16.0'
 if os.name == 'nt':  # Windows
     import osgeo
     
@@ -37,10 +41,6 @@ if os.name == 'nt':  # Windows
     # Chemin vers les bibliothèques DLL
     GDAL_LIBRARY_PATH = os.path.join(os.path.dirname(osgeo.__file__), 'gdal.dll')
     GEOS_LIBRARY_PATH = os.path.join(os.path.dirname(osgeo.__file__), 'geos_c.dll')
-
-# GEOS_LIBRARY_PATH = '/usr/lib/libgdal.so.31.0.0'
-# GDAL_LIBRARY_PATH = '/usr/lib/libgeos_c.so.1.16.0'
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -90,6 +90,7 @@ INSTALLED_APPS = [
     "apps.utils",
     "apps.news",
     "apps.chat_rooms",
+    "apps.super_sellers",
 ]
 
 # 'backend.middlewares.loggers.RequestLogMiddleware',

@@ -85,11 +85,9 @@ class OrganizationSerializer(serializers.ModelSerializer):
         choices=OrganizationType.choices,
         default=OrganizationType.STANDARD
     )
-    is_super_seller = serializers.BooleanField(read_only=True, source='is_super_seller')
-    is_verified = serializers.BooleanField(read_only=True, source='is_super_seller_verified')
-    seller_count = serializers.IntegerField(read_only=True, source='get_seller_count')
-    
-
+    is_super_seller = serializers.BooleanField(read_only=True)
+    is_verified = serializers.SerializerMethodField()  
+    seller_count = serializers.SerializerMethodField()  
 
     def __init__(self, instance=None, *args, **kwargs):
         self.current_user = kwargs.pop("user", None)
@@ -107,6 +105,16 @@ class OrganizationSerializer(serializers.ModelSerializer):
                 and request.user == instance.owner
         )
 
+    @extend_schema_field(serializers.BooleanField)
+    def get_is_verified(self, instance):
+        """Vérifie si c'est un super-vendeur vérifié"""
+        return instance.is_super_seller_verified()
+
+    @extend_schema_field(serializers.IntegerField)
+    def get_seller_count(self, instance):
+        """Compte le nombre de vendeurs"""
+        return instance.get_seller_count() if hasattr(instance, 'get_seller_count') else 0
+    
     def get_current_user_role(
             self, instance
     ) -> Literal["OWNER", "MEMBER", "COORDINATOR", None]:

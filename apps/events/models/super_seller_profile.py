@@ -38,9 +38,7 @@ class SuperSellerProfile(AbstractCommonBaseModel):
     Profil étendu pour les organisations de type Super-Vendeur.
     Contient les informations KYC et de paiement.
     
-    Relations:
-    - organization: OneToOne -> Organization (super-vendeur)
-    - kyc_verified_by: ForeignKey -> User (administrateur qui a vérifié)
+    
     """
     
     # Relation avec l'organisation
