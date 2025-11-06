@@ -64,22 +64,24 @@ class InviteSellerAPIView(APIView):
         self.check_permissions(request)
 
         serializer = SellerInvitationCreateSerializer(
-            data=request.data, context={"request": request, "organization": self.organization}
+            data=request.data, 
+            context={"request": request, "organization": self.organization}
         )
         serializer.is_valid(raise_exception=True)
         invitation = serializer.save()
 
-        # Envoi
+        # Envoi (commenté pour le moment)
         if invitation.channel == InvitationChannel.EMAIL and invitation.email:
-            return
-            #send_invitation_email(invitation)
+            pass  # ✅ Remplacé par pass
+            # TODO: send_invitation_email(invitation)
         elif invitation.channel == InvitationChannel.SMS and invitation.phone:
-            return
-            #send_invitation_sms(invitation)
+            pass  # ✅ Remplacé par pass
+            # TODO: send_invitation_sms(invitation)
         elif invitation.channel == InvitationChannel.WHATSAPP and invitation.phone:
-            return
-            #send_invitation_whatsapp(invitation)
+            pass  # ✅ Remplacé par pass
+            # TODO: send_invitation_whatsapp(invitation)
 
+        # Toujours retourner une réponse
         out = SellerInvitationSerializer(invitation)
         return Response(out.data, status=status.HTTP_201_CREATED)
 

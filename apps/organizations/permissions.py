@@ -206,11 +206,11 @@ class IsSuperSellerVerified(permissions.BasePermission):
             logger.warning("Accès refusé : utilisateur non authentifié")
             return False
         
-        from apps.organizations.models import OrganizationMember
+        from apps.organizations.models import OrganizationMembership
         
         try:
             # Chercher l'organisation super-vendeur de l'utilisateur
-            member = OrganizationMember.objects.filter(
+            member = OrganizationMembership.objects.filter(
                 user=request.user,
                 active=True
             ).select_related('organization').first()

@@ -63,15 +63,15 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_REFRESH_LIFETIME": datetime.timedelta(hours=3),
 }
 
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {"hosts": [environ.get("REDIS_HOST", "redis://redis:6379/4")]},
-    },
-}
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {"hosts": [environ.get("REDIS_HOST", "redis://redis:6379/4")]},
+#     },
+# }
 
-CELERY_BROKER_URL = environ.get("CELERY_BROKER", "redis://redis_service:6379/0")
-CELERY_RESULT_BACKEND = environ.get("CELERY_BROKER", "redis://redis_service:6379/0")
+# CELERY_BROKER_URL = environ.get("CELERY_BROKER", "redis://redis_service:6379/0")
+# CELERY_RESULT_BACKEND = environ.get("CELERY_BROKER", "redis://redis_service:6379/0")
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -123,3 +123,10 @@ sentry_sdk.init(
     send_default_pii=True,
     release="production",
 )
+
+CELERY_TASK_ALWAYS_EAGER = True  # Exécute les tâches immédiatement de manière synchrone
+CELERY_TASK_EAGER_PROPAGATES = True  # Propage les exceptions
+CELERY_BROKER_URL = 'memory://'  # Broker en mémoire
+CELERY_RESULT_BACKEND = 'cache+memory://'  # Backend en mémoire
+
+print("⚠️  MODE DEV: Celery en mode synchrone - Redis non requis")

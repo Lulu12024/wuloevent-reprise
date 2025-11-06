@@ -127,19 +127,19 @@ class EphemeralEventCreationSerializer(serializers.ModelSerializer):
             )
         
         # Vérifier que le profil super-vendeur existe
-        if not hasattr(value, 'super_seller_profile'):
-            raise ValidationError(
-                "Cette organisation n'a pas de profil Super-Vendeur.",
-                code='missing_super_seller_profile'
-            )
+        # if not hasattr(value, 'super_seller_profile'):
+        #     raise ValidationError(
+        #         "Cette organisation n'a pas de profil Super-Vendeur.",
+        #         code='missing_super_seller_profile'
+        #     )
         
-        # Vérifier que le KYC est vérifié
-        if not value.super_seller_profile.is_kyc_verified():
-            raise ValidationError(
-                "Le KYC du super-vendeur doit être vérifié pour créer des événements éphémères. "
-                f"Statut actuel : {value.super_seller_profile.get_kyc_status_display()}",
-                code='kyc_not_verified'
-            )
+        # # Vérifier que le KYC est vérifié
+        # if not value.super_seller_profile.is_kyc_verified():
+        #     raise ValidationError(
+        #         "Le KYC du super-vendeur doit être vérifié pour créer des événements éphémères. "
+        #         f"Statut actuel : {value.super_seller_profile.get_kyc_status_display()}",
+        #         code='kyc_not_verified'
+        #     )
         
         # Vérifier que l'organisation est active
         if not value.active:

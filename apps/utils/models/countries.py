@@ -36,7 +36,8 @@ class Country(AbstractCommonBaseModel):
 
     def save(self, *args, **kwargs):
         if self.prefix == "" or self.prefix is None:
-            countries_list_path = os.path.join(Path(__file__).resolve().parent, 'utils', 'file', 'countries.json')
+            # countries_list_path = os.path.join(Path(__file__).resolve().parent, 'utils', 'files', 'countries.json')
+            countries_list_path = "C:\\Users\\AGL\\Documents\\SOURCE\\wuloevents-api\\apps\\utils\\utils\\files\\countries.json"
             countries_list = json.load(open(countries_list_path))
             for item in countries_list:
                 if item['code'] == self.code:

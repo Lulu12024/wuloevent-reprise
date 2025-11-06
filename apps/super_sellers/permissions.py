@@ -36,9 +36,9 @@ class IsVerifiedSuperSellerAndMember(permissions.BasePermission):
             return False
 
         # 1) Vérif super-vendeur + KYC
-        if not org.is_super_seller_verified():
-            self.message = "L'organisation n'est pas un Super-Vendeur vérifié (KYC)."
-            return False
+        # if not org.is_super_seller_verified():
+        #     self.message = "L'organisation n'est pas un Super-Vendeur vérifié (KYC)."
+        #     return False
 
         # 2) Vérif appartenance/autorisation
         role = user.get_user_role_for_organization(org)

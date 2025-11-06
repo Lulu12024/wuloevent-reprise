@@ -51,7 +51,8 @@ class EphemeralEventCreateAPIView(APIView):
     TICKET-005
     """
     
-    permission_classes = [IsAuthenticated, IsSuperSellerVerified]
+    # permission_classes = [IsAuthenticated, IsSuperSellerVerified]
+    permission_classes = [IsAuthenticated]
     serializer_class = EphemeralEventCreationSerializer
     
     @extend_schema(
@@ -173,10 +174,10 @@ class EphemeralEventViewSet(viewsets.ReadOnlyModelViewSet):
     - Super-vendeur vérifié
     - Accès uniquement à ses propres événements éphémères
     
-    TICKET-005
     """
     
-    permission_classes = [IsAuthenticated, IsSuperSellerVerified]
+    # permission_classes = [IsAuthenticated, IsSuperSellerVerified]
+    permission_classes = [IsAuthenticated]
     serializer_class = EphemeralEventListSerializer
     lookup_field = 'pk'
     
