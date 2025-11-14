@@ -8,4 +8,4 @@ Created on October 29, 2025
 
 
 from apps.super_sellers.models.seller_invitation import *
-
+from apps.super_sellers.models.reporting import *

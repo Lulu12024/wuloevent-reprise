@@ -275,6 +275,10 @@ CELERY_BEAT_SCHEDULE = {
         "task": "apps.organizations.tasks.subscriptions_tasks.update_subscriptions_active_status",
         "schedule": crontab(minute=0, hour="*/1"),
     },
+    "scan-send-reports-every-5min": {
+        "task": "apps.super_sellers.tasks.reporting_tasks.scan_and_send_scheduled_reports",
+        "schedule": crontab(minute="*/5"),
+    },
 }
 
 APPEND_SLASH = True
