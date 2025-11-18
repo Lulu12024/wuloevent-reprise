@@ -237,7 +237,7 @@ class WithdrawalViewSet(viewsets.ModelViewSet):
         Approuver une demande (admin uniquement).
         PATCH /api/withdrawals/{id}/approve
         """
-        # TODO: Ajouter permission IsAdmin
+        # Ajouter permission IsAdmin
         if not request.user.is_staff:
             return Response(
                 {"detail": "Seuls les administrateurs peuvent approuver des retraits"},
