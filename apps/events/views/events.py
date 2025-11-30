@@ -221,16 +221,16 @@ class WriteOnlyEventViewSet(WriteOnlyNestedModelViewSet):
     parent_lookup_url_kwarg = "organization_pk"
 
     permission_classes_by_action = {
-        # "create": [
-        #     IsAuthenticated,
-        #     OR(
-        #         (OrganizationHaveActiveSubscription & IsOrganizationEventManager)(),
-        #         OR(
-        #             IsAdminUser(),
-        #             HasAppAdminPermissionFor("Admin-Operation-Event-Create"),
-        #         ),
-        #     ),
-        # ],
+        "create": [
+            IsAuthenticated,
+            OR(
+                (OrganizationHaveActiveSubscription & IsOrganizationEventManager)(),
+                OR(
+                    IsAdminUser(),
+                    HasAppAdminPermissionFor("Admin-Operation-Event-Create"),
+                ),
+            ),
+        ],
         "create_private": [
             IsAuthenticated,
             OR(

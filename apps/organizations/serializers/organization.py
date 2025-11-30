@@ -8,7 +8,6 @@ from drf_spectacular.utils import extend_schema_field
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
-from apps.events.models.super_seller_profile import OrganizationType
 from apps.organizations.models import (
     OrganizationFollow,
     Organization,
@@ -81,14 +80,6 @@ class OrganizationSerializer(serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()
     current_user_role = serializers.SerializerMethodField()
 
-    organization_type = serializers.ChoiceField(
-        choices=OrganizationType.choices,
-        default=OrganizationType.STANDARD
-    )
-    is_super_seller = serializers.BooleanField(read_only=True)
-    is_verified = serializers.SerializerMethodField()  
-    seller_count = serializers.SerializerMethodField()  
-
     def __init__(self, instance=None, *args, **kwargs):
         self.current_user = kwargs.pop("user", None)
         super().__init__(instance, *args, **kwargs)
@@ -105,16 +96,6 @@ class OrganizationSerializer(serializers.ModelSerializer):
                 and request.user == instance.owner
         )
 
-    @extend_schema_field(serializers.BooleanField)
-    def get_is_verified(self, instance):
-        """Vérifie si c'est un super-vendeur vérifié"""
-        return instance.is_super_seller_verified()
-
-    @extend_schema_field(serializers.IntegerField)
-    def get_seller_count(self, instance):
-        """Compte le nombre de vendeurs"""
-        return instance.get_seller_count() if hasattr(instance, 'get_seller_count') else 0
-    
     def get_current_user_role(
             self, instance
     ) -> Literal["OWNER", "MEMBER", "COORDINATOR", None]:
@@ -184,16 +165,12 @@ class OrganizationSerializer(serializers.ModelSerializer):
             "phone_number_validated",
             "percentage",
             "percentage_if_discounted",
-            'organization_type',
-            'is_super_seller',
-            'is_verified',
-            'seller_count',
         )
         extra_kwargs = {
             "logo": {"required": False, "allow_null": False},
             "phone": {"required": False, "allow_null": False},
         }
-        read_only_fields = ['is_super_seller', 'is_verified', 'seller_count']
+
 
 class OrganizationFollowSerializer(serializers.ModelSerializer):
     follower = serializers.PrimaryKeyRelatedField(

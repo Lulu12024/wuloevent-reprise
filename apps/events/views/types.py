@@ -48,15 +48,15 @@ class EventTypeViewSet(BaseModelsViewSet):
     http_method_names = ["post", "get", "put", "delete"]
 
     permission_classes_by_action = {
-        # "create": [
-        #     IsAuthenticated,
-        #     OR(
-        #         IsAdminUser(),
-        #         HasAppAdminPermissionFor(
-        #             "Admin-Operation-Event-Type-Create"
-        #         ),
-        #     ),
-        # ],
+        "create": [
+            IsAuthenticated,
+            OR(
+                IsAdminUser(),
+                HasAppAdminPermissionFor(
+                    "Admin-Operation-Event-Type-Create"
+                ),
+            ),
+        ],
         "retrieve": [AllowAny],
         "list": [AllowAny],
         "update": [

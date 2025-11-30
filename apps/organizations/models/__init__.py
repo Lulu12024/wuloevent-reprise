@@ -5,5 +5,3 @@ from apps.organizations.models.organizations import *
 from apps.organizations.models.roles import *
 from apps.organizations.models.subscriptions import *
 from apps.organizations.models.withdraws import *
-from apps.events.models.seller import *
-from apps.events.models.ticket_stock import *

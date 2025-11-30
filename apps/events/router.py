@@ -20,7 +20,6 @@ from apps.events.views import (
     EventTypeViewSet,
     SponsorsViewSet,
 )
-from apps.events.views.commission_views import CommissionCalculationViewSet, EventCommissionOfferViewSet, SuperSellerOfferViewSet
 
 router = DefaultRouter()
 router.register(r"events", ReadOnlyEventViewSet,
@@ -38,13 +37,5 @@ router.register(r"orders", OrderViewSet, basename="OrderViewSet")
 router.register(r"event-types", EventTypeViewSet, basename="EventTypeViewSet")
 router.register(r"event-highlighting-types", EventHighlightingTypeViewSet, basename="EventHighlightingTypeViewSet")
 router.register(r'sponsors', SponsorsViewSet, basename='SponsorViewSet')
-
-router.register(r'commission-offers',EventCommissionOfferViewSet,basename='commission-offer')
-
-# Routes pour les super-vendeurs
-router.register(r'super-seller/offers',SuperSellerOfferViewSet,basename='super-seller-offer')
-
-# Routes pour les calculs
-router.register(r'commissions',CommissionCalculationViewSet, basename='commission-calculation')
 
 urls_patterns = router.urls

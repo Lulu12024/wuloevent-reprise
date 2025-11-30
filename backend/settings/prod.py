@@ -20,7 +20,7 @@ DEBUG = True
 APPEND_SLASH = True
 
 ALLOWED_HOSTS = ["*"]
-# CSRF_TRUSTED_ORIGINS = environ.get("CSRF_TRUSTED_ORIGINS", "http://localhost:8000")
+CSRF_TRUSTED_ORIGINS = environ.get("CSRF_TRUSTED_ORIGINS", "*").split(" ")
 
 SECRET_KEY = environ.get("SECRET_KEY")
 
@@ -123,10 +123,3 @@ sentry_sdk.init(
     send_default_pii=True,
     release="production",
 )
-
-CELERY_TASK_ALWAYS_EAGER = True  # Exécute les tâches immédiatement de manière synchrone
-CELERY_TASK_EAGER_PROPAGATES = True  # Propage les exceptions
-CELERY_BROKER_URL = 'memory://'  # Broker en mémoire
-CELERY_RESULT_BACKEND = 'cache+memory://'  # Backend en mémoire
-
-# print("⚠️  MODE DEV: Celery en mode synchrone - Redis non requis")

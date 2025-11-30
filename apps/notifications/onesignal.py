@@ -18,7 +18,7 @@ browser = Session()
 browser.verify = False
 browser.headers = {
     "Accept": "application/json",
-    "Authorization":  f"Basic {ONE_SIGNAL_REST_API_KEY or ''}",  
+    "Authorization": "Basic " + ONE_SIGNAL_REST_API_KEY,
     "Content-Type": "application/json"
 }
 

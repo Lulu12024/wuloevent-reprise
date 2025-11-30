@@ -58,16 +58,6 @@ class EventCreationSerializer(serializers.ModelSerializer):
         default=15,
     )
     private = serializers.BooleanField(required=False, default=False)
-    
-    is_ephemeral = serializers.BooleanField(required=False, default=False)
-    created_by_super_seller = serializers.PrimaryKeyRelatedField(
-        queryset=Organization.objects.filter(
-            organization_type='SUPER_SELLER',
-            active=True
-        ),
-        required=False,
-        allow_null=True
-    )
 
     class Meta:
         model = Event
@@ -90,33 +80,24 @@ class EventCreationSerializer(serializers.ModelSerializer):
             "have_passed_validation",
             "participant_limit",
             "private",
-            "autocreate_chatroom",
-            "is_ephemeral",               
-            "created_by_super_seller", 
+            "autocreate_chatroom"
         )
         write_only_fields = ["autocreate_chatroom"]
 
     def create(self, validated_data):
         should_create_chatroom = validated_data.pop('autocreate_chatroom', True)
-        is_ephemeral = validated_data.get('is_ephemeral', False)  # AJOUT
 
         instance = super().create(validated_data)
         instance.save()
 
-        # ========== AJOUT : Générer le code d'accès pour événements éphémères ==========
-        if is_ephemeral:
-            instance.generate_ephemeral_access_code()
-        # ========== FIN AJOUT ==========
-
-        # Ne pas créer de chatroom pour les événements éphémères
-        if should_create_chatroom and not is_ephemeral:  # MODIFICATION
+        if should_create_chatroom:
             name = validated_data.get("name")
             ChatRoom.objects.create(
-                title=f"Salon {name}",
-                type=ChatRoomTypeEnum.PRIMARY.value,
-                visibility=ChatRoomVisibilityEnum.PUBLIC.value,
-                event=instance,
-                cover_image=instance.cover_image
+                title = f"Salon {name}",
+                type = ChatRoomTypeEnum.PRIMARY.value,
+                visibility = ChatRoomVisibilityEnum.PUBLIC.value,
+                event = instance,
+                cover_image = instance.cover_image
             )
 
         return instance
@@ -168,37 +149,7 @@ class EventCreationSerializer(serializers.ModelSerializer):
                     code=ErrorEnum.PARTICIPANT_COUNT_EXCEEDS_LIMIT.value,
                 )
 
-        # ========== Validation pour événements éphémères ==========
-        is_ephemeral = attrs.get('is_ephemeral', False)
-        organization_id = attrs.get('organization')
-        
-        if is_ephemeral:
-            # Vérifier que l'organisation est un super-vendeur vérifié
-            try:
-                organization = Organization.objects.get(pk=organization_id)
-                
-                # Vérifier que c'est un super-vendeur
-                if not organization.is_super_seller():
-                    raise ValidationError({
-                        'is_ephemeral': 'Seuls les super-vendeurs peuvent créer des événements éphémères.'
-                    })
-                
-                # Vérifier que le super-vendeur est vérifié (KYC)
-                if not organization.is_super_seller_verified():
-                    raise ValidationError({
-                        'is_ephemeral': 'Le super-vendeur doit être vérifié (KYC validé) pour créer des événements éphémères.'
-                    })
-                
-                # Définir automatiquement created_by_super_seller
-                attrs['created_by_super_seller'] = organization
-                
-            except Organization.DoesNotExist:
-                raise ValidationError({
-                    'organization': 'Organisation introuvable.'
-                })
-        # ========== FIN ==========
         return data
-
 
     def validate_participant_limit(self, value):
         DEFAULT_LIMIT = 15
@@ -228,10 +179,6 @@ class LightEventSerializer(serializers.ModelSerializer):
         queryset=Country.objects.all(), required=False, allow_null=True
     )
 
-    is_ephemeral = serializers.BooleanField(read_only=True)
-    ephemeral_access_code = serializers.CharField(read_only=True)
-    ephemeral_access_url = serializers.SerializerMethodField()
-
     @extend_schema_field(serializers.BooleanField)
     def get_is_user_favourite(self, obj):
         request = self.context.get("request", None)
@@ -239,21 +186,6 @@ class LightEventSerializer(serializers.ModelSerializer):
             return obj.check_if_user_favourite(user=request.user)
         return None
 
-    @extend_schema_field(serializers.BooleanField)
-    def get_is_user_favourite(self, obj):
-        request = self.context.get("request", None)
-        if request and request.user and request.user.is_authenticated:
-            return obj.check_if_user_favourite(user=request.user)
-        return None
-
-    # ========== NOUVELLE MÉTHODE ==========
-    @extend_schema_field(serializers.CharField)
-    def get_ephemeral_access_url(self, obj):
-        """Retourne l'URL d'accès pour les événements éphémères"""
-        if obj.is_ephemeral:
-            return obj.get_ephemeral_access_url()
-        return None
-    
     class Meta:
         model = Event
         fields = (
@@ -275,10 +207,6 @@ class LightEventSerializer(serializers.ModelSerializer):
             "is_user_favourite",
             "organization",
             "participant_count",
-
-            "is_ephemeral",
-            "ephemeral_access_code",
-            "ephemeral_access_url",
         )
 
 
@@ -292,11 +220,6 @@ class EventSerializer(serializers.ModelSerializer):
     country = serializers.PrimaryKeyRelatedField(
         queryset=Country.objects.all(), required=False, allow_null=True
     )
-
-    is_ephemeral = serializers.BooleanField(read_only=True)
-    created_by_super_seller = OrganizationSerializerLight(read_only=True)
-    ephemeral_access_code = serializers.CharField(read_only=True)
-    ephemeral_access_url = serializers.SerializerMethodField()
 
     @extend_schema_field(serializers.BooleanField)
     def get_is_user_favourite(self, obj):
@@ -321,13 +244,6 @@ class EventSerializer(serializers.ModelSerializer):
             pass
         return 0
 
-    @extend_schema_field(serializers.CharField)
-    def get_ephemeral_access_url(self, obj):
-        """Retourne l'URL d'accès pour les événements éphémères"""
-        if obj.is_ephemeral:
-            return obj.get_ephemeral_access_url()
-        return None
-    
     class Meta:
         model = Event
         fields = (
@@ -353,45 +269,4 @@ class EventSerializer(serializers.ModelSerializer):
             "participant_count",
             "country",
             "expiry_date",
-            "is_ephemeral",
-            "created_by_super_seller",
-            "ephemeral_access_code",
-            "ephemeral_access_url",
         )
-        read_only_fields = ['ephemeral_access_code', 'ephemeral_access_url']
-
-    def get_ephemeral_access_url(self, obj):
-        """Retourne l'URL d'accès pour les événements éphémères"""
-        return obj.get_ephemeral_access_url()
-    
-
-class EphemeralEventSerializer(serializers.ModelSerializer):
-    """
-    Serializer pour les événements éphémères.
-    Utilisé pour récupérer un événement via son code d'accès.
-    """
-    type = EventTypeSerializer(read_only=True)
-    organization = OrganizationSerializerLight(read_only=True)
-    created_by_super_seller = OrganizationSerializerLight(read_only=True)
-    
-    class Meta:
-        model = Event
-        fields = (
-            "pk",
-            "name",
-            "description",
-            "type",
-            "default_price",
-            "location_name",
-            "location_lat",
-            "location_long",
-            "hour",
-            "date",
-            "cover_image",
-            "organization",
-            "created_by_super_seller",
-            "ephemeral_access_code",
-            "expiry_date",
-        )
-        read_only_fields = fields  # Tous les champs en lecture seule
-

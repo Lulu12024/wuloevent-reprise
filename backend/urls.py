@@ -60,7 +60,6 @@ urlpatterns = [
     path("v1/", include("apps.marketing.urls")),
     path("v1/", include("apps.news.urls")),
     path("v1/", include("apps.chat_rooms.urls")),
-    path("v1/", include("apps.super_sellers.urls")),
 ]
 
 handler404 = custom404

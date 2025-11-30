@@ -15,5 +15,4 @@ class EventsConfig(AppConfig):
 
     def ready(self):
         import apps.events.signals.handlers
-        import apps.events.signals.commission_signals
 

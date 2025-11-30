@@ -15,4 +15,3 @@ from apps.events.models.orders import *
 from apps.events.models.tickets import *
 from apps.events.models.types import *
 from apps.events.models.sponsors import *
-from apps.events.models.commission import *
