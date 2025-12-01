@@ -7,12 +7,12 @@ from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 from apps.events.models.ticket_stock import TicketStock
 from apps.events.services.commission_service import CommissionNotificationService
-
+from django.db.models import F
+from django.db.models.expressions import CombinedExpression
 
 # Seuils par défaut
 LOW_STOCK_THRESHOLD_SELLER = 10  # Alerter le vendeur quand il reste 10 tickets
 LOW_STOCK_THRESHOLD_SUPER_SELLER = 50  # Alerter le super-vendeur quand total < 50
-
 
 @receiver(pre_save, sender=TicketStock)
 def check_stock_levels(sender, instance, **kwargs):
@@ -21,7 +21,15 @@ def check_stock_levels(sender, instance, **kwargs):
     Envoyer des notifications si le stock est bas.
     """
     
-    # Calculer le stock disponible
+    # ✅ CORRECTION : Vérifier si on utilise des F expressions
+    # Si c'est le cas, on ne peut pas calculer maintenant (valeurs pas encore en DB)
+    if isinstance(instance.total_allocated, (F, CombinedExpression)) or \
+       isinstance(instance.total_sold, (F, CombinedExpression)):
+        # On ne peut pas calculer avec des F expressions
+        # On laisse la mise à jour se faire, la vérification se fera au prochain save normal
+        return
+    
+    # Calculer le stock disponible (seulement si ce sont des valeurs réelles)
     available = instance.total_allocated - instance.total_sold
     
     # Si c'est une mise à jour (pas une création)
@@ -41,7 +49,6 @@ def check_stock_levels(sender, instance, **kwargs):
                 )
         except TicketStock.DoesNotExist:
             pass
-
 
 @receiver(post_save, sender=TicketStock)
 def check_super_seller_total_stock(sender, instance, created, **kwargs):

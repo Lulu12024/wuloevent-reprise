@@ -54,7 +54,6 @@ def fetch_sales_data(super_seller, start, end):
     total_revenue = qs_orders.aggregate(s=Sum("item__line_total"))["s"] or Decimal("0.00")
     total_tickets = qs_orders.aggregate(q=Sum("item__quantity"))["q"] or 0
 
-    # Par vendeur (si ETicket.seller est enregistré, sinon relie via StockTransaction ou Order metadata)
     qs_etk = ETicket.objects.select_related("ticket", "event", "related_order")\
         .filter(event__organization=super_seller,
                 related_order__status="FINISHED",
@@ -63,16 +62,17 @@ def fetch_sales_data(super_seller, start, end):
 
     by_seller = (
         qs_etk.values("related_order__user")
-        .annotate(tickets=Count("id"))
+        .annotate(tickets=Count("pk"))  
         .order_by("-tickets")
     )
 
     by_event = (
-        qs_etk.values("event__id", "event__name")
-        .annotate(tickets=Count("id"))
+        qs_etk.values("event__pk", "event__name") 
+        .annotate(tickets=Count("pk"))  
         .order_by("-tickets")
     )
-
+    
+    print(f"Fetched sales data for {super_seller.name}: {total_tickets} tickets, {total_revenue} revenue")
     return {
         "period": {"start": start, "end": end},
         "totals": {"tickets": total_tickets, "revenue": str(total_revenue)},
@@ -139,9 +139,12 @@ def store_report_file(super_seller, content: bytes, start, end, fmt="PDF") -> st
     return path
 
 def build_and_archive_report(super_seller, frequency, fmt="PDF"):
+    print(f"Building report for {super_seller.name}...")
     start, end = compute_period(frequency)
+    print(f"Computed period: {start} to {end}")
     data = fetch_sales_data(super_seller, start, end)
-
+    print(f"Fetched sales data.{data}")
+    print(f"Generating {fmt} report for {super_seller.name} from {start} to {end}")
     if fmt == ReportFormat.PDF:
         file_bytes = generate_pdf_report(super_seller, data)
     elif fmt == ReportFormat.CSV:

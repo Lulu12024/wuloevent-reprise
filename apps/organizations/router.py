@@ -73,7 +73,7 @@ organization_routers.register(
 organization_routers.register(
     r"event-highlighting",
     EventHighlightingViewSet,
-    basename="WriteOnlyEventHighlightingViewSet",
+    basename="tHighlightingViewSet",
 )
 organization_routers.register(
     r"tickets", WriteOnlyTicketViewSet, basename="WriteOnlyTicketViewSet"

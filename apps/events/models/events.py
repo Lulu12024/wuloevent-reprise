@@ -15,7 +15,7 @@ from django.db import models
 from model_utils import FieldTracker
 from simple_history.models import HistoricalRecords
 
-from apps.events.managers import EventManager, AdminEventManager
+from apps.events.managers import EphemeralEventManager, EventManager, AdminEventManager
 from apps.notifications.utils.firebase import FirebaseDynamicLinkGenerator
 from apps.utils.utils import _upload_to
 from commons.models import AbstractCommonBaseModel
@@ -110,7 +110,37 @@ class Event(AbstractCommonBaseModel):
     admin_objects = AdminEventManager()
 
     history = HistoricalRecords()
+    
+    is_ephemeral = models.BooleanField(
+        default=False,
+        verbose_name="Événement éphémère",
+        help_text="Si coché, l'événement ne sera pas listé publiquement",
+        db_index=True
+    )
+    
+    created_by_super_seller = models.ForeignKey(
+        to='organizations.Organization',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='ephemeral_events',
+        verbose_name="Créé par super-vendeur",
+        help_text="Super-vendeur qui a créé cet événement éphémère (si applicable)"
+    )
+    
+    ephemeral_access_code = models.CharField(
+        max_length=50,
+        blank=True,
+        verbose_name="Code d'accès éphémère",
+        help_text="Code unique pour accéder à l'événement éphémère",
+        db_index=True
+    )
+    
 
+    objects = EventManager()              
+    admin_objects = AdminEventManager()  
+    ephemeral = EphemeralEventManager() 
+    
     def __str__(self) -> str:
         return self.name
 
@@ -179,3 +209,38 @@ class Event(AbstractCommonBaseModel):
                 name="private_event_participant_limit"
             )
         ]
+
+    def is_accessible_publicly(self):
+        """
+        Vérifie si l'événement est accessible publiquement.
+        Un événement éphémère n'est pas accessible publiquement.
+        """
+        return not self.is_ephemeral and self.valid and self.have_passed_validation
+    
+    def can_be_found_by_search(self):
+        """
+        Vérifie si l'événement peut être trouvé par recherche.
+        Les événements éphémères ne peuvent pas être recherchés.
+        """
+        return not self.is_ephemeral
+    
+    def generate_ephemeral_access_code(self):
+        """
+        Génère un code d'accès unique pour un événement éphémère.
+        À appeler lors de la création d'un événement éphémère.
+        """
+        if self.is_ephemeral and not self.ephemeral_access_code:
+            import uuid
+            self.ephemeral_access_code = f"EPH-{uuid.uuid4().hex[:12].upper()}"
+            self.save(update_fields=['ephemeral_access_code'])
+        return self.ephemeral_access_code
+    
+    def get_ephemeral_access_url(self):
+        """
+        Retourne l'URL d'accès pour un événement éphémère.
+        """
+        if self.is_ephemeral and self.ephemeral_access_code:
+            from django.conf import settings
+            base_url = getattr(settings, 'FRONTEND_URL', 'https://app.wuloevents.com')
+            return f"{base_url}/events/ephemeral/{self.ephemeral_access_code}"
+        return None

@@ -12,6 +12,7 @@ import logging
 from django.db import models
 from simple_history.models import HistoricalRecords
 
+from apps.events.models.super_seller_profile import OrganizationType
 from apps.organizations.managers import OrganisationManager
 from apps.utils.models import Variable
 from apps.utils.utils import _upload_to
@@ -71,8 +72,18 @@ class Organization(AbstractCommonBaseModel):
     percentage = models.FloatField(
         verbose_name="Pourcentage de Wulo Events", blank=True, null=True, default=None
     )
+
     percentage_if_discounted = models.FloatField(
         verbose_name="Pourcentage de Wulo Events", blank=True, null=True, default=None
+    )
+
+    organization_type = models.CharField(
+        max_length=20,
+        choices=OrganizationType.choices,
+        default=OrganizationType.STANDARD,
+        verbose_name="Type d'organisation",
+        help_text="Type d'organisation (Standard ou Super-Vendeur)",
+        db_index=True
     )
 
     history = HistoricalRecords()
@@ -133,3 +144,92 @@ class Organization(AbstractCommonBaseModel):
 
     def __str__(self) -> str:
         return f"{self.name} créé par {self.owner.get_full_name()}"
+    
+    def is_super_seller(self):
+        """Vérifie si l'organisation est un super-vendeur"""
+        return (
+            self.organization_type == OrganizationType.SUPER_SELLER and
+            hasattr(self, 'super_seller_profile')
+        )
+    
+    def is_super_seller_verified(self):
+        """Vérifie si l'organisation est un super-vendeur vérifié (KYC validé)"""
+        return (
+            self.is_super_seller() and
+            self.super_seller_profile.is_kyc_verified()
+        )
+    
+    def can_create_ephemeral_events(self):
+        """
+        Vérifie si l'organisation peut créer des événements éphémères.
+        Seuls les super-vendeurs vérifiés peuvent créer des événements éphémères.
+        """
+        return self.is_super_seller_verified()
+    
+    def can_manage_sellers(self):
+        """
+        Vérifie si l'organisation peut gérer des vendeurs.
+        Seuls les super-vendeurs vérifiés peuvent avoir des vendeurs.
+        """
+        return self.is_super_seller_verified()
+    
+    def get_sellers(self):
+        """
+        Retourne tous les vendeurs de cette organisation.
+        Retourne un QuerySet vide si ce n'est pas un super-vendeur.
+        """
+        if self.is_super_seller():
+            return self.sellers.all()
+        return self.sellers.none()
+    
+    def get_active_sellers(self):
+        """Retourne uniquement les vendeurs actifs"""
+        # from .seller import SellerStatus
+        from apps.events.models.seller import SellerStatus
+
+        if self.is_super_seller():
+            return self.sellers.filter(
+                status=SellerStatus.ACTIVE,
+                active=True
+            )
+        return self.sellers.none()
+    
+    def get_seller_count(self):
+        """Retourne le nombre de vendeurs actifs"""
+        return self.get_active_sellers().count()
+    
+    def get_total_stock_allocated(self):
+        """
+        Retourne le nombre total de tickets alloués aux vendeurs.
+        Uniquement pour les super-vendeurs.
+        """
+        if not self.is_super_seller():
+            return 0
+        
+        from django.db.models import Sum
+        from apps.events.models.ticket_stock import TicketStock
+
+        result = TicketStock.objects.filter(
+            seller__super_seller=self
+        ).aggregate(
+            total=Sum('total_allocated')
+        )
+        return result.get('total') or 0
+    
+    def get_total_tickets_sold_by_sellers(self):
+        """
+        Retourne le nombre total de tickets vendus par tous les vendeurs.
+        Uniquement pour les super-vendeurs.
+        """
+        if not self.is_super_seller():
+            return 0
+        
+        from apps.events.models.ticket_stock import TicketStock
+        from django.db.models import Sum
+        
+        result = TicketStock.objects.filter(
+            seller__super_seller=self
+        ).aggregate(
+            total=Sum('total_sold')
+        )
+        return result.get('total') or 0

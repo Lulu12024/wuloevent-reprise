@@ -6,6 +6,7 @@ Created on October 29, 2025
     Beaudelaire LAHOUME, alias root-lr
 """
 
+import logging
 from rest_framework import permissions, status, views
 from rest_framework.response import Response
 from drf_spectacular.utils import (
@@ -17,14 +18,27 @@ from apps.events.serializers import LightTicketSerializer, LightEventSerializer
 from apps.super_sellers.serializers.light import LightSellerSerializer 
 from apps.super_sellers.permissions import IsActiveSeller 
 
+logger = logging.getLogger(__name__)
+logger.setLevel('INFO')
+
 
 class SellerTicketSellView(views.APIView):
     """
     POST /api/sellers/tickets/sell
     Le vendeur connecté vend un ticket de son stock alloué.
     """
-    permission_classes = [permissions.IsAuthenticated, IsActiveSeller]
+    permission_classes = [permissions.IsAuthenticated]
 
+    def get_seller(self, user):
+        """
+        Récupère le profil seller de l'utilisateur.
+        """
+        from apps.events.models.seller import Seller
+        try:
+            return Seller.objects.filter(user=user).first()
+        except Seller.DoesNotExist:
+            return None
+        
     @extend_schema(
         operation_id="seller_ticket_sell",
         summary="Vente de tickets par un vendeur",
@@ -127,9 +141,15 @@ class SellerTicketSellView(views.APIView):
         serializer.is_valid(raise_exception=True)
         data = serializer.validated_data
 
-        seller = getattr(request, "seller_profile", None) 
+        # ✅ CORRECTION : Récupérer le seller depuis l'utilisateur
+        seller = self.get_seller(request.user)
+        
         if not seller:
-            return Response({"detail": "Profil vendeur introuvable."}, status=status.HTTP_403_FORBIDDEN)
+            return Response(
+                {"detail": "Profil vendeur introuvable. Vous devez être enregistré comme vendeur."},
+                status=status.HTTP_403_FORBIDDEN
+            )
+        
 
         try:
             order, e_tickets, stock = sell_tickets_by_seller(
@@ -148,10 +168,12 @@ class SellerTicketSellView(views.APIView):
             return Response({"detail": str(e)}, status=status.HTTP_409_CONFLICT)
         except Exception as e:
             logger.exception(e)
-            return Response({"detail": "Erreur interne lors de la vente."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response(
+                {"detail": "Erreur interne lors de la vente."},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
 
         # Réponse
-        first_ticket = e_tickets[0] if e_tickets else None
         payload = {
             "order": {
                 "id": str(order.pk),

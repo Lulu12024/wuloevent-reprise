@@ -17,7 +17,7 @@ from apps.events.models import Ticket, ETicket, Order, OrderItem
 from apps.events.models.tickets import Ticket as TicketModel
 from apps.events.models.ticket_stock import TicketStock, StockTransaction, StockTransactionType
 from apps.users.models import Transaction
-from apps.xlib.enums import TransactionKindEnum, OrderStatusEnum
+from apps.xlib.enums import PAYMENT_METHOD, TransactionKindEnum, OrderStatusEnum, TransactionStatusEnum
 from apps.super_sellers.services.notification import notify_seller_stock_allocated
 from apps.notifications.tasks import send_e_tickets_email_for_order
 
@@ -26,8 +26,6 @@ logger = logging.getLogger(__name__)
 
 class SellerSaleError(Exception):
     pass
-
-
 @transaction.atomic
 def sell_tickets_by_seller(
     *, 
@@ -44,23 +42,8 @@ def sell_tickets_by_seller(
     
     """
     Vente atomique d'un ticket par un vendeur.
-
-    Effets de bord:
-    - décrémente stock vendeur (TicketStock.total_sold)
-    - décrémente stock event (Ticket.available_quantity)
-    - incrémente event.participant_count
-    - génère ETicket (avec QR)
-    - crée Order/OrderItem/Transaction
-    - enregistre StockTransaction SALE
-    - envoie email de tickets si email présent
     """
-
-    if not seller.can_sell():
-        raise SellerSaleError("Ce vendeur n'est pas autorisé à vendre pour le moment.")
-
-    if ticket.event.organization_id != seller.super_seller_id and not ticket.event.is_ephemeral:
-        raise SellerSaleError("Le ticket ne fait pas partie des tickets vendables par ce vendeur.")
-
+    from apps.events.models import Event
     # Verrouiller le stock vendeur + ticket d'événement pour éviter la survente
     stock = (
         TicketStock.objects
@@ -79,7 +62,6 @@ def sell_tickets_by_seller(
     locked_ticket = TicketModel.objects.select_for_update().get(pk=ticket.pk)
 
     if locked_ticket.initial_quantity != -1:
-
         if locked_ticket.available_quantity < quantity:
             raise SellerSaleError("Stock insuffisant côté événement.")
 
@@ -101,24 +83,43 @@ def sell_tickets_by_seller(
     )
 
     # 2) Transaction (marquée payée)
+    # ✅ CORRECTION : Utiliser les bons champs du modèle Transaction
+    
+    # Déterminer la méthode de paiement
+    if payment_channel.upper() in ["CASH", "ESPECES"]:
+        payment_method_value = PAYMENT_METHOD.CASH.value
+    elif payment_channel.upper() in ["MOBILE_MONEY", "MOMO", "MTN", "MOOV"]:
+        payment_method_value = PAYMENT_METHOD.MOMO.value
+    elif payment_channel.upper() in ["CARD", "CARTE"]:
+        payment_method_value = PAYMENT_METHOD.CARD.value
+    else:
+        payment_method_value = PAYMENT_METHOD.CASH.value
+    
+    # Construire la description avec toutes les infos
+    description_parts = [
+        f"Vente par vendeur {seller.user.get_full_name() if seller.user else seller.pk}",
+    ]
+    if payment_reference:
+        description_parts.append(f"Ref: {payment_reference}")
+    if notes:
+        description_parts.append(f"Notes: {notes}")
+    
     tx = Transaction.objects.create(
         type=TransactionKindEnum.ORDER.value,
         entity_id=order.pk,
-        paid=True,
+        user=seller.user,
+        status=TransactionStatusEnum.PAID.value,  # Vente directe = déjà payée
         amount=Decimal(paid_amount),
-        payment_reference=payment_reference or "",
-        payment_channel=payment_channel,
-        metadata={
-            "sold_by_seller": str(seller.pk),
-            "seller_user": str(seller.user_id),
-            "notes": notes,
-        },
+        gateway="MANUAL",  # Vente manuelle par vendeur
+        gateway_id=payment_reference or f"SELLER-{seller.pk}-{timezone.now().strftime('%Y%m%d%H%M%S')}",
+        payment_method=payment_method_value,
+        description=" | ".join(description_parts),
     )
 
     # 3) Mouvement de stock Vendeur
-    quantity_before = stock.available_quantity
     stock.total_sold = F("total_sold") + quantity
-    stock.save(update_fields=["total_sold"])
+    stock.last_sale_at = timezone.now()
+    stock.save(update_fields=["total_sold", "last_sale_at"])
     stock.refresh_from_db()
 
     StockTransaction.create_sale_transaction(
@@ -134,14 +135,14 @@ def sell_tickets_by_seller(
     # 4) Stock de l'événement
     if locked_ticket.initial_quantity != -1:
         locked_ticket.available_quantity = F("available_quantity") - quantity
-    locked_ticket.save(update_fields=["available_quantity"])
-    locked_ticket.refresh_from_db()
+        locked_ticket.save(update_fields=["available_quantity"])
+        locked_ticket.refresh_from_db()
 
     # 5) Participant count
     event = locked_ticket.event
-    event.participant_count = F("participant_count") + quantity
-    event.save(update_fields=["participant_count"])
-
+    Event.objects.filter(pk=event.pk).update(
+        participant_count=F("participant_count") + quantity
+    )
     # 6) Génération ETickets immédiate (QR inclus)
     e_tickets = []
     for i in range(quantity):
@@ -158,9 +159,45 @@ def sell_tickets_by_seller(
     order.status = OrderStatusEnum.FINISHED.value
     order.save(update_fields=["status"])
 
-    # 8) Envoi des billets par email
+    # 8) Crédit du wallet du vendeur (commission)
+    try:
+        from apps.super_sellers.services.wallet import SellerWalletService
+        
+        # Calcul de la commission
+        sale_total = locked_ticket.price * quantity
+        commission_amount = sale_total * (stock.commission_rate / Decimal("100"))
+        
+        # Créditer le wallet
+        SellerWalletService.credit_seller(
+            seller=seller,
+            amount=commission_amount,
+            transaction_type="SALE_COMMISSION",
+            description=f"Commission vente {quantity} ticket(s) - Order {order.order_id}",
+            metadata={
+                "order_id": str(order.pk),
+                "ticket_id": str(locked_ticket.pk),
+                "quantity": quantity,
+                "commission_rate": str(stock.commission_rate),
+                "payment_channel": payment_channel,
+                "payment_reference": payment_reference,
+            }
+        )
+        logger.info(f"Commission {commission_amount} FCFA créditée au vendeur {seller.pk}")
+    except Exception as e:
+        logger.exception(f"Erreur lors du crédit wallet vendeur {seller.pk}: {e}")
+
+    # 9) Envoi des billets par email
     if order.email:
         try:
+            # ✅ Si c'est une tâche Celery asynchrone
+            send_e_tickets_email_for_order.delay(
+                order_id=order.order_id,
+                user_email=order.email,
+                user_full_name=order.name or "Cher client",
+            )
+            logger.info(f"Email de tickets programmé pour {order.email}")
+        except AttributeError:
+            # ✅ Si c'est une fonction normale (pas Celery)
             send_e_tickets_email_for_order(
                 order_id=order.order_id,
                 user_email=order.email,
@@ -169,5 +206,11 @@ def sell_tickets_by_seller(
             )
         except Exception as e:
             logger.exception(f"Envoi email tickets échoué pour order={order.pk}: {e}")
+
+    logger.info(
+        f"[VENTE] Vendeur {seller.pk} a vendu {quantity} tickets "
+        f"(Event: {event.name}, Order: {order.order_id}, "
+        f"Total: {paid_amount} FCFA, Ref: {payment_reference or 'N/A'})"
+    )
 
     return order, e_tickets, stock

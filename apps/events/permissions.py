@@ -66,6 +66,34 @@ class EndpointNotAuthorized(permissions.BasePermission):
         return False
 
 
+class CanCreateEphemeralEvent(permissions.BasePermission):
+    """
+    Permission pour créer des événements éphémères.
+    Seulement les super-vendeurs vérifiés peuvent créer des événements éphémères.
+    """
+    
+    def has_permission(self, request, view):
+        # Vérifier que l'utilisateur est membre d'une organisation super-vendeur
+        user = request.user
+        
+        # Vérifier si l'utilisateur appartient à une organisation super-vendeur
+        from apps.organizations.models import Organization
+        
+        try:
+            # Trouver l'organisation de l'utilisateur
+            member = user.organization_members.first()
+            if not member:
+                return False
+            
+            organization = member.organization
+            
+            # Vérifier que c'est un super-vendeur vérifié
+            if hasattr(organization, 'super_seller_profile'):
+                return organization.super_seller_profile.can_operate()
+            
+            return False
+        except:
+            return False
 """
 
 Object permission drf,

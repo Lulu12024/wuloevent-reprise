@@ -31,7 +31,16 @@ APP_ID = "Logs"
 
 # GEOS_LIBRARY_PATH = '/usr/lib/libgdal.so.31.0.0'
 # GDAL_LIBRARY_PATH = '/usr/lib/libgeos_c.so.1.16.0'
-
+if os.name == 'nt':  # Windows
+    import osgeo
+    
+    # Chemin vers les données GDAL
+    os.environ['GDAL_DATA'] = os.path.join(os.path.dirname(osgeo.__file__), 'data', 'gdal')
+    os.environ['PROJ_LIB'] = os.path.join(os.path.dirname(osgeo.__file__), 'data', 'proj')
+    
+    # Chemin vers les bibliothèques DLL
+    GDAL_LIBRARY_PATH = os.path.join(os.path.dirname(osgeo.__file__), 'gdal.dll')
+    GEOS_LIBRARY_PATH = os.path.join(os.path.dirname(osgeo.__file__), 'geos_c.dll')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -81,6 +90,7 @@ INSTALLED_APPS = [
     "apps.utils",
     "apps.news",
     "apps.chat_rooms",
+    "apps.super_sellers",
 ]
 
 # 'backend.middlewares.loggers.RequestLogMiddleware',
@@ -264,6 +274,10 @@ CELERY_BEAT_SCHEDULE = {
     "update_subscriptions_active_status": {
         "task": "apps.organizations.tasks.subscriptions_tasks.update_subscriptions_active_status",
         "schedule": crontab(minute=0, hour="*/1"),
+    },
+    "scan-send-reports-every-5min": {
+        "task": "apps.super_sellers.tasks.reporting_tasks.scan_and_send_scheduled_reports",
+        "schedule": crontab(minute="*/5"),
     },
 }
 

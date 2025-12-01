@@ -96,10 +96,10 @@ class EventCommissionOffer(AbstractCommonBaseModel):
         super().clean()
         
         # Vérifier que l'organisation n'est pas un super-vendeur
-        if self.organization.organization_type == 'SUPER_SELLER':
-            raise ValidationError({
-                'organization': 'Seules les organisations standard peuvent créer des offres de commission'
-            })
+        # if self.organization.organization_type == 'SUPER_SELLER':
+        #     raise ValidationError({
+        #         'organization': 'Seules les organisations standard peuvent créer des offres de commission'
+        #     })
         
         # Vérifier que le pourcentage est au minimum 10%
         if self.commission_percentage < 10:

@@ -52,15 +52,21 @@ class EventCommissionOfferSerializer(serializers.ModelSerializer):
         # Ajouter l'organisation depuis le contexte
         request = self.context.get('request')
         if request and hasattr(request, 'user'):
-            # Récupérer l'organisation de l'utilisateur
+            # Récupérer l'organisation de l'evenement
             from apps.organizations.models import OrganizationMembership
             membership = OrganizationMembership.objects.filter(
                 user=request.user,
-                roles__in=['OWNER', 'ADMIN']
+                roles__name__in=['OWNER', 'ADMIN']
             ).first()
+
             print(membership)
-            if membership:
-                validated_data['organization'] = membership.organization
+
+
+            event = validated_data.get('event')
+            print(event)
+
+            if event:
+                validated_data['organization'] = event.organization
         
         offer = super().create(validated_data)
         

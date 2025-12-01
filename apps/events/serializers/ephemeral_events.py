@@ -42,7 +42,8 @@ class EphemeralEventCreationSerializer(serializers.ModelSerializer):
         required=True
     )
     
-    organization = serializers.PrimaryKeyRelatedField(
+    organization = serializers.SlugRelatedField(
+        slug_field='uuid',
         queryset=Organization.objects.filter(
             organization_type='SUPER_SELLER',
             active=True

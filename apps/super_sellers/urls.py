@@ -54,30 +54,30 @@ from apps.super_sellers.views.seller_kyc_views import SellerKYCSubmitView, Super
 urlpatterns = [
     
     path(
-        'api/sellers/invite/',
+        'sellers/invite/',
         InviteSellerAPIView.as_view(),
         name="invite-seller",),
     path(
-        'api/sellers/invitations/<str:token>/respond/',
+        'sellers/invitations/<str:token>/respond/',
         SellerInvitationRespondAPIView.as_view(),
         name="respond-seller-invitation",
     ),
 
     # Liste
     path(
-        "sellers/",
+        "super-sellers/sellers/",
         SellerManagementViewSet.as_view({"get": "list"}),
         name="super-sellers-sellers-list",
     ),
     # Détails + suppression
     path(
-        "sellers/<uuid:pk>/",
+        "super-sellers/sellers/<uuid:pk>/",
         SellerManagementViewSet.as_view({"get": "retrieve", "delete": "destroy"}),
         name="super-sellers-sellers-detail",
     ),
     # Statut (PATCH)
     path(
-        "sellers/<uuid:pk>/status/",
+        "super-sellers/sellers/<uuid:pk>/status/",
         SellerManagementViewSet.as_view({"patch": "update_status"}),
         name="super-sellers-sellers-status",
     ),
@@ -89,7 +89,7 @@ urlpatterns = [
     ),
 
     path(
-        "sellers/tickets/sell", 
+        "super-sellers/sellers/tickets/sell", 
         SellerTicketSellView.as_view(), 
         name="seller-ticket-sell"
     ),
@@ -117,9 +117,9 @@ urlpatterns = [
     ),
 
     # Seller stats endpoints
-    path('sellers/<uuid:pk>/stats/overview/', SellerStatsOverviewAPIView.as_view(), name="sellers-stats-overview"),
-    path('sellers/<uuid:pk>/stats/by-event/', SellerStatsByEventAPIView.as_view(), name="sellers-stats-by-event"),
-    path('sellers/<uuid:pk>/stats/stock/', SellerStockListAPIView.as_view(), name="sellers-stats-stock"),
+    path('super-sellers/sellers/<uuid:pk>/stats/overview/', SellerStatsOverviewAPIView.as_view(), name="sellers-stats-overview"),
+    path('super-sellers/sellers/<uuid:pk>/stats/by-event/', SellerStatsByEventAPIView.as_view(), name="sellers-stats-by-event"),
+    path('super-sellers/sellers/<uuid:pk>/stats/stock/', SellerStockListAPIView.as_view(), name="sellers-stats-stock"),
     
     # Super-seller reporting endpoints
     path("super-sellers/reports/prefs", ReportPreferenceView.as_view(), name="super-sellers-report-prefs"),
@@ -226,56 +226,56 @@ urlpatterns = [
     
     # Créer une demande de retrait
     path(
-        'withdrawals/request/',
+        'super-sellers/withdrawals/request/',
         WithdrawalViewSet.as_view({'post': 'create_request'}),
         name='withdrawal-create-request'
     ),
     
     # Liste des demandes de retrait
     path(
-        'withdrawals/',
+        'super-sellers/withdrawals/',
         WithdrawalViewSet.as_view({'get': 'list'}),
         name='withdrawal-list'
     ),
     
     # Détails d'une demande de retrait
     path(
-        'withdrawals/<uuid:pk>/',
+        'super-sellers/withdrawals/<uuid:pk>/',
         WithdrawalViewSet.as_view({'get': 'retrieve'}),
         name='withdrawal-detail'
     ),
     
     # Annuler une demande
     path(
-        'withdrawals/<uuid:pk>/cancel/',
+        'super-sellers/withdrawals/<uuid:pk>/cancel/',
         WithdrawalViewSet.as_view({'patch': 'cancel'}),
         name='withdrawal-cancel'
     ),
     
     # Approuver une demande (admin)
     path(
-        'withdrawals/<uuid:pk>/approve/',
+        'super-sellers/withdrawals/<uuid:pk>/approve/',
         WithdrawalViewSet.as_view({'patch': 'approve'}),
         name='withdrawal-approve'
     ),
     
     # Rejeter une demande (admin)
     path(
-        'withdrawals/<uuid:pk>/reject/',
+        'super-sellers/withdrawals/<uuid:pk>/reject/',
         WithdrawalViewSet.as_view({'patch': 'reject'}),
         name='withdrawal-reject'
     ),
     
     # Marquer comme complété (admin)
     path(
-        'withdrawals/<uuid:pk>/complete/',
+        'super-sellers/withdrawals/<uuid:pk>/complete/',
         WithdrawalViewSet.as_view({'patch': 'complete'}),
         name='withdrawal-complete'
     ),
     
     # Statistiques des retraits
     path(
-        'withdrawals/stats/',
+        'super-sellers/withdrawals/stats/',
         WithdrawalViewSet.as_view({'get': 'get_stats'}),
         name='withdrawal-stats'
     ),

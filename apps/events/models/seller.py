@@ -45,15 +45,16 @@ class Seller(AbstractCommonBaseModel):
     # Relations
     user = models.ForeignKey(
         to='users.User',
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         related_name='seller_profiles',
         verbose_name="Utilisateur",
-        help_text="L'utilisateur associé à ce vendeur"
+        help_text="L'utilisateur associé à ce vendeur",
+        null=True
     )
     
     organization_member = models.OneToOneField(
         to='organizations.OrganizationMembership',
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         related_name='seller_profile',
         verbose_name="Membre d'organisation",
         null=True,
@@ -63,10 +64,11 @@ class Seller(AbstractCommonBaseModel):
     
     super_seller = models.ForeignKey(
         to='organizations.Organization',
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         related_name='sellers',
         verbose_name="Super-Vendeur",
-        help_text="Organisation super-vendeur qui gère ce vendeur"
+        help_text="Organisation super-vendeur qui gère ce vendeur",
+        null=True
     )
     
     # Statut du vendeur
@@ -233,14 +235,7 @@ class Seller(AbstractCommonBaseModel):
     def is_active(self):
         """Vérifie si le vendeur est actif"""
         return self.status == SellerStatus.ACTIVE and self.active
-    
-    def can_sell(self):
-        """Vérifie si le vendeur peut vendre des tickets"""
-        return (
-            self.is_active() and
-            hasattr(self.super_seller, 'super_seller_profile') and
-            self.super_seller.super_seller_profile.can_operate()
-        )
+
     
     def has_payment_method_configured(self):
         """Vérifie si la méthode de paiement est configurée"""

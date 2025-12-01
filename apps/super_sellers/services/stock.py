@@ -40,10 +40,8 @@ def allocate_ticket_stock(
       4) crée transaction StockTransaction (ALLOCATION)
       5) décrémente Ticket.available_quantity
     """
-    if not seller.can_sell():
-        raise StockAllocationError("Ce vendeur n'est pas autorisé à vendre.")
-
-    if seller.super_seller_id != super_seller_org.id:
+    print(seller.super_seller_id, super_seller_org.pk)
+    if seller.super_seller_id != super_seller_org.pk:
         raise StockAllocationError("Ce vendeur n'appartient pas à votre organisation.")
 
     # Verrou dur sur le ticket pour empêcher la surallocation concurrente
@@ -104,6 +102,6 @@ def allocate_ticket_stock(
     ticket_locked.save(update_fields=["available_quantity"])
 
     logger.info(
-        f"[STOCK] Allocation OK: seller={seller.id} ticket={ticket.id} qty={quantity} org={super_seller_org.id}"
+        f"[STOCK] Allocation OK: seller={seller.pk} ticket={ticket.pk} qty={quantity} org={super_seller_org.pk}"
     )
     return stock

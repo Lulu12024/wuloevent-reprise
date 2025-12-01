@@ -16,6 +16,7 @@ from apps.events.serializers.commission import (
     AvailableOfferSerializer
 )
 from apps.events.services.commission_service import CommissionCalculationService
+from apps.organizations.models.organizations import Organization
 
 
 class EventCommissionOfferViewSet(viewsets.ModelViewSet):
@@ -23,14 +24,14 @@ class EventCommissionOfferViewSet(viewsets.ModelViewSet):
     ViewSet pour la gestion des offres de commission par les organisateurs standard.
     
     Liste des endpoints:
-    - GET /api/v1/commission-offers/ - Liste des offres de l'org
-    - POST /api/v1/commission-offers/ - Créer une offre
-    - GET /api/v1/commission-offers/{uuid}/ - Détails d'une offre
-    - PUT/PATCH /api/v1/commission-offers/{uuid}/ - Modifier une offre
-    - DELETE /api/v1/commission-offers/{uuid}/ - Supprimer une offre
-    - GET /api/v1/commission-offers/{uuid}/acceptances/ - Liste des acceptations
-    - POST /api/v1/commission-offers/{uuid}/pause/ - Mettre en pause
-    - POST /api/v1/commission-offers/{uuid}/activate/ - Réactiver
+    - GET /v1/commission-offers/ - Liste des offres de l'org
+    - POST /v1/commission-offers/ - Créer une offre
+    - GET /v1/commission-offers/{uuid}/ - Détails d'une offre
+    - PUT/PATCH /v1/commission-offers/{uuid}/ - Modifier une offre
+    - DELETE /v1/commission-offers/{uuid}/ - Supprimer une offre
+    - GET /v1/commission-offers/{uuid}/acceptances/ - Liste des acceptations
+    - POST /v1/commission-offers/{uuid}/pause/ - Mettre en pause
+    - POST /v1/commission-offers/{uuid}/activate/ - Réactiver
     """
     
     serializer_class = EventCommissionOfferSerializer
@@ -43,10 +44,11 @@ class EventCommissionOfferViewSet(viewsets.ModelViewSet):
         
         # Récupérer l'organisation de l'utilisateur
         from apps.organizations.models import OrganizationMembership
-        memberships = OrganizationMembership.objects.filter(
-            user=user,
-            roles__in=['OWNER', 'ADMIN']
-        ).values_list('organization_id', flat=True)
+        print("Utilisateur:" + str(user.pk))
+        memberships = Organization.objects.filter(
+            owner_id=user,
+        )
+        print("Memberships de l'utilisateur:")
         print(memberships)
         return EventCommissionOffer.objects.filter(
             organization_id__in=memberships
@@ -158,11 +160,16 @@ class SuperSellerOfferViewSet(viewsets.ModelViewSet):
         """Liste de mes acceptations"""
         # Récupérer l'organisation super-vendeur de l'utilisateur
         from apps.organizations.models import OrganizationMembership
-        membership = OrganizationMembership.objects.filter(
-            user=request.user,
-            organization__organization_type='SUPER_SELLER'
+        # membership = OrganizationMembership.objects.filter(
+        #     user=request.user,
+        #     organization__organization_type='SUPER_SELLER'
+        # ).first()
+        membership = Organization.objects.filter(
+            owner_id=request.user,
+            organization_type='SUPER_SELLER'
         ).first()
-        
+        print("Membership super-vendeur:")
+
         if not membership:
             return Response(
                 {'error': 'Vous devez être membre d\'une organisation super-vendeur'},
@@ -183,10 +190,12 @@ class SuperSellerOfferViewSet(viewsets.ModelViewSet):
         
         # Récupérer l'organisation super-vendeur
         from apps.organizations.models import OrganizationMembership
-        membership = OrganizationMembership.objects.filter(
-            user=request.user,
-            organization__organization_type='SUPER_SELLER'
+        membership = Organization.objects.filter(
+            owner_id=request.user,
+            organization_type='SUPER_SELLER'
         ).first()
+        print("Membership super-vendeur:")
+        
         
         if not membership:
             return Response(
@@ -197,7 +206,7 @@ class SuperSellerOfferViewSet(viewsets.ModelViewSet):
         # Vérifier si déjà accepté
         existing = SuperSellerOfferAcceptance.objects.filter(
             offer=offer,
-            super_seller=membership.organization
+            super_seller=membership
         ).first()
         
         if existing and existing.status == SuperSellerOfferAcceptance.AcceptanceStatus.ACCEPTED:
@@ -230,7 +239,7 @@ class SuperSellerOfferViewSet(viewsets.ModelViewSet):
         else:
             acceptance = SuperSellerOfferAcceptance.objects.create(
                 offer=offer,
-                super_seller=membership.organization,
+                super_seller=membership,
                 status=SuperSellerOfferAcceptance.AcceptanceStatus.ACCEPTED,
                 seller_commission_percentage=seller_commission
             )

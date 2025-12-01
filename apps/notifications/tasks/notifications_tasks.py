@@ -917,11 +917,17 @@ def notify_users_about_new_membership_creation(organization_membership_id):
     with transaction.atomic():
         membership = OrganizationMembership.objects \
             .select_related('organization') \
-            .select_related('roles') \
             .select_related('user') \
+            .prefetch_related('roles') \
             .get(pk=organization_membership_id)
+        
+        print("le membre est !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        print(membership)
 
-        user_role = membership.roles.all().first().name
+        first_role = membership.roles.all().first()
+        user_role = first_role.name if first_role else "MEMBER"  # ✅ Valeur par défaut
+
+        # user_role = membership.roles.all().first().name
 
         notification_type = NotificationType.get_by_name(
             name=NOTIFICATION_TYPES_ENUM.NEW_MEMBERSHIP_CREATION.value

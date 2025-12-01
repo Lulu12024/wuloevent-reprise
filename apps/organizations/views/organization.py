@@ -156,13 +156,13 @@ class OrganizationViewSet(BaseModelsViewSet):
                 ),
             ),
         ],
-        "list": [
-            IsAuthenticated,
-            OR(
-                IsAdminUser(),
-                HasAppAdminPermissionFor("Admin-Operation-Organization-List"),
-            ),
-        ],
+        # "list": [
+        #     IsAuthenticated,
+        #     OR(
+        #         IsAdminUser(),
+        #         HasAppAdminPermissionFor("Admin-Operation-Organization-List"),
+        #     ),
+        # ],
         "list_by_user": [IsAuthenticated],
         "members_list": [
             IsAuthenticated,

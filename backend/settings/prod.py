@@ -22,6 +22,7 @@ APPEND_SLASH = True
 ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = environ.get("CSRF_TRUSTED_ORIGINS", "*").split(" ")
 
+
 SECRET_KEY = environ.get("SECRET_KEY")
 
 # Database

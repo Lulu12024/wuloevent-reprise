@@ -167,8 +167,8 @@ class EphemeralEventViewSet(viewsets.ReadOnlyModelViewSet):
     ViewSet pour gérer les événements éphémères d'un super-vendeur.
     
     Endpoints :
-    - GET /api/super-sellers/events/ephemeral : Liste des événements éphémères
-    - GET /api/super-sellers/events/ephemeral/{pk} : Détails d'un événement
+    - GET /super-sellers/events/ephemeral/list : Liste des événements éphémères
+    - GET /super-sellers/events/ephemeral/{uuid} : Détails d'un événement
     
     Permissions :
     - Super-vendeur vérifié
@@ -179,28 +179,33 @@ class EphemeralEventViewSet(viewsets.ReadOnlyModelViewSet):
     # permission_classes = [IsAuthenticated, IsSuperSellerVerified]
     permission_classes = [IsAuthenticated]
     serializer_class = EphemeralEventListSerializer
-    lookup_field = 'pk'
+    lookup_field = 'uuid'
     
     def get_queryset(self):
         """
-        Retourne uniquement les événements éphémères du super-vendeur connecté.
+        Retourne uniquement les événements éphémères du super-vendeur.
         """
-        if not hasattr(self.request, 'super_seller_organization'):
+        # ✅ Résoudre l'organisation depuis les paramètres
+        from apps.organizations.utils import resolve_organization_from_request
+        
+        organization = resolve_organization_from_request(self, self.request)
+        print("On a organisation:")
+        print(organization)
+        if not organization:
+            # Retourner un queryset vide si pas d'organisation
+            print("not organization")
             return Event.objects.none()
         
-        
-        organization = self.request.super_seller_organization
-        
         # Filtrer les événements éphémères de cette organisation
-        queryset = Event.ephemeral.filter(
-            created_by_super_seller=organization
+        queryset = Event.ephemeral.by_super_seller(organization
         ).select_related(
             'type',
             'organization',
             'created_by_super_seller'
         ).order_by('-timestamp')
-        
+        print(queryset)
         return queryset
+    
     
     def get_serializer_class(self):
         """Utiliser le serializer détaillé pour retrieve"""
@@ -298,7 +303,7 @@ class EphemeralEventViewSet(viewsets.ReadOnlyModelViewSet):
         tags=['Super-Vendeurs - Événements Éphémères']
     )
     @action(detail=True, methods=['get'], url_path='statistics')
-    def statistics(self, request, pk=None):
+    def statistics(self, request, uuid=None):
         """
         Retourne les statistiques de vente d'un événement éphémère.
         

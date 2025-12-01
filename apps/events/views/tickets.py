@@ -382,16 +382,16 @@ class WriteOnlyTicketViewSet(WriteOnlyNestedModelViewSet):
     parent_lookup_url_kwarg = "organization_pk"
 
     permission_classes_by_action = {
-        "create": [
-            IsAuthenticated,
-            OR(
-                (OrganizationHaveActiveSubscription & IsOrganizationEventManager)(),
-                OR(
-                    IsAdminUser(),
-                    HasAppAdminPermissionFor("Admin-Operation-Ticket-Create"),
-                ),
-            ),
-        ],
+        # "create": [
+        #     IsAuthenticated,
+        #     OR(
+        #         (OrganizationHaveActiveSubscription & IsOrganizationEventManager)(),
+        #         OR(
+        #             IsAdminUser(),
+        #             HasAppAdminPermissionFor("Admin-Operation-Ticket-Create"),
+        #         ),
+        #     ),
+        # ],
         "update": [
             IsAuthenticated,
             OR(

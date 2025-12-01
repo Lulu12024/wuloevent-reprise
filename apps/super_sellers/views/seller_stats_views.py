@@ -46,7 +46,20 @@ class SellerStatsOverviewAPIView(APIView):
     """
     GET /api/sellers/<uuid:pk>/
     """
-
+    def _get_seller_and_check_obj_perm(self, request, pk):
+        """
+        Récupère le vendeur et vérifie les permissions.
+        """
+        from django.shortcuts import get_object_or_404
+        from apps.events.models.seller import Seller
+        
+        seller = get_object_or_404(
+            Seller.objects.select_related("user", "super_seller"),
+            pk=pk
+        )
+        # self.check_object_permissions(request, seller)
+        return seller
+    
     @extend_schema(
         operation_id="seller_stats_overview",
         summary="Stats vendeur - Vue globale",
@@ -90,7 +103,20 @@ class SellerStatsByEventAPIView(_PaginationMixin, APIView):
     """
     GET /api/sellers/<uuid:pk>/by-event
     """
-
+    def _get_seller_and_check_obj_perm(self, request, pk):
+        """
+        Récupère le vendeur et vérifie les permissions.
+        """
+        from django.shortcuts import get_object_or_404
+        from apps.events.models.seller import Seller
+        
+        seller = get_object_or_404(
+            Seller.objects.select_related("user", "super_seller"),
+            pk=pk
+        )
+        # self.check_object_permissions(request, seller)
+        return seller
+    
     @extend_schema(
         operation_id="seller_stats_by_event",
         summary="Stats vendeur - Par événement",
@@ -152,19 +178,29 @@ class SellerStatsByEventAPIView(_PaginationMixin, APIView):
         paginator, page = self._paginate(request, rows_sorted)
         ser = SellerStatsByEventItemSerializer(page, many=True)
         return paginator.get_paginated_response(ser.data)
-
-
+    
 class SellerStockListAPIView(_PaginationMixin, APIView):
     permission_classes = [permissions.IsAuthenticated, IsAdminOrSellerSelfOrSellerOfSuperSeller]
-    """
-    GET /api/sellers/<uuid:pk>/stock
-    """
-
+    
+    def _get_seller_and_check_obj_perm(self, request, pk):
+        """
+        Récupère le vendeur et vérifie les permissions.
+        """
+        from django.shortcuts import get_object_or_404
+        from apps.events.models.seller import Seller
+        
+        seller = get_object_or_404(
+            Seller.objects.select_related("user", "super_seller"),
+            pk=pk
+        )
+        # self.check_object_permissions(request, seller)
+        return seller
+    
     @extend_schema(
         operation_id="seller_stock_list",
         summary="Stocks alloués du vendeur",
         description=(
-            "Liste xxx les stocks alloués du vendeur (quantités, dispos, prix, commission).\n\n"
+            "Liste les stocks alloués du vendeur (quantités, dispos, prix, commission).\n\n"
             "Tri : `order_by` parmi `available_quantity`, `total_allocated`, `total_sold`, "
             "`authorized_sale_price`, `commission_rate`, `event_name`, `ticket_name`.\n"
             "Utiliser `order=asc|desc` (défaut: `desc`).\n"

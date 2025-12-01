@@ -35,7 +35,8 @@ class SellerWallet(AbstractCommonBaseModel):
         to="events.Seller",
         verbose_name="Vendeur",
         related_name="wallet",
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
+        null=True,
     )
     
     # Soldes

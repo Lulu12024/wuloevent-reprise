@@ -22,8 +22,6 @@ from apps.super_sellers.serializers.wallet import (
 from apps.super_sellers.services.wallet import SellerWalletService
 
 logger = logging.getLogger(__name__)
-
-
 class WalletViewSet(viewsets.ReadOnlyModelViewSet):
     """
     ViewSet pour la gestion des wallets.
@@ -40,10 +38,29 @@ class WalletViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = WalletSerializer
     permission_classes = [IsAuthenticated]
     
+    def get_seller(self):
+        """
+        Récupère le profil vendeur de l'utilisateur connecté.
+        Crée le profil s'il n'existe pas.
+        """
+        from apps.events.models.seller import Seller
+        
+        seller, created = Seller.objects.get_or_create(
+            user=self.request.user,
+            defaults={
+                'status': 'ACTIVE',
+                
+            }
+        )
+        
+        if created:
+            logger.info(f"Profil vendeur créé automatiquement pour l'utilisateur {self.request.user.pk}")
+        
+        return seller
+    
     def get_queryset(self):
         """Retourne le wallet du vendeur connecté"""
-        # Récupérer le vendeur depuis la requête
-        seller = self.request.seller
+        seller = self.get_seller()
         return SellerWallet.objects.filter(seller=seller).select_related("seller", "seller__user")
     
     @extend_schema(
@@ -61,7 +78,7 @@ class WalletViewSet(viewsets.ReadOnlyModelViewSet):
         Endpoint simple pour consulter uniquement le solde.
         GET /api/wallet/balance
         """
-        seller = request.seller
+        seller = self.get_seller()  # ✅ Utilisé get_seller()
         
         # Récupérer ou créer le wallet
         wallet, created = SellerWallet.objects.get_or_create(seller=seller)
@@ -99,7 +116,7 @@ class WalletViewSet(viewsets.ReadOnlyModelViewSet):
         Endpoint pour l'historique des transactions.
         GET /api/wallet/transactions?transaction_type=SALE&limit=100
         """
-        seller = request.seller
+        seller = self.get_seller()  # ✅ Utilisé get_seller()
         
         # Récupérer ou créer le wallet
         wallet, _ = SellerWallet.objects.get_or_create(seller=seller)
@@ -144,7 +161,7 @@ class WalletViewSet(viewsets.ReadOnlyModelViewSet):
         Endpoint pour les statistiques complètes.
         GET /api/wallet/stats
         """
-        seller = request.seller
+        seller = self.get_seller()  # ✅ Utilisé get_seller()
         
         # Récupérer les stats via le service
         stats = SellerWalletService.get_wallet_stats(seller)
@@ -185,7 +202,6 @@ class WalletViewSet(viewsets.ReadOnlyModelViewSet):
         
         Requiert des permissions admin.
         """
-        # TODO: Ajouter permission IsAdmin
         if not request.user.is_staff:
             return Response(
                 {"detail": "Vous n'avez pas les permissions pour effectuer cette action"},

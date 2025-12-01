@@ -88,8 +88,10 @@ class ReportGenerateNowView(views.APIView):
     def post(self, request):
         org_id = request.data.get("organization_id")
         org = Organization.objects.get(pk=org_id)
-
+        print(org)
+        print("Generating report...")
         pref, _ = SalesReportPreference.objects.get_or_create(super_seller=org)
+        print(pref)
         report, _data = build_and_archive_report(org, pref.frequency, pref.fmt)
 
         # Optionnel : envoi immédiat

@@ -10,7 +10,7 @@ from django.db import models
 from django.core.validators import MinValueValidator
 from django.utils import timezone
 from commons.models import AbstractCommonBaseModel
-
+from django.db import models, transaction
 logger = logging.getLogger(__name__)
 
 
@@ -43,7 +43,8 @@ class SellerWithdrawal(AbstractCommonBaseModel):
         to="events.Seller",
         verbose_name="Vendeur",
         related_name="withdrawals",
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
+        null=True,
     )
     
     # Montant
@@ -219,6 +220,7 @@ class SellerWithdrawal(AbstractCommonBaseModel):
             f"{self.get_status_display()}"
         )
     
+    @transaction.atomic
     def save(self, *args, **kwargs):
         """Calcule automatiquement le net_amount si pas défini"""
         if not self.net_amount:
@@ -237,6 +239,7 @@ class SellerWithdrawal(AbstractCommonBaseModel):
         self.processing_logs.append(log_entry)
         self.save(update_fields=["processing_logs"])
     
+    @transaction.atomic
     def approve(self, approved_by):
         """Approuve la demande de retrait"""
         if self.status != WithdrawalStatus.PENDING:

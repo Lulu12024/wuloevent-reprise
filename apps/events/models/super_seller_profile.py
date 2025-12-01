@@ -44,9 +44,10 @@ class SuperSellerProfile(AbstractCommonBaseModel):
     # Relation avec l'organisation
     organization = models.OneToOneField(
         to='organizations.Organization',
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         related_name='super_seller_profile',
-        verbose_name="Organisation Super-Vendeur"
+        verbose_name="Organisation Super-Vendeur",
+        null=True
     )
     
     # Statut KYC
