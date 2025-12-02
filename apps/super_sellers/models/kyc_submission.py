@@ -82,7 +82,7 @@ class SuperSellerKYCSubmission(AbstractCommonBaseModel):
         return f"KYC SuperSeller {self.super_seller.name} - {self.get_status_display()}"
 
 
-# apps/sellers/models/kyc_submission.py
+
 from django.db import models
 from django.conf import settings
 from django.core.validators import FileExtensionValidator

@@ -14,6 +14,7 @@ from django.db import transaction
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 from django.utils import timezone
+from apps.notifications.whatsapp import send_simple_text
 
 logger = logging.getLogger(__name__)
 
@@ -192,7 +193,6 @@ class TicketDeliveryService:
             from apps.super_sellers.services.templates import get_whatsapp_template
             
             # TODO: Implémenter l'intégration WhatsApp Business API
-            # Pour l'instant, on log simplement le message
             
             delivery.status = DeliveryStatus.SENDING
             delivery.save(update_fields=["status"])
@@ -206,12 +206,11 @@ class TicketDeliveryService:
             )
             
             # TODO: Intégrer l'API WhatsApp Business
-            # response = whatsapp_client.send_message(
-            #     to=delivery.recipient_phone,
-            #     message=message
-            # )
+            response = send_simple_text(
+                phone=delivery.recipient_phone,
+                text=message
+            )
             
-            # Pour l'instant, on simule un succès
             logger.info(
                 f"Message WhatsApp préparé pour {delivery.recipient_phone}: "
                 f"{message[:50]}..."

@@ -27,6 +27,7 @@ from apps.super_sellers.models import (
 #     send_invitation_sms, 
 #     send_invitation_whatsapp
 # )
+from apps.notifications.whatsapp import send_simple_text
 
 class InviteSellerAPIView(APIView):
     """
@@ -70,18 +71,18 @@ class InviteSellerAPIView(APIView):
         serializer.is_valid(raise_exception=True)
         invitation = serializer.save()
 
-        # Envoi (commenté pour le moment)
-        if invitation.channel == InvitationChannel.EMAIL and invitation.email:
-            pass  # ✅ Remplacé par pass
-            # TODO: send_invitation_email(invitation)
-        elif invitation.channel == InvitationChannel.SMS and invitation.phone:
-            pass  # ✅ Remplacé par pass
-            # TODO: send_invitation_sms(invitation)
-        elif invitation.channel == InvitationChannel.WHATSAPP and invitation.phone:
-            pass  # ✅ Remplacé par pass
+        # Envoyer l'invitation via le canal choisi
+        if invitation.channel == InvitationChannel.WHATSAPP and invitation.phone:
+            pass 
             # TODO: send_invitation_whatsapp(invitation)
+        elif invitation.channel == InvitationChannel.EMAIL and invitation.email:
+            pass  
+            # TODO: send_invitation_email(invitation)
+        elif invitation.channel == InvitationChannel.SMS and invitation.sms:
+            pass
+            # TODO: send_invitation_sms(invitation)
+        
 
-        # Toujours retourner une réponse
         out = SellerInvitationSerializer(invitation)
         return Response(out.data, status=status.HTTP_201_CREATED)
 
