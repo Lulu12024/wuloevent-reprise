@@ -7,6 +7,7 @@ import json
 import logging
 from typing import Dict, List, Optional, Union
 import requests
+
 from django.conf import settings
 
 logger = logging.getLogger(__name__)

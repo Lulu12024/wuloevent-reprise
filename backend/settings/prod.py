@@ -124,3 +124,10 @@ sentry_sdk.init(
     send_default_pii=True,
     release="production",
 )
+
+SELLER_INVITATION_EXPIRY_DAYS = int(environ.get("SELLER_INVITATION_EXPIRY_DAYS", 7))
+GUPSHUP_API_BASE = "https://api.gupshup.io"
+GUPSHUP_API_KEY = environ.get("GUPSHUP_API_KEY")
+GUPSHUP_WHATSAPP_SOURCE = environ.get("GUPSHUP_WHATSAPP_SOURCE")
+GUPSHUP_APP_NAME = environ.get("GUPSHUP_APP_NAME")
+GUPSHUP_TIMEOUT = 15
